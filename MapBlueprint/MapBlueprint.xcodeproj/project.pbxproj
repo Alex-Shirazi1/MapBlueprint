@@ -18,6 +18,15 @@
 		5CF2304E2B6B0CA900A9E7C6 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF2304D2B6B0CA900A9E7C6 /* HomeInteractor.swift */; };
 		5CF230502B6B0CAE00A9E7C6 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF2304F2B6B0CAE00A9E7C6 /* HomeRouter.swift */; };
 		5CF230522B6B0CB900A9E7C6 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230512B6B0CB900A9E7C6 /* HomeDataManager.swift */; };
+		5CF230552B6B10AC00A9E7C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230542B6B10AC00A9E7C6 /* SettingsViewController.swift */; };
+		5CF230572B6B10C500A9E7C6 /* SettingsEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230562B6B10C500A9E7C6 /* SettingsEventHandler.swift */; };
+		5CF230592B6B10E300A9E7C6 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230582B6B10E300A9E7C6 /* SettingsInteractor.swift */; };
+		5CF2305B2B6B10FF00A9E7C6 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF2305A2B6B10FF00A9E7C6 /* SettingsRouter.swift */; };
+		5CF2305D2B6B111500A9E7C6 /* SettingsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF2305C2B6B111500A9E7C6 /* SettingsDataManager.swift */; };
+		5CF230602B6B117700A9E7C6 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF2305F2B6B117700A9E7C6 /* TermsViewController.swift */; };
+		5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230612B6B118C00A9E7C6 /* AboutViewController.swift */; };
+		5CF230662B6B11BC00A9E7C6 /* TableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230652B6B11BC00A9E7C6 /* TableOption.swift */; };
+		5CF230682B6B11E900A9E7C6 /* TableViewCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF230672B6B11E900A9E7C6 /* TableViewCellFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +43,15 @@
 		5CF2304D2B6B0CA900A9E7C6 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		5CF2304F2B6B0CAE00A9E7C6 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		5CF230512B6B0CB900A9E7C6 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
+		5CF230542B6B10AC00A9E7C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5CF230562B6B10C500A9E7C6 /* SettingsEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEventHandler.swift; sourceTree = "<group>"; };
+		5CF230582B6B10E300A9E7C6 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		5CF2305A2B6B10FF00A9E7C6 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		5CF2305C2B6B111500A9E7C6 /* SettingsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataManager.swift; sourceTree = "<group>"; };
+		5CF2305F2B6B117700A9E7C6 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		5CF230612B6B118C00A9E7C6 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		5CF230652B6B11BC00A9E7C6 /* TableOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOption.swift; sourceTree = "<group>"; };
+		5CF230672B6B11E900A9E7C6 /* TableViewCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +84,7 @@
 		5CBAED512B6B0A7E006C1A34 /* MapBlueprint */ = {
 			isa = PBXGroup;
 			children = (
-				5CF230482B6B0C8800A9E7C6 /* Home */,
+				5CF230632B6B119B00A9E7C6 /* Modules */,
 				5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */,
 				5CBAED542B6B0A7E006C1A34 /* SceneDelegate.swift */,
 				5CBAED562B6B0A7E006C1A34 /* ViewController.swift */,
@@ -74,6 +92,7 @@
 				5CBAED5B2B6B0A7F006C1A34 /* Assets.xcassets */,
 				5CBAED5D2B6B0A7F006C1A34 /* LaunchScreen.storyboard */,
 				5CBAED602B6B0A7F006C1A34 /* Info.plist */,
+				5CF230672B6B11E900A9E7C6 /* TableViewCellFactory.swift */,
 			);
 			path = MapBlueprint;
 			sourceTree = "<group>";
@@ -88,6 +107,46 @@
 				5CF230512B6B0CB900A9E7C6 /* HomeDataManager.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		5CF230532B6B108800A9E7C6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5CF230542B6B10AC00A9E7C6 /* SettingsViewController.swift */,
+				5CF230562B6B10C500A9E7C6 /* SettingsEventHandler.swift */,
+				5CF230582B6B10E300A9E7C6 /* SettingsInteractor.swift */,
+				5CF2305A2B6B10FF00A9E7C6 /* SettingsRouter.swift */,
+				5CF2305C2B6B111500A9E7C6 /* SettingsDataManager.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5CF2305E2B6B115700A9E7C6 /* SettingsModules */ = {
+			isa = PBXGroup;
+			children = (
+				5CF2305F2B6B117700A9E7C6 /* TermsViewController.swift */,
+				5CF230612B6B118C00A9E7C6 /* AboutViewController.swift */,
+			);
+			path = SettingsModules;
+			sourceTree = "<group>";
+		};
+		5CF230632B6B119B00A9E7C6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5CF230642B6B11AA00A9E7C6 /* Models */,
+				5CF2305E2B6B115700A9E7C6 /* SettingsModules */,
+				5CF230532B6B108800A9E7C6 /* Settings */,
+				5CF230482B6B0C8800A9E7C6 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5CF230642B6B11AA00A9E7C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5CF230652B6B11BC00A9E7C6 /* TableOption.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,13 +221,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CBAED572B6B0A7E006C1A34 /* ViewController.swift in Sources */,
+				5CF230682B6B11E900A9E7C6 /* TableViewCellFactory.swift in Sources */,
 				5CF2304C2B6B0CA300A9E7C6 /* HomeEventHandler.swift in Sources */,
+				5CF230572B6B10C500A9E7C6 /* SettingsEventHandler.swift in Sources */,
+				5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */,
+				5CF2305D2B6B111500A9E7C6 /* SettingsDataManager.swift in Sources */,
 				5CF230502B6B0CAE00A9E7C6 /* HomeRouter.swift in Sources */,
 				5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */,
+				5CF230602B6B117700A9E7C6 /* TermsViewController.swift in Sources */,
+				5CF230592B6B10E300A9E7C6 /* SettingsInteractor.swift in Sources */,
 				5CF2304E2B6B0CA900A9E7C6 /* HomeInteractor.swift in Sources */,
 				5CBAED552B6B0A7E006C1A34 /* SceneDelegate.swift in Sources */,
 				5CF230522B6B0CB900A9E7C6 /* HomeDataManager.swift in Sources */,
+				5CF2305B2B6B10FF00A9E7C6 /* SettingsRouter.swift in Sources */,
+				5CF230662B6B11BC00A9E7C6 /* TableOption.swift in Sources */,
 				5CF2304A2B6B0C9B00A9E7C6 /* HomeViewController.swift in Sources */,
+				5CF230552B6B10AC00A9E7C6 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

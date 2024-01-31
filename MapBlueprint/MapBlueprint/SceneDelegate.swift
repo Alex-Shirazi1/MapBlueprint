@@ -47,7 +47,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         homeNavigationController.viewControllers = [homeViewController]
         homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         
-        return [homeNavigationController]
+        // Settings Module Logic
+        
+        let settingsNavigationController = UINavigationController()
+        let settingsViewController = SettingsRouter.createModule(navigationController: settingsNavigationController)
+        settingsNavigationController.viewControllers = [settingsViewController]
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
+        
+        return [homeNavigationController,   settingsNavigationController]
     }
 
     private func tabbar(controllers: [UIViewController]) -> UITabBarController {
