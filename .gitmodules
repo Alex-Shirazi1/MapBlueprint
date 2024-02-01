@@ -1,0 +1,3 @@
+[submodule "MapBlueprint/obd2-swift-lib"]
+	path = MapBlueprint/obd2-swift-lib
+	url = https://github.com/lemberg/obd2-swift-lib.git
