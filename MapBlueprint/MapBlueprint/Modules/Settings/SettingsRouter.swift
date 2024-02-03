@@ -46,17 +46,6 @@ class SettingsRouter: SettingsRouterProtocol {
         }
         
         let OBD2ViewController = OBD2Router.createModule(navigationViewController: navigationController, settingsViewController: settingsViewController)
-        
+        navigationController.pushViewController(OBD2ViewController, animated: false)
     }
-    
-    /*
-     func navigateToLoginModule(profileViewController: ProfileViewControllerProtocol) {
-         guard let navigationController else {
-             return
-         }
-         let loginModule = LoginRouter.createModule(navigationController: navigationController, profileViewController: profileViewController)
-         navigationController.pushViewController(loginModule, animated: true)
-     }
-     */
-    
 }

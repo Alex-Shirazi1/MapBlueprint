@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0BA44553-63A3-4EC1-B947-B478CAD7B019"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20438346-75F3-48D7-915F-5198416EC754"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Modules/Settings/SettingsRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "navigateToOBD2(settingsViewController:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "20438346-75F3-48D7-915F-5198416EC754 - 67f40868cb0197bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapBlueprint.SettingsRouter.navigateToOBD2(settingsViewController: MapBlueprint.SettingsViewControllerProtocol) -&gt; ()"
+                  moduleName = "MapBlueprint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Modules/Settings/SettingsRouter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "20438346-75F3-48D7-915F-5198416EC754 - 67f40868cb0197bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapBlueprint.SettingsRouter.navigateToOBD2(settingsViewController: MapBlueprint.SettingsViewControllerProtocol) -&gt; ()"
+                  moduleName = "MapBlueprint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Modules/Settings/SettingsRouter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23748596-6E4A-4E5C-AB55-B7AD1ECF7400"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Modules/Settings/SettingsRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "navigateToOBD2(settingsViewController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

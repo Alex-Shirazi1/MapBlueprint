@@ -9,6 +9,8 @@ import Foundation
 
 protocol OBD2EventHandlerProtocol: AnyObject {
     var viewController: OBD2ViewControllerProtocol? { get set }
+    
+    func handleOBDConnection()
 }
 
 class OBD2EventHandler: OBD2EventHandlerProtocol {
@@ -20,4 +22,17 @@ class OBD2EventHandler: OBD2EventHandlerProtocol {
         self.interactor = interactor
         self.router = router
     }
+    
+    
+    func handleOBDConnection() {
+        interactor.connectToOBD2Scanner { [weak self] success, errorMessage in
+                if success {
+                    // Notify the view to display a 'connected' message
+                    self?.viewController?.displayConnectionStatus(message: "Connected")
+                } else {
+                    // Notify the view to display the error message
+                    self?.viewController?.displayConnectionStatus(message: errorMessage ?? "Connection failed")
+                }
+            }
+        }
 }
