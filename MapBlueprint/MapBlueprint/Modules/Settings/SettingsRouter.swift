@@ -14,6 +14,8 @@ protocol SettingsRouterProtocol: AnyObject {
     func navigateToAbout()
     
     func navigateToTerms()
+    
+    func navigateToOBD2(settingsViewController: SettingsViewControllerProtocol)
 }
 
 class SettingsRouter: SettingsRouterProtocol {
@@ -36,4 +38,25 @@ class SettingsRouter: SettingsRouterProtocol {
         let termsViewController = TermsViewController()
         navigationController?.pushViewController(termsViewController, animated: true)
     }
+    
+    func navigateToOBD2(settingsViewController: SettingsViewControllerProtocol) {
+        
+        guard let navigationController else {
+            return
+        }
+        
+        let OBD2ViewController = OBD2Router.createModule(navigationViewController: navigationController, settingsViewController: settingsViewController)
+        
+    }
+    
+    /*
+     func navigateToLoginModule(profileViewController: ProfileViewControllerProtocol) {
+         guard let navigationController else {
+             return
+         }
+         let loginModule = LoginRouter.createModule(navigationController: navigationController, profileViewController: profileViewController)
+         navigationController.pushViewController(loginModule, animated: true)
+     }
+     */
+    
 }

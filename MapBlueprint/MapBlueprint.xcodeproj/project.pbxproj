@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2966E2F80B728E09BC12E86A /* Pods_MapBlueprint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8DF4CACE7A3A4D82EE30797 /* Pods_MapBlueprint.framework */; };
+		5C2353602B6EC1BE0086D602 /* OBD2ViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C23535F2B6EC1BE0086D602 /* OBD2ViewContoller.swift */; };
+		5C2353622B6EC1C60086D602 /* OBD2EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2353612B6EC1C60086D602 /* OBD2EventHandler.swift */; };
+		5C2353642B6EC1D10086D602 /* OBD2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2353632B6EC1D10086D602 /* OBD2Interactor.swift */; };
+		5C2353662B6EC1DA0086D602 /* OBD2Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2353652B6EC1DA0086D602 /* OBD2Router.swift */; };
+		5C2353682B6EC1E40086D602 /* OBD2DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2353672B6EC1E40086D602 /* OBD2DataManager.swift */; };
 		5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */; };
 		5CBAED552B6B0A7E006C1A34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAED542B6B0A7E006C1A34 /* SceneDelegate.swift */; };
 		5CBAED572B6B0A7E006C1A34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAED562B6B0A7E006C1A34 /* ViewController.swift */; };
@@ -32,6 +37,11 @@
 
 /* Begin PBXFileReference section */
 		2E7B9A0B11C09A11479F6100 /* Pods-MapBlueprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBlueprint.release.xcconfig"; path = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.release.xcconfig"; sourceTree = "<group>"; };
+		5C23535F2B6EC1BE0086D602 /* OBD2ViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2ViewContoller.swift; sourceTree = "<group>"; };
+		5C2353612B6EC1C60086D602 /* OBD2EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2EventHandler.swift; sourceTree = "<group>"; };
+		5C2353632B6EC1D10086D602 /* OBD2Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2Interactor.swift; sourceTree = "<group>"; };
+		5C2353652B6EC1DA0086D602 /* OBD2Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2Router.swift; sourceTree = "<group>"; };
+		5C2353672B6EC1E40086D602 /* OBD2DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2DataManager.swift; sourceTree = "<group>"; };
 		5CBAED4F2B6B0A7E006C1A34 /* MapBlueprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapBlueprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CBAED542B6B0A7E006C1A34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +87,18 @@
 				2E7B9A0B11C09A11479F6100 /* Pods-MapBlueprint.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5C23535E2B6EC1AA0086D602 /* OBD2 */ = {
+			isa = PBXGroup;
+			children = (
+				5C23535F2B6EC1BE0086D602 /* OBD2ViewContoller.swift */,
+				5C2353612B6EC1C60086D602 /* OBD2EventHandler.swift */,
+				5C2353632B6EC1D10086D602 /* OBD2Interactor.swift */,
+				5C2353652B6EC1DA0086D602 /* OBD2Router.swift */,
+				5C2353672B6EC1E40086D602 /* OBD2DataManager.swift */,
+			);
+			path = OBD2;
 			sourceTree = "<group>";
 		};
 		5CBAED462B6B0A7E006C1A34 = {
@@ -140,6 +162,7 @@
 		5CF2305E2B6B115700A9E7C6 /* SettingsModules */ = {
 			isa = PBXGroup;
 			children = (
+				5C23535E2B6EC1AA0086D602 /* OBD2 */,
 				5CF2305F2B6B117700A9E7C6 /* TermsViewController.swift */,
 				5CF230612B6B118C00A9E7C6 /* AboutViewController.swift */,
 			);
@@ -291,6 +314,8 @@
 				5CBAED572B6B0A7E006C1A34 /* ViewController.swift in Sources */,
 				5CF230682B6B11E900A9E7C6 /* TableViewCellFactory.swift in Sources */,
 				5CF2304C2B6B0CA300A9E7C6 /* HomeEventHandler.swift in Sources */,
+				5C2353622B6EC1C60086D602 /* OBD2EventHandler.swift in Sources */,
+				5C2353682B6EC1E40086D602 /* OBD2DataManager.swift in Sources */,
 				5CF230572B6B10C500A9E7C6 /* SettingsEventHandler.swift in Sources */,
 				5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */,
 				5CF2305D2B6B111500A9E7C6 /* SettingsDataManager.swift in Sources */,
@@ -298,7 +323,10 @@
 				5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */,
 				5CF230602B6B117700A9E7C6 /* TermsViewController.swift in Sources */,
 				5CF230592B6B10E300A9E7C6 /* SettingsInteractor.swift in Sources */,
+				5C2353602B6EC1BE0086D602 /* OBD2ViewContoller.swift in Sources */,
+				5C2353662B6EC1DA0086D602 /* OBD2Router.swift in Sources */,
 				5CF2304E2B6B0CA900A9E7C6 /* HomeInteractor.swift in Sources */,
+				5C2353642B6EC1D10086D602 /* OBD2Interactor.swift in Sources */,
 				5CBAED552B6B0A7E006C1A34 /* SceneDelegate.swift in Sources */,
 				5CF230522B6B0CB900A9E7C6 /* HomeDataManager.swift in Sources */,
 				5CF2305B2B6B10FF00A9E7C6 /* SettingsRouter.swift in Sources */,

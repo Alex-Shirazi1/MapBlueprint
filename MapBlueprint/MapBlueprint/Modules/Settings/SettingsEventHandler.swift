@@ -13,6 +13,8 @@ protocol SettingsEventHandlerProtocol: AnyObject {
     func navigateToAbout()
     
     func navigateToTerms()
+    
+    func navigateToOBD2(settingsViewController: SettingsViewControllerProtocol)
 }
 
 class SettingsEventHandler: SettingsEventHandlerProtocol {
@@ -30,5 +32,9 @@ class SettingsEventHandler: SettingsEventHandlerProtocol {
     }
     func navigateToTerms() {
         router.navigateToTerms()
+    }
+    
+    func navigateToOBD2(settingsViewController: SettingsViewControllerProtocol) {
+        router.navigateToOBD2(settingsViewController: settingsViewController)
     }
 }

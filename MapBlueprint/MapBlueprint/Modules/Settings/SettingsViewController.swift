@@ -29,7 +29,8 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
     
     let settingsOptions: [TableOption] = [
         TableOption(text: "About", image: "info.circle.fill"),
-        TableOption(text: "Terms and Conditions", image: "newspaper.fill")
+        TableOption(text: "Terms and Conditions", image: "newspaper.fill"),
+        TableOption(text: "OBD2 Scanner", image: "car.side.fill")
     ]
     
     let tableView: UITableView = {
@@ -91,6 +92,8 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
             eventHandler.navigateToAbout()
         case 1:
             eventHandler.navigateToTerms()
+        case 2:
+            eventHandler.navigateToOBD2(settingsViewController: self)
         default:
             break
         }
