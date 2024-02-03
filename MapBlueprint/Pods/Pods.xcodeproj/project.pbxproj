@@ -1,0 +1,753 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00811355F2A6152A2EF404BD1DE8D7E7 /* ScanProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F73AAFBFB1421AF36310E85D0492B7 /* ScanProtocol.swift */; };
+		01E5FEB58B1AB0A432DAF16D2714FF93 /* Descriptor09.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD4FDBB85BE45BB681E66A30E8AF06F /* Descriptor09.swift */; };
+		036D013AB50AD26983E890F399F4E7FE /* OBD2-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB79820CAB6B326D4015A0BB0757A02E /* OBD2-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D34F7D88AB07DCBBB04EC5B0931665D /* SensorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DEBECF526FBFD46C42018D4417EB0E /* SensorList.swift */; };
+		1A38F35C637B02BEC42A604F2DD2ACCF /* Descriptor03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEE3E14E091B6B4BBBC7A23A0BC223 /* Descriptor03.swift */; };
+		1E1F70DC71D93EC97DF46E340E6A365D /* OpenOBDConnectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9120F288905ABD1B34B59202A168BF37 /* OpenOBDConnectionOperation.swift */; };
+		1F2566FC62A5EDFFC605FACBCC20E93F /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF248AC57EE7EAC65E21DE3BE010203 /* StreamReader.swift */; };
+		2081B93D051037BBCA1F69A5200386A1 /* SensorDescriptorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364590DBB0E6FB44040C30FF7A52F9 /* SensorDescriptorTable.swift */; };
+		24C54ABB8B6A090C36BE0C804AD5DEAC /* ProtocolModelDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAFB85171A6853EB0B21D21441ACE28 /* ProtocolModelDescription.swift */; };
+		35C17FE2F0727337C3992505AAC25921 /* CommandMode09.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE4453D5110FD97978B81D0361E1B92 /* CommandMode09.swift */; };
+		3FE8FB9BB0157F56A4F0C739F9BC2F1F /* OBD2Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E6632D3749D2839857884B3DFE39993 /* OBD2Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		449C77CD90BCBE7F3E8BF0035F10A607 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A61580E2083B9F7AF22D9867CEE998 /* Scanner.swift */; };
+		4ADB3C44A6517395CF20C91B726F7E71 /* StreamHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA6B0C66461B146954A0DCEC0732E46 /* StreamHolder.swift */; };
+		5329E9FB6B324AD726A64C1F62A951E2 /* StringDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34F9C011606909093002D05C85CCD0 /* StringDescriptor.swift */; };
+		5379D0C5ED654ECA617390FF69872FBF /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56E00FAFC02C4D95C76C2419F1726D /* Mode.swift */; };
+		570FBF1A65CC8F4332EF5AD11B80AAFA /* GloablCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4BDCDF82A5AFC78B5217FAD28EFEDA /* GloablCalculator.swift */; };
+		58D1BBC30073EFD0FC91F9CE06D7F406 /* Pods-MapBlueprint-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBE2221B681944A758362223CB110B2B /* Pods-MapBlueprint-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E0168CB3FA98DF86F1EBE53F690DED6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ADC55C15B460C230FDA7247DBE727A /* Parser.swift */; };
+		62CC4BED5100E3833C4585FF827289E0 /* CommandMode02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550138BFA2FCF906569B9C8736EE715E /* CommandMode02.swift */; };
+		70F41388E2537C4EDAE7BC109F7B8599 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		7208EB79E37946C6D153BACB0F7FE044 /* SensorDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF16EC44FF3A6900C907A4BF02FF394 /* SensorDescriptor.swift */; };
+		77B7194F5B0C50B258833479E923488F /* DescriptorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28F72CEAD0264532721F8A862C39286 /* DescriptorProtocol.swift */; };
+		7CCA83BF54351E7E9C6131FFE9A6C5FC /* StreamWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539480CC4EDF73778342D4ABEA25CB4 /* StreamWriter.swift */; };
+		7F9C00E3BD6C5FED37880C9FF5412083 /* Descriptor01.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCD24E94C6E9FD67642895664C0A18C /* Descriptor01.swift */; };
+		8B883327AD0CD72CB26CD3DCE98DD324 /* ScanState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A3D64B632D386D8DD2FCCEB5AE75BD /* ScanState.swift */; };
+		90BDFCAE350026559CA0CBFB5542AF4C /* StreamHandleOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B414C4D2B895E347F121BD680BD86C /* StreamHandleOperation.swift */; };
+		A48AFDEF2C33A19700B4016469AC3487 /* Pods-MapBlueprint-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB93F6563AD908886DB08EFFBCAE961 /* Pods-MapBlueprint-dummy.m */; };
+		A833B1BC9863E3CF19582E1127970198 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA6034E96903813450F10F58924046 /* DataRequest.swift */; };
+		BF8AC0824419B58138B0E77215A81230 /* CommandOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F32CA73C8EBCCD2FEB495664F9E9BE /* CommandOperation.swift */; };
+		C680FD79096249FA6332919E738F3CA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		CD2182C6BA48CE645CBE9D138CAE6A1F /* SensorObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643876AF7E1A27822AF878446D006B1 /* SensorObserver.swift */; };
+		CD5172FE6EA5008179360E9B8051E476 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC8716D8904D622004E6509304C003B /* Logger.swift */; };
+		CF5C721BFA9B491F70234CA42EF228CD /* CommandMode01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4E58026A3B7DA3FE34A33C8CBB99B /* CommandMode01.swift */; };
+		DBA06E57F157E6ED45BE87246746F0DD /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5581D13CC8F4623944FC1A191D1B88C /* Macros.swift */; };
+		DD2BC1FF417BE40B84F910E4CFD5FD41 /* InitScanerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26205CF55DCA707CC3097690970345 /* InitScanerOperation.swift */; };
+		E44D396A1B40A25C9EFF48CB90891268 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B91BB4386E33119F134DF9BAC83ADD /* Package.swift */; };
+		E58A069D9102D56DB6CC2A71D1EFF15B /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = B162804DFAF9A535B3BE8CD576384644 /* Command.swift */; };
+		E766957D252FDC77F0FD2A411B5157F9 /* StreamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FF10C8FA029349B1332D658DA31F0 /* StreamError.swift */; };
+		EC3633B86A98D959FA828E517711AE2E /* OBD2-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D6EB31437C92EFECA6E134DA40D1F /* OBD2-Swift-dummy.m */; };
+		ED32242F44DB34962AACA3B4C58D1760 /* OBD2Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7705F0768E79FABBC35BEEF22FFE053 /* OBD2Facade.swift */; };
+		EF342307F598455E959407CA4DF96105 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D82C9146950BD8DF78A58CC2B0CB458 /* Response.swift */; };
+		F406DB46DF466E079D6737303157D1DF /* CommandMode03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A0648CCCA1BBBAB4CD1BEE95106F86 /* CommandMode03.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B81CDC183F4BBD683C561831DE9A323A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92A1B9DCB60E7E1322CA9AB8B8B1208D;
+			remoteInfo = "OBD2-Swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02DEBECF526FBFD46C42018D4417EB0E /* SensorList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorList.swift; path = "OBD2-Swift/Classes/Classes/SensorList.swift"; sourceTree = "<group>"; };
+		1ADEE3E14E091B6B4BBBC7A23A0BC223 /* Descriptor03.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Descriptor03.swift; path = "OBD2-Swift/Classes/Parser/Descriptor03.swift"; sourceTree = "<group>"; };
+		1E6632D3749D2839857884B3DFE39993 /* OBD2Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OBD2Swift.h; path = "OBD2-Swift/Classes/OBD2Swift.h"; sourceTree = "<group>"; };
+		25E4226F13E2F69720A204977FD12B66 /* Pods-MapBlueprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapBlueprint.release.xcconfig"; sourceTree = "<group>"; };
+		3AB3B24EBBB9A55CE621F5D87D48BA6C /* Pods_MapBlueprint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapBlueprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CB93F6563AD908886DB08EFFBCAE961 /* Pods-MapBlueprint-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MapBlueprint-dummy.m"; sourceTree = "<group>"; };
+		485C1BDA7DC4578FD02EBAA475AD987B /* Pods-MapBlueprint.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MapBlueprint.modulemap"; sourceTree = "<group>"; };
+		550138BFA2FCF906569B9C8736EE715E /* CommandMode02.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommandMode02.swift; path = "OBD2-Swift/Classes/Command/CommandMode02.swift"; sourceTree = "<group>"; };
+		56F32CA73C8EBCCD2FEB495664F9E9BE /* CommandOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommandOperation.swift; path = "OBD2-Swift/Classes/Operations/CommandOperation.swift"; sourceTree = "<group>"; };
+		5E4D6EB31437C92EFECA6E134DA40D1F /* OBD2-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OBD2-Swift-dummy.m"; sourceTree = "<group>"; };
+		64E1EAAEA08867B6EECAC7D52E4024AF /* Pods-MapBlueprint-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapBlueprint-acknowledgements.plist"; sourceTree = "<group>"; };
+		69E9D483E931F674760C1D6126DEB5B1 /* OBD2-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OBD2-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		76B48224BF7C8E241FD201290699D01B /* OBD2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OBD2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77B414C4D2B895E347F121BD680BD86C /* StreamHandleOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamHandleOperation.swift; path = "OBD2-Swift/Classes/Operations/StreamHandleOperation.swift"; sourceTree = "<group>"; };
+		79C779CDA32E0DC82317E8D8FE167FF9 /* OBD2-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "OBD2-Swift.modulemap"; sourceTree = "<group>"; };
+		7DF16EC44FF3A6900C907A4BF02FF394 /* SensorDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorDescriptor.swift; path = "OBD2-Swift/Classes/Classes/SensorDescriptor.swift"; sourceTree = "<group>"; };
+		84786B83E7773A39AB921B9EB0DCA069 /* OBD2-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OBD2-Swift-prefix.pch"; sourceTree = "<group>"; };
+		89A0648CCCA1BBBAB4CD1BEE95106F86 /* CommandMode03.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommandMode03.swift; path = "OBD2-Swift/Classes/Command/CommandMode03.swift"; sourceTree = "<group>"; };
+		8BAFB85171A6853EB0B21D21441ACE28 /* ProtocolModelDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtocolModelDescription.swift; path = "OBD2-Swift/Classes/Classes/ProtocolModelDescription.swift"; sourceTree = "<group>"; };
+		8C364590DBB0E6FB44040C30FF7A52F9 /* SensorDescriptorTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorDescriptorTable.swift; path = "OBD2-Swift/Classes/Parser/SensorDescriptorTable.swift"; sourceTree = "<group>"; };
+		8CF248AC57EE7EAC65E21DE3BE010203 /* StreamReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamReader.swift; path = "OBD2-Swift/Classes/Stream/StreamReader.swift"; sourceTree = "<group>"; };
+		9120F288905ABD1B34B59202A168BF37 /* OpenOBDConnectionOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenOBDConnectionOperation.swift; path = "OBD2-Swift/Classes/Operations/OpenOBDConnectionOperation.swift"; sourceTree = "<group>"; };
+		96F73AAFBFB1421AF36310E85D0492B7 /* ScanProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScanProtocol.swift; path = "OBD2-Swift/Classes/Model/ScanProtocol.swift"; sourceTree = "<group>"; };
+		9D82C9146950BD8DF78A58CC2B0CB458 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = "OBD2-Swift/Classes/Model/Response.swift"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A21D834A19DD99C7DA749B68C0955A64 /* OBD2-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OBD2-Swift-Info.plist"; sourceTree = "<group>"; };
+		A28F72CEAD0264532721F8A862C39286 /* DescriptorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DescriptorProtocol.swift; path = "OBD2-Swift/Classes/Parser/DescriptorProtocol.swift"; sourceTree = "<group>"; };
+		A2B91BB4386E33119F134DF9BAC83ADD /* Package.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "OBD2-Swift/Classes/Model/Package.swift"; sourceTree = "<group>"; };
+		A539480CC4EDF73778342D4ABEA25CB4 /* StreamWriter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamWriter.swift; path = "OBD2-Swift/Classes/Stream/StreamWriter.swift"; sourceTree = "<group>"; };
+		AB79820CAB6B326D4015A0BB0757A02E /* OBD2-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OBD2-Swift-umbrella.h"; sourceTree = "<group>"; };
+		AFA6B0C66461B146954A0DCEC0732E46 /* StreamHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamHolder.swift; path = "OBD2-Swift/Classes/Scanner/StreamHolder.swift"; sourceTree = "<group>"; };
+		B0EA6034E96903813450F10F58924046 /* DataRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataRequest.swift; path = "OBD2-Swift/Classes/Command/DataRequest.swift"; sourceTree = "<group>"; };
+		B162804DFAF9A535B3BE8CD576384644 /* Command.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Command.swift; path = "OBD2-Swift/Classes/Model/Command.swift"; sourceTree = "<group>"; };
+		B7705F0768E79FABBC35BEEF22FFE053 /* OBD2Facade.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OBD2Facade.swift; path = "OBD2-Swift/Classes/OBD2Facade.swift"; sourceTree = "<group>"; };
+		B9A3D64B632D386D8DD2FCCEB5AE75BD /* ScanState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScanState.swift; path = "OBD2-Swift/Classes/Model/ScanState.swift"; sourceTree = "<group>"; };
+		BD4BDCDF82A5AFC78B5217FAD28EFEDA /* GloablCalculator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GloablCalculator.swift; path = "OBD2-Swift/Classes/Classes/GloablCalculator.swift"; sourceTree = "<group>"; };
+		BEC8716D8904D622004E6509304C003B /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = "OBD2-Swift/Classes/Logger.swift"; sourceTree = "<group>"; };
+		C210A0EF9102A11CFFA1E15B8D0A9F34 /* Pods-MapBlueprint-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapBlueprint-Info.plist"; sourceTree = "<group>"; };
+		CB26205CF55DCA707CC3097690970345 /* InitScanerOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InitScanerOperation.swift; path = "OBD2-Swift/Classes/Operations/InitScanerOperation.swift"; sourceTree = "<group>"; };
+		CB28B6C69224CC3035AC3EE1848CC48B /* Pods-MapBlueprint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapBlueprint.debug.xcconfig"; sourceTree = "<group>"; };
+		CBE4453D5110FD97978B81D0361E1B92 /* CommandMode09.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommandMode09.swift; path = "OBD2-Swift/Classes/Command/CommandMode09.swift"; sourceTree = "<group>"; };
+		D55059D76812BC0E635F847AD1D236CB /* Pods-MapBlueprint-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MapBlueprint-frameworks.sh"; sourceTree = "<group>"; };
+		D5581D13CC8F4623944FC1A191D1B88C /* Macros.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Macros.swift; path = "OBD2-Swift/Classes/Common/Macros.swift"; sourceTree = "<group>"; };
+		D8ADC55C15B460C230FDA7247DBE727A /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = "OBD2-Swift/Classes/Parser/Parser.swift"; sourceTree = "<group>"; };
+		DC56E00FAFC02C4D95C76C2419F1726D /* Mode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mode.swift; path = "OBD2-Swift/Classes/Model/Mode.swift"; sourceTree = "<group>"; };
+		E5A61580E2083B9F7AF22D9867CEE998 /* Scanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = "OBD2-Swift/Classes/Scanner/Scanner.swift"; sourceTree = "<group>"; };
+		E80ABA39B87C995DC93509176058BC7A /* OBD2-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OBD2-Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		E8C4E58026A3B7DA3FE34A33C8CBB99B /* CommandMode01.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommandMode01.swift; path = "OBD2-Swift/Classes/Command/CommandMode01.swift"; sourceTree = "<group>"; };
+		EBE2221B681944A758362223CB110B2B /* Pods-MapBlueprint-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MapBlueprint-umbrella.h"; sourceTree = "<group>"; };
+		EC201400E26F7521CE786C99E5A1B9F3 /* Pods-MapBlueprint-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MapBlueprint-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ECD4FDBB85BE45BB681E66A30E8AF06F /* Descriptor09.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Descriptor09.swift; path = "OBD2-Swift/Classes/Parser/Descriptor09.swift"; sourceTree = "<group>"; };
+		EE0FF10C8FA029349B1332D658DA31F0 /* StreamError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamError.swift; path = "OBD2-Swift/Classes/Stream/StreamError.swift"; sourceTree = "<group>"; };
+		F643876AF7E1A27822AF878446D006B1 /* SensorObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorObserver.swift; path = "OBD2-Swift/Classes/Observer/SensorObserver.swift"; sourceTree = "<group>"; };
+		FDCD24E94C6E9FD67642895664C0A18C /* Descriptor01.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Descriptor01.swift; path = "OBD2-Swift/Classes/Parser/Descriptor01.swift"; sourceTree = "<group>"; };
+		FE34F9C011606909093002D05C85CCD0 /* StringDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringDescriptor.swift; path = "OBD2-Swift/Classes/Parser/StringDescriptor.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3545905DA3EE9FF734FE5225D2298519 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F41388E2537C4EDAE7BC109F7B8599 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD5499E920C6350A6600F3296C192179 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C680FD79096249FA6332919E738F3CA9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3202A6F3AE8F562427854252A92DDBD9 /* OBD2-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B162804DFAF9A535B3BE8CD576384644 /* Command.swift */,
+				E8C4E58026A3B7DA3FE34A33C8CBB99B /* CommandMode01.swift */,
+				550138BFA2FCF906569B9C8736EE715E /* CommandMode02.swift */,
+				89A0648CCCA1BBBAB4CD1BEE95106F86 /* CommandMode03.swift */,
+				CBE4453D5110FD97978B81D0361E1B92 /* CommandMode09.swift */,
+				56F32CA73C8EBCCD2FEB495664F9E9BE /* CommandOperation.swift */,
+				B0EA6034E96903813450F10F58924046 /* DataRequest.swift */,
+				FDCD24E94C6E9FD67642895664C0A18C /* Descriptor01.swift */,
+				1ADEE3E14E091B6B4BBBC7A23A0BC223 /* Descriptor03.swift */,
+				ECD4FDBB85BE45BB681E66A30E8AF06F /* Descriptor09.swift */,
+				A28F72CEAD0264532721F8A862C39286 /* DescriptorProtocol.swift */,
+				BD4BDCDF82A5AFC78B5217FAD28EFEDA /* GloablCalculator.swift */,
+				CB26205CF55DCA707CC3097690970345 /* InitScanerOperation.swift */,
+				BEC8716D8904D622004E6509304C003B /* Logger.swift */,
+				D5581D13CC8F4623944FC1A191D1B88C /* Macros.swift */,
+				DC56E00FAFC02C4D95C76C2419F1726D /* Mode.swift */,
+				B7705F0768E79FABBC35BEEF22FFE053 /* OBD2Facade.swift */,
+				1E6632D3749D2839857884B3DFE39993 /* OBD2Swift.h */,
+				9120F288905ABD1B34B59202A168BF37 /* OpenOBDConnectionOperation.swift */,
+				A2B91BB4386E33119F134DF9BAC83ADD /* Package.swift */,
+				D8ADC55C15B460C230FDA7247DBE727A /* Parser.swift */,
+				8BAFB85171A6853EB0B21D21441ACE28 /* ProtocolModelDescription.swift */,
+				9D82C9146950BD8DF78A58CC2B0CB458 /* Response.swift */,
+				E5A61580E2083B9F7AF22D9867CEE998 /* Scanner.swift */,
+				96F73AAFBFB1421AF36310E85D0492B7 /* ScanProtocol.swift */,
+				B9A3D64B632D386D8DD2FCCEB5AE75BD /* ScanState.swift */,
+				7DF16EC44FF3A6900C907A4BF02FF394 /* SensorDescriptor.swift */,
+				8C364590DBB0E6FB44040C30FF7A52F9 /* SensorDescriptorTable.swift */,
+				02DEBECF526FBFD46C42018D4417EB0E /* SensorList.swift */,
+				F643876AF7E1A27822AF878446D006B1 /* SensorObserver.swift */,
+				EE0FF10C8FA029349B1332D658DA31F0 /* StreamError.swift */,
+				77B414C4D2B895E347F121BD680BD86C /* StreamHandleOperation.swift */,
+				AFA6B0C66461B146954A0DCEC0732E46 /* StreamHolder.swift */,
+				8CF248AC57EE7EAC65E21DE3BE010203 /* StreamReader.swift */,
+				A539480CC4EDF73778342D4ABEA25CB4 /* StreamWriter.swift */,
+				FE34F9C011606909093002D05C85CCD0 /* StringDescriptor.swift */,
+				676BEE45F145122B1DA040BEEDEB9880 /* Support Files */,
+			);
+			path = "OBD2-Swift";
+			sourceTree = "<group>";
+		};
+		327AAB4DFC676ED0BE6249DD678F32EB /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EDDFDC75DA6E65FE9A56D91AA7F4020 /* Pods-MapBlueprint */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		64C65E86DFAA8067DC1F0B93266F31F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3202A6F3AE8F562427854252A92DDBD9 /* OBD2-Swift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		676BEE45F145122B1DA040BEEDEB9880 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				79C779CDA32E0DC82317E8D8FE167FF9 /* OBD2-Swift.modulemap */,
+				5E4D6EB31437C92EFECA6E134DA40D1F /* OBD2-Swift-dummy.m */,
+				A21D834A19DD99C7DA749B68C0955A64 /* OBD2-Swift-Info.plist */,
+				84786B83E7773A39AB921B9EB0DCA069 /* OBD2-Swift-prefix.pch */,
+				AB79820CAB6B326D4015A0BB0757A02E /* OBD2-Swift-umbrella.h */,
+				E80ABA39B87C995DC93509176058BC7A /* OBD2-Swift.debug.xcconfig */,
+				69E9D483E931F674760C1D6126DEB5B1 /* OBD2-Swift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OBD2-Swift";
+			sourceTree = "<group>";
+		};
+		9EDDFDC75DA6E65FE9A56D91AA7F4020 /* Pods-MapBlueprint */ = {
+			isa = PBXGroup;
+			children = (
+				485C1BDA7DC4578FD02EBAA475AD987B /* Pods-MapBlueprint.modulemap */,
+				EC201400E26F7521CE786C99E5A1B9F3 /* Pods-MapBlueprint-acknowledgements.markdown */,
+				64E1EAAEA08867B6EECAC7D52E4024AF /* Pods-MapBlueprint-acknowledgements.plist */,
+				3CB93F6563AD908886DB08EFFBCAE961 /* Pods-MapBlueprint-dummy.m */,
+				D55059D76812BC0E635F847AD1D236CB /* Pods-MapBlueprint-frameworks.sh */,
+				C210A0EF9102A11CFFA1E15B8D0A9F34 /* Pods-MapBlueprint-Info.plist */,
+				EBE2221B681944A758362223CB110B2B /* Pods-MapBlueprint-umbrella.h */,
+				CB28B6C69224CC3035AC3EE1848CC48B /* Pods-MapBlueprint.debug.xcconfig */,
+				25E4226F13E2F69720A204977FD12B66 /* Pods-MapBlueprint.release.xcconfig */,
+			);
+			name = "Pods-MapBlueprint";
+			path = "Target Support Files/Pods-MapBlueprint";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				64C65E86DFAA8067DC1F0B93266F31F7 /* Pods */,
+				E5F1D4C982E4D8480FFC3D8DFA4559F3 /* Products */,
+				327AAB4DFC676ED0BE6249DD678F32EB /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5F1D4C982E4D8480FFC3D8DFA4559F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76B48224BF7C8E241FD201290699D01B /* OBD2.framework */,
+				3AB3B24EBBB9A55CE621F5D87D48BA6C /* Pods_MapBlueprint.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		25A475E4B4CDD1E4463EF3DE77CDAB28 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				036D013AB50AD26983E890F399F4E7FE /* OBD2-Swift-umbrella.h in Headers */,
+				3FE8FB9BB0157F56A4F0C739F9BC2F1F /* OBD2Swift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE06F475542ADB0BFD619F9D51F9E250 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58D1BBC30073EFD0FC91F9CE06D7F406 /* Pods-MapBlueprint-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6192144E9A5D218052E822EF0B2A29D5 /* Pods-MapBlueprint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52C55CC7EF2947DCD2E708682F402314 /* Build configuration list for PBXNativeTarget "Pods-MapBlueprint" */;
+			buildPhases = (
+				CE06F475542ADB0BFD619F9D51F9E250 /* Headers */,
+				7B07797162C7626AF822A50A00817629 /* Sources */,
+				3545905DA3EE9FF734FE5225D2298519 /* Frameworks */,
+				7960443093D125F30F089E073CBE2BFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				823C9E032DFD0485AC0CEDD2DC93F552 /* PBXTargetDependency */,
+			);
+			name = "Pods-MapBlueprint";
+			productName = Pods_MapBlueprint;
+			productReference = 3AB3B24EBBB9A55CE621F5D87D48BA6C /* Pods_MapBlueprint.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		92A1B9DCB60E7E1322CA9AB8B8B1208D /* OBD2-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B57DB784A05050BA8BFE88BDED59CC6 /* Build configuration list for PBXNativeTarget "OBD2-Swift" */;
+			buildPhases = (
+				25A475E4B4CDD1E4463EF3DE77CDAB28 /* Headers */,
+				F446B86631AB52AB8FF1DAAB993EDE95 /* Sources */,
+				AD5499E920C6350A6600F3296C192179 /* Frameworks */,
+				9A3A7CCBEF18778618D63D0AE4B9C8E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OBD2-Swift";
+			productName = OBD2;
+			productReference = 76B48224BF7C8E241FD201290699D01B /* OBD2.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = E5F1D4C982E4D8480FFC3D8DFA4559F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92A1B9DCB60E7E1322CA9AB8B8B1208D /* OBD2-Swift */,
+				6192144E9A5D218052E822EF0B2A29D5 /* Pods-MapBlueprint */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7960443093D125F30F089E073CBE2BFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A3A7CCBEF18778618D63D0AE4B9C8E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B07797162C7626AF822A50A00817629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48AFDEF2C33A19700B4016469AC3487 /* Pods-MapBlueprint-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F446B86631AB52AB8FF1DAAB993EDE95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E58A069D9102D56DB6CC2A71D1EFF15B /* Command.swift in Sources */,
+				CF5C721BFA9B491F70234CA42EF228CD /* CommandMode01.swift in Sources */,
+				62CC4BED5100E3833C4585FF827289E0 /* CommandMode02.swift in Sources */,
+				F406DB46DF466E079D6737303157D1DF /* CommandMode03.swift in Sources */,
+				35C17FE2F0727337C3992505AAC25921 /* CommandMode09.swift in Sources */,
+				BF8AC0824419B58138B0E77215A81230 /* CommandOperation.swift in Sources */,
+				A833B1BC9863E3CF19582E1127970198 /* DataRequest.swift in Sources */,
+				7F9C00E3BD6C5FED37880C9FF5412083 /* Descriptor01.swift in Sources */,
+				1A38F35C637B02BEC42A604F2DD2ACCF /* Descriptor03.swift in Sources */,
+				01E5FEB58B1AB0A432DAF16D2714FF93 /* Descriptor09.swift in Sources */,
+				77B7194F5B0C50B258833479E923488F /* DescriptorProtocol.swift in Sources */,
+				570FBF1A65CC8F4332EF5AD11B80AAFA /* GloablCalculator.swift in Sources */,
+				DD2BC1FF417BE40B84F910E4CFD5FD41 /* InitScanerOperation.swift in Sources */,
+				CD5172FE6EA5008179360E9B8051E476 /* Logger.swift in Sources */,
+				DBA06E57F157E6ED45BE87246746F0DD /* Macros.swift in Sources */,
+				5379D0C5ED654ECA617390FF69872FBF /* Mode.swift in Sources */,
+				EC3633B86A98D959FA828E517711AE2E /* OBD2-Swift-dummy.m in Sources */,
+				ED32242F44DB34962AACA3B4C58D1760 /* OBD2Facade.swift in Sources */,
+				1E1F70DC71D93EC97DF46E340E6A365D /* OpenOBDConnectionOperation.swift in Sources */,
+				E44D396A1B40A25C9EFF48CB90891268 /* Package.swift in Sources */,
+				5E0168CB3FA98DF86F1EBE53F690DED6 /* Parser.swift in Sources */,
+				24C54ABB8B6A090C36BE0C804AD5DEAC /* ProtocolModelDescription.swift in Sources */,
+				EF342307F598455E959407CA4DF96105 /* Response.swift in Sources */,
+				449C77CD90BCBE7F3E8BF0035F10A607 /* Scanner.swift in Sources */,
+				00811355F2A6152A2EF404BD1DE8D7E7 /* ScanProtocol.swift in Sources */,
+				8B883327AD0CD72CB26CD3DCE98DD324 /* ScanState.swift in Sources */,
+				7208EB79E37946C6D153BACB0F7FE044 /* SensorDescriptor.swift in Sources */,
+				2081B93D051037BBCA1F69A5200386A1 /* SensorDescriptorTable.swift in Sources */,
+				0D34F7D88AB07DCBBB04EC5B0931665D /* SensorList.swift in Sources */,
+				CD2182C6BA48CE645CBE9D138CAE6A1F /* SensorObserver.swift in Sources */,
+				E766957D252FDC77F0FD2A411B5157F9 /* StreamError.swift in Sources */,
+				90BDFCAE350026559CA0CBFB5542AF4C /* StreamHandleOperation.swift in Sources */,
+				4ADB3C44A6517395CF20C91B726F7E71 /* StreamHolder.swift in Sources */,
+				1F2566FC62A5EDFFC605FACBCC20E93F /* StreamReader.swift in Sources */,
+				7CCA83BF54351E7E9C6131FFE9A6C5FC /* StreamWriter.swift in Sources */,
+				5329E9FB6B324AD726A64C1F62A951E2 /* StringDescriptor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		823C9E032DFD0485AC0CEDD2DC93F552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OBD2-Swift";
+			target = 92A1B9DCB60E7E1322CA9AB8B8B1208D /* OBD2-Swift */;
+			targetProxy = B81CDC183F4BBD683C561831DE9A323A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		032504F201C69275441D32C68CCD1F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		48F67AB1E5DBE79CCF2F86C75296AB01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		67CE9D9B371B24EBC7B933D6F8DBE15A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB28B6C69224CC3035AC3EE1848CC48B /* Pods-MapBlueprint.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = lol;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		69EED77722D23283898D34FD9ABED073 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E80ABA39B87C995DC93509176058BC7A /* OBD2-Swift.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/OBD2-Swift/OBD2-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OBD2-Swift/OBD2-Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/OBD2-Swift/OBD2-Swift.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.OBD2;
+				PRODUCT_MODULE_NAME = OBD2;
+				PRODUCT_NAME = OBD2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B7A86153841689153F0ECE7A6A1A7935 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69E9D483E931F674760C1D6126DEB5B1 /* OBD2-Swift.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/OBD2-Swift/OBD2-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OBD2-Swift/OBD2-Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/OBD2-Swift/OBD2-Swift.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.OBD2;
+				PRODUCT_MODULE_NAME = OBD2;
+				PRODUCT_NAME = OBD2;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E9A23043E60D8A3597D900A2270D3DA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25E4226F13E2F69720A204977FD12B66 /* Pods-MapBlueprint.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = lol;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48F67AB1E5DBE79CCF2F86C75296AB01 /* Debug */,
+				032504F201C69275441D32C68CCD1F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52C55CC7EF2947DCD2E708682F402314 /* Build configuration list for PBXNativeTarget "Pods-MapBlueprint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67CE9D9B371B24EBC7B933D6F8DBE15A /* Debug */,
+				E9A23043E60D8A3597D900A2270D3DA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B57DB784A05050BA8BFE88BDED59CC6 /* Build configuration list for PBXNativeTarget "OBD2-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69EED77722D23283898D34FD9ABED073 /* Debug */,
+				B7A86153841689153F0ECE7A6A1A7935 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
