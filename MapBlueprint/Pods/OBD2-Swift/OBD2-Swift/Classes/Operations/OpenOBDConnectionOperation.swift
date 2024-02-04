@@ -22,7 +22,7 @@ class OpenOBDConnectionOperation: StreamHandleOperation {
         didSet {
             if inputOpen {
                 print("Input stream opened")
-                input.remove(from: .current, forMode: RunLoop.Mode.default)
+                input.remove(from: .current, forMode: .defaultRunLoopMode)
             }
         }
     }
@@ -31,7 +31,7 @@ class OpenOBDConnectionOperation: StreamHandleOperation {
         didSet {
             if outOpen {
                 print("Output stream opened")
-                output.remove(from: .current, forMode: RunLoop.Mode.default)
+                output.remove(from: .current, forMode: .defaultRunLoopMode)
             }
         }
     }
