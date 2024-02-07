@@ -1,0 +1,915 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03AF6C4DC4803777CD24D73EED894A69 /* LTOBD2ProtocolISO9141_2.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D5E5EDA78A7D420D3EB359D29AE988B /* LTOBD2ProtocolISO9141_2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0F849017F1E448D4CE26D84E59359F5F /* LTOBD2MonitorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A2608CCDEB917E8026046FB5D0AAE7E6 /* LTOBD2MonitorResult.m */; };
+		223E51E02B7C56192AE38BFFD7365CEE /* LTOBD2Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 71DE8FEA63F3D0ACDDAC89E928D35796 /* LTOBD2Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		269B239BD1E4F9D81D07C29AD8671830 /* LTOBD2ProtocolISO9141_2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8906A07A0916FCCFBFC006C74DEAC /* LTOBD2ProtocolISO9141_2.m */; };
+		272BEAB88109B68123F33FAC29DC6C6E /* LTOBD2ProtocolSAEJ1850.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C907A6AF3FFF25567C09BE2F2072528 /* LTOBD2ProtocolSAEJ1850.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CE607C135B505FCF660E856EED5EDE1 /* LTOBD2Command.h in Headers */ = {isa = PBXBuildFile; fileRef = 59EDB96F7F4E7E628BA08532E753E626 /* LTOBD2Command.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36B9EAC4DE47344169323C1BFA730E02 /* LTSupportAutomotive-LTSupportAutomotive in Resources */ = {isa = PBXBuildFile; fileRef = AD71165C121D841306A44B561299B643 /* LTSupportAutomotive-LTSupportAutomotive */; };
+		3B62B37908E8884EA5420EBE37B50CB9 /* LTOBD2Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 6437936EAB2345D0236E2F24BFDA08BD /* LTOBD2Command.m */; };
+		3D59DC970681C55BBFF385428A95068C /* LTOBD2ProtocolISO14230_4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B5EEB5911FB55D99845C1810F10BB /* LTOBD2ProtocolISO14230_4.m */; };
+		50206902395A71269E39FF4C9B2373E0 /* LTOBD2ProtocolSAEJ1850.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A745B40BAA4CD0B3698A6BDE0BFAAAF /* LTOBD2ProtocolSAEJ1850.m */; };
+		53018AB28F3492AEE4189505F7B81AA4 /* Pods-MapBlueprint-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EBE2221B681944A758362223CB110B2B /* Pods-MapBlueprint-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		584A01022BC0953293534A1C0466903D /* LTOBD2Adapter.h in Headers */ = {isa = PBXBuildFile; fileRef = B94022BD1E84AB49E337E11DD0527525 /* LTOBD2Adapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E380B7276DD0F7941CF47665F16ED72 /* LTVIN.h in Headers */ = {isa = PBXBuildFile; fileRef = C7CC9CAA54782949B666C55038A32E2E /* LTVIN.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EC14D7FA0173302EE195976248EC667 /* LTSupportAutomotive-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C710997FA7F53F2C90EF5EE6DBC3C7A /* LTSupportAutomotive-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62C2471B7127B916E2D30590864C5EE2 /* LTOBD2AdapterELM327.h in Headers */ = {isa = PBXBuildFile; fileRef = AE1AFE90916A8C933077E16BC166B190 /* LTOBD2AdapterELM327.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CBC6CE466F4B498DD1A80C6A050B01B /* LTOBD2PID.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB35D5E8E6FA301EF67B67FDC6EC602 /* LTOBD2PID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79597BB07C3BCD5D8FE1891D6EF226B5 /* LTBTLEWriteCharacteristicStream.m in Sources */ = {isa = PBXBuildFile; fileRef = F68533589F58202D12C9B88ABE04ADBA /* LTBTLEWriteCharacteristicStream.m */; };
+		815C0AC84D930A20C05EE9BFB4B98DA3 /* LTOBD2PerformanceTrackingResult.h in Headers */ = {isa = PBXBuildFile; fileRef = C5ABE5D567CE7A84635DC240C901FF36 /* LTOBD2PerformanceTrackingResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81BD1624EA586130D8FDD9219CA3FD9E /* LTOBD2ProtocolISO14230_4.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CE0117599B6EC78ACA21BDB2A43FA5 /* LTOBD2ProtocolISO14230_4.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82BB37D7BA22861C680163BE93A3D409 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2BB27EB5928B3295BBF4B5511A5E876F /* Base.lproj */; };
+		862E5AEAA9895DEDE80A8102A7C5C799 /* LTOBD2O2Sensor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E41A31EA17037247A385D23A4FFF56C /* LTOBD2O2Sensor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		877F732296A40F71679353C9281E1856 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7566FCDAC605EB3D2581B3964A2F6ACB /* Foundation.framework */; };
+		87A579FD1437070C62B6C71B94CDE1E5 /* LTOBD2DTC.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD0ECE2C064746202352D956D0637B /* LTOBD2DTC.m */; };
+		8D0C1AB5E5A81D7984148E30B6772B56 /* LTBTLEReadCharacteristicStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE66095E340B3D75525A21351DF901A /* LTBTLEReadCharacteristicStream.m */; };
+		8EB3C6200842A203EDF12C941C9549AC /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2BE77A9176AC2162FEB9875809E13D19 /* de.lproj */; };
+		9035D4DA14B9341058A828AF0C39F72F /* LTVIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 2789F25A5DC6E7BC3160FAC50860A40B /* LTVIN.m */; };
+		90A579CE0ED0E9F33DA72F16D2485F59 /* LTBTLEReadCharacteristicStream.h in Headers */ = {isa = PBXBuildFile; fileRef = EEFBCCD44A938DF26A55378C157778A0 /* LTBTLEReadCharacteristicStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90F521A1BF794581DE34A3AEB04658F9 /* LTOBD2DTC.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A5EE600A1E58BBFAEC557B39DF84CF2 /* LTOBD2DTC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93D9AE92D4A4B180DD769B56020A3D79 /* LTOBD2ProtocolISO15765_4.m in Sources */ = {isa = PBXBuildFile; fileRef = E54453B1A5ED019FECA40A88A097CDB0 /* LTOBD2ProtocolISO15765_4.m */; };
+		960E018C652714A94599E2C941069C1F /* LTOBD2CaptureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 932ED2BE5A513ED3A89E31F65AB56397 /* LTOBD2CaptureFile.m */; };
+		9658CD575791F8A11156CD8A4FE6183E /* LTOBD2MonitorResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 848D4ABAD8FA04E20DD1B695728C8F45 /* LTOBD2MonitorResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C4993A525D03792183FD51B33BA113A /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2BE77A9176AC2162FEB9875809E13D19 /* de.lproj */; };
+		9DE8A0305906040CE9B4B0F5B1DFC03D /* LTOBD2AdapterCaptureFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F5D0787B06D46B46EA089B0FB67AAC /* LTOBD2AdapterCaptureFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EB38A376A4A6FE99EA77C5324142BAE /* LTOBD2PID.m in Sources */ = {isa = PBXBuildFile; fileRef = 8330DD203A2561331035D823C5C26B55 /* LTOBD2PID.m */; };
+		9F8A1BB4D217E4B2A488A0BF4900FABF /* LTSupportAutomotive-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0BE172EA9D201567661FF62C01EB1 /* LTSupportAutomotive-dummy.m */; };
+		A6796F36FC51EA666C725C7AD1322C1D /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2BB27EB5928B3295BBF4B5511A5E876F /* Base.lproj */; };
+		AC0707C72FD33C1867255566A84F38D2 /* LTBTLESerialTransporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B4A75ED3CE92BEA90792528083B221 /* LTBTLESerialTransporter.m */; };
+		AE154E2D6D1FCE6065CE41C9B703E65C /* LTOBD2PerformanceTrackingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EA1017D7759466DC2DFDF52222E42E /* LTOBD2PerformanceTrackingResult.m */; };
+		AE6AF478DD5793D6837857C271D2CA7A /* LTOBD2Mode6TestResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5C41650E5590FD283CDC1366A75B7E /* LTOBD2Mode6TestResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF2DDD6ECA8479751E0A991C1B361E5B /* Pods-MapBlueprint-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB93F6563AD908886DB08EFFBCAE961 /* Pods-MapBlueprint-dummy.m */; };
+		B7B9CAAAAAD78C548339590E2F77443E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7566FCDAC605EB3D2581B3964A2F6ACB /* Foundation.framework */; };
+		B853C968A869B3C4F605BBD4687BACE6 /* LTBTLEWriteCharacteristicStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D61C16D1D6222259234AC0DA920085 /* LTBTLEWriteCharacteristicStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE2752ECFF7B9F9293F282C1E28C16D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8207A2D44CA31843965D9CD98E070018 /* Localizable.strings */; };
+		C16EFDF9AF0C7A6A140AECF65F9F19CB /* LTOBD2O2Sensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B68D1824E1847D12095EAE3025E9D /* LTOBD2O2Sensor.m */; };
+		CCA98016AD2E8CD8C986948CBC792C60 /* LTSupportAutomotive.m in Sources */ = {isa = PBXBuildFile; fileRef = EF02914235573C7A1441301C6E5509C5 /* LTSupportAutomotive.m */; };
+		D197CDD648E63E2F8555B864D90934EB /* LTOBD2ProtocolISO15765_4.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B59C0B32D1BC2BC144F2349034DA78 /* LTOBD2ProtocolISO15765_4.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7EF1447BB48C5334D76ABAFBE42EB36 /* LTBTLESerialTransporter.h in Headers */ = {isa = PBXBuildFile; fileRef = B600175EDBF8113C0FF8ADA2F138E2A4 /* LTBTLESerialTransporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA8BD128530169FE701AB1D9DF97DD22 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E4023520A82EAF89BE8E4F936C4452 /* CoreBluetooth.framework */; };
+		DBCB382252C62F82CEA19D12AD45F958 /* LTSupportAutomotive.h in Headers */ = {isa = PBXBuildFile; fileRef = BCBC4D40B2355E746A126CF1D3A80C5C /* LTSupportAutomotive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5B3AE57B497CAEAD4C448A7B13C2541 /* LTOBD2AdapterCaptureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 549454D9326FD3D3FADF8DA20963C4C0 /* LTOBD2AdapterCaptureFile.m */; };
+		E78E1CEE2CEBC63E9B4C46579193DE88 /* LTOBD2Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB94E69F8972E5DCCC10DB61F69A8DC /* LTOBD2Adapter.m */; };
+		EC944E7D04E0E66C6999C963C6287ECD /* LTOBD2Protocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 468FEAC0757FFA7BAABEC8064C50E626 /* LTOBD2Protocol.m */; };
+		F1878450B8E754B281E39D6C9A956B91 /* LTOBD2Mode6TestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA50945517E25D2361CE15BF4B3AE37 /* LTOBD2Mode6TestResult.m */; };
+		FA7B389820DECD8AFAD98AC1DC226FCF /* LTOBD2AdapterELM327.m in Sources */ = {isa = PBXBuildFile; fileRef = 2605B3BEA515264057240094E8FCF5ED /* LTOBD2AdapterELM327.m */; };
+		FE210BACDA20DDA5581B69B4FB4E58E9 /* LTOBD2CaptureFile.h in Headers */ = {isa = PBXBuildFile; fileRef = D2E063C31DF90669F9809BBBF9A78ABE /* LTOBD2CaptureFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2BFB94C66E921FAA37EC9597F11919DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68E8C9ECCC45578F1F15FC085253A39B;
+			remoteInfo = "LTSupportAutomotive-LTSupportAutomotive";
+		};
+		3DED15FCFA43EEE7003C6FD05BCB70D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6319F75A170D0A00022B6F0DB3FA251;
+			remoteInfo = LTSupportAutomotive;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C907A6AF3FFF25567C09BE2F2072528 /* LTOBD2ProtocolSAEJ1850.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2ProtocolSAEJ1850.h; path = LTSupportAutomotive/LTOBD2ProtocolSAEJ1850.h; sourceTree = "<group>"; };
+		13B59C0B32D1BC2BC144F2349034DA78 /* LTOBD2ProtocolISO15765_4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2ProtocolISO15765_4.h; path = LTSupportAutomotive/LTOBD2ProtocolISO15765_4.h; sourceTree = "<group>"; };
+		1D5E5EDA78A7D420D3EB359D29AE988B /* LTOBD2ProtocolISO9141_2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2ProtocolISO9141_2.h; path = LTSupportAutomotive/LTOBD2ProtocolISO9141_2.h; sourceTree = "<group>"; };
+		25E4226F13E2F69720A204977FD12B66 /* Pods-MapBlueprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapBlueprint.release.xcconfig"; sourceTree = "<group>"; };
+		2605B3BEA515264057240094E8FCF5ED /* LTOBD2AdapterELM327.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2AdapterELM327.m; path = LTSupportAutomotive/LTOBD2AdapterELM327.m; sourceTree = "<group>"; };
+		2789F25A5DC6E7BC3160FAC50860A40B /* LTVIN.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTVIN.m; path = LTSupportAutomotive/LTVIN.m; sourceTree = "<group>"; };
+		28D61C16D1D6222259234AC0DA920085 /* LTBTLEWriteCharacteristicStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTBTLEWriteCharacteristicStream.h; path = LTSupportAutomotive/LTBTLEWriteCharacteristicStream.h; sourceTree = "<group>"; };
+		2BB27EB5928B3295BBF4B5511A5E876F /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = Base.lproj; path = LTSupportAutomotive/Base.lproj; sourceTree = "<group>"; };
+		2BE77A9176AC2162FEB9875809E13D19 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = LTSupportAutomotive/de.lproj; sourceTree = "<group>"; };
+		2C8B5EEB5911FB55D99845C1810F10BB /* LTOBD2ProtocolISO14230_4.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2ProtocolISO14230_4.m; path = LTSupportAutomotive/LTOBD2ProtocolISO14230_4.m; sourceTree = "<group>"; };
+		3AB3B24EBBB9A55CE621F5D87D48BA6C /* Pods-MapBlueprint */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MapBlueprint"; path = Pods_MapBlueprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C710997FA7F53F2C90EF5EE6DBC3C7A /* LTSupportAutomotive-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LTSupportAutomotive-umbrella.h"; sourceTree = "<group>"; };
+		3CB93F6563AD908886DB08EFFBCAE961 /* Pods-MapBlueprint-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MapBlueprint-dummy.m"; sourceTree = "<group>"; };
+		44BD6B2B10BF50CEC67A6C89DD322FCD /* LTSupportAutomotive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LTSupportAutomotive.debug.xcconfig; sourceTree = "<group>"; };
+		468FEAC0757FFA7BAABEC8064C50E626 /* LTOBD2Protocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2Protocol.m; path = LTSupportAutomotive/LTOBD2Protocol.m; sourceTree = "<group>"; };
+		485C1BDA7DC4578FD02EBAA475AD987B /* Pods-MapBlueprint.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MapBlueprint.modulemap"; sourceTree = "<group>"; };
+		4CF8906A07A0916FCCFBFC006C74DEAC /* LTOBD2ProtocolISO9141_2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2ProtocolISO9141_2.m; path = LTSupportAutomotive/LTOBD2ProtocolISO9141_2.m; sourceTree = "<group>"; };
+		4D7193C849E0EFE5FCB2B3642DE92CF4 /* LTSupportAutomotive-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LTSupportAutomotive-prefix.pch"; sourceTree = "<group>"; };
+		4FE66095E340B3D75525A21351DF901A /* LTBTLEReadCharacteristicStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTBTLEReadCharacteristicStream.m; path = LTSupportAutomotive/LTBTLEReadCharacteristicStream.m; sourceTree = "<group>"; };
+		549454D9326FD3D3FADF8DA20963C4C0 /* LTOBD2AdapterCaptureFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2AdapterCaptureFile.m; path = LTSupportAutomotive/LTOBD2AdapterCaptureFile.m; sourceTree = "<group>"; };
+		59EDB96F7F4E7E628BA08532E753E626 /* LTOBD2Command.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2Command.h; path = LTSupportAutomotive/LTOBD2Command.h; sourceTree = "<group>"; };
+		5A745B40BAA4CD0B3698A6BDE0BFAAAF /* LTOBD2ProtocolSAEJ1850.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2ProtocolSAEJ1850.m; path = LTSupportAutomotive/LTOBD2ProtocolSAEJ1850.m; sourceTree = "<group>"; };
+		5CE08FBB2D4C491321CCF53496AE87DB /* LTSupportAutomotive */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LTSupportAutomotive; path = LTSupportAutomotive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6437936EAB2345D0236E2F24BFDA08BD /* LTOBD2Command.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2Command.m; path = LTSupportAutomotive/LTOBD2Command.m; sourceTree = "<group>"; };
+		64E1EAAEA08867B6EECAC7D52E4024AF /* Pods-MapBlueprint-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapBlueprint-acknowledgements.plist"; sourceTree = "<group>"; };
+		64F5D0787B06D46B46EA089B0FB67AAC /* LTOBD2AdapterCaptureFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2AdapterCaptureFile.h; path = LTSupportAutomotive/LTOBD2AdapterCaptureFile.h; sourceTree = "<group>"; };
+		6BF0BE172EA9D201567661FF62C01EB1 /* LTSupportAutomotive-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LTSupportAutomotive-dummy.m"; sourceTree = "<group>"; };
+		6CA50945517E25D2361CE15BF4B3AE37 /* LTOBD2Mode6TestResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2Mode6TestResult.m; path = LTSupportAutomotive/LTOBD2Mode6TestResult.m; sourceTree = "<group>"; };
+		6E41A31EA17037247A385D23A4FFF56C /* LTOBD2O2Sensor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2O2Sensor.h; path = LTSupportAutomotive/LTOBD2O2Sensor.h; sourceTree = "<group>"; };
+		71DE8FEA63F3D0ACDDAC89E928D35796 /* LTOBD2Protocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2Protocol.h; path = LTSupportAutomotive/LTOBD2Protocol.h; sourceTree = "<group>"; };
+		7566FCDAC605EB3D2581B3964A2F6ACB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		77BD26AE64865CDB83CA3092AFA23F13 /* ResourceBundle-LTSupportAutomotive-LTSupportAutomotive-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-LTSupportAutomotive-LTSupportAutomotive-Info.plist"; sourceTree = "<group>"; };
+		7A5EE600A1E58BBFAEC557B39DF84CF2 /* LTOBD2DTC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2DTC.h; path = LTSupportAutomotive/LTOBD2DTC.h; sourceTree = "<group>"; };
+		80B4A75ED3CE92BEA90792528083B221 /* LTBTLESerialTransporter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTBTLESerialTransporter.m; path = LTSupportAutomotive/LTBTLESerialTransporter.m; sourceTree = "<group>"; };
+		8330DD203A2561331035D823C5C26B55 /* LTOBD2PID.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2PID.m; path = LTSupportAutomotive/LTOBD2PID.m; sourceTree = "<group>"; };
+		848D4ABAD8FA04E20DD1B695728C8F45 /* LTOBD2MonitorResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2MonitorResult.h; path = LTSupportAutomotive/LTOBD2MonitorResult.h; sourceTree = "<group>"; };
+		86EA1017D7759466DC2DFDF52222E42E /* LTOBD2PerformanceTrackingResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2PerformanceTrackingResult.m; path = LTSupportAutomotive/LTOBD2PerformanceTrackingResult.m; sourceTree = "<group>"; };
+		8C5B68D1824E1847D12095EAE3025E9D /* LTOBD2O2Sensor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2O2Sensor.m; path = LTSupportAutomotive/LTOBD2O2Sensor.m; sourceTree = "<group>"; };
+		932ED2BE5A513ED3A89E31F65AB56397 /* LTOBD2CaptureFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2CaptureFile.m; path = LTSupportAutomotive/LTOBD2CaptureFile.m; sourceTree = "<group>"; };
+		99E4023520A82EAF89BE8E4F936C4452 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		9A5C41650E5590FD283CDC1366A75B7E /* LTOBD2Mode6TestResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2Mode6TestResult.h; path = LTSupportAutomotive/LTOBD2Mode6TestResult.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A2608CCDEB917E8026046FB5D0AAE7E6 /* LTOBD2MonitorResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2MonitorResult.m; path = LTSupportAutomotive/LTOBD2MonitorResult.m; sourceTree = "<group>"; };
+		A9CE0117599B6EC78ACA21BDB2A43FA5 /* LTOBD2ProtocolISO14230_4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2ProtocolISO14230_4.h; path = LTSupportAutomotive/LTOBD2ProtocolISO14230_4.h; sourceTree = "<group>"; };
+		ACB94E69F8972E5DCCC10DB61F69A8DC /* LTOBD2Adapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2Adapter.m; path = LTSupportAutomotive/LTOBD2Adapter.m; sourceTree = "<group>"; };
+		AD71165C121D841306A44B561299B643 /* LTSupportAutomotive-LTSupportAutomotive */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "LTSupportAutomotive-LTSupportAutomotive"; path = LTSupportAutomotive.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE1AFE90916A8C933077E16BC166B190 /* LTOBD2AdapterELM327.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2AdapterELM327.h; path = LTSupportAutomotive/LTOBD2AdapterELM327.h; sourceTree = "<group>"; };
+		B600175EDBF8113C0FF8ADA2F138E2A4 /* LTBTLESerialTransporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTBTLESerialTransporter.h; path = LTSupportAutomotive/LTBTLESerialTransporter.h; sourceTree = "<group>"; };
+		B94022BD1E84AB49E337E11DD0527525 /* LTOBD2Adapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2Adapter.h; path = LTSupportAutomotive/LTOBD2Adapter.h; sourceTree = "<group>"; };
+		BCBC4D40B2355E746A126CF1D3A80C5C /* LTSupportAutomotive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTSupportAutomotive.h; path = LTSupportAutomotive/LTSupportAutomotive.h; sourceTree = "<group>"; };
+		C210A0EF9102A11CFFA1E15B8D0A9F34 /* Pods-MapBlueprint-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MapBlueprint-Info.plist"; sourceTree = "<group>"; };
+		C4A5E6FF18A7AA4F21036BE764CAAA60 /* LTSupportAutomotive-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LTSupportAutomotive-Info.plist"; sourceTree = "<group>"; };
+		C5ABE5D567CE7A84635DC240C901FF36 /* LTOBD2PerformanceTrackingResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2PerformanceTrackingResult.h; path = LTSupportAutomotive/LTOBD2PerformanceTrackingResult.h; sourceTree = "<group>"; };
+		C7CC9CAA54782949B666C55038A32E2E /* LTVIN.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTVIN.h; path = LTSupportAutomotive/LTVIN.h; sourceTree = "<group>"; };
+		CB28B6C69224CC3035AC3EE1848CC48B /* Pods-MapBlueprint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MapBlueprint.debug.xcconfig"; sourceTree = "<group>"; };
+		D2AB29B1EC1120153CB5D13EF42EC95E /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D2E063C31DF90669F9809BBBF9A78ABE /* LTOBD2CaptureFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2CaptureFile.h; path = LTSupportAutomotive/LTOBD2CaptureFile.h; sourceTree = "<group>"; };
+		D55059D76812BC0E635F847AD1D236CB /* Pods-MapBlueprint-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MapBlueprint-frameworks.sh"; sourceTree = "<group>"; };
+		E54453B1A5ED019FECA40A88A097CDB0 /* LTOBD2ProtocolISO15765_4.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2ProtocolISO15765_4.m; path = LTSupportAutomotive/LTOBD2ProtocolISO15765_4.m; sourceTree = "<group>"; };
+		E5B54CE5998D2238586A4AE1CCEE2E51 /* LTSupportAutomotive.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LTSupportAutomotive.modulemap; sourceTree = "<group>"; };
+		EBE2221B681944A758362223CB110B2B /* Pods-MapBlueprint-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MapBlueprint-umbrella.h"; sourceTree = "<group>"; };
+		EC201400E26F7521CE786C99E5A1B9F3 /* Pods-MapBlueprint-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MapBlueprint-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EDB35D5E8E6FA301EF67B67FDC6EC602 /* LTOBD2PID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTOBD2PID.h; path = LTSupportAutomotive/LTOBD2PID.h; sourceTree = "<group>"; };
+		EEFBCCD44A938DF26A55378C157778A0 /* LTBTLEReadCharacteristicStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LTBTLEReadCharacteristicStream.h; path = LTSupportAutomotive/LTBTLEReadCharacteristicStream.h; sourceTree = "<group>"; };
+		EF02914235573C7A1441301C6E5509C5 /* LTSupportAutomotive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTSupportAutomotive.m; path = LTSupportAutomotive/LTSupportAutomotive.m; sourceTree = "<group>"; };
+		F2BCB1A6AD253066863BC64592EF1706 /* LTSupportAutomotive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LTSupportAutomotive.release.xcconfig; sourceTree = "<group>"; };
+		F68533589F58202D12C9B88ABE04ADBA /* LTBTLEWriteCharacteristicStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTBTLEWriteCharacteristicStream.m; path = LTSupportAutomotive/LTBTLEWriteCharacteristicStream.m; sourceTree = "<group>"; };
+		F7BD0ECE2C064746202352D956D0637B /* LTOBD2DTC.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LTOBD2DTC.m; path = LTSupportAutomotive/LTOBD2DTC.m; sourceTree = "<group>"; };
+		FB0B558BE2E4A39659E9A4D4B5FCB27E /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		715CA76B6906295479E424B2067F392D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA8BD128530169FE701AB1D9DF97DD22 /* CoreBluetooth.framework in Frameworks */,
+				B7B9CAAAAAD78C548339590E2F77443E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8B3823CDA4596BEEE0914FB45AB0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				877F732296A40F71679353C9281E1856 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFCE1908FFDA2C038A720E4704BF7FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		154FF5F6ABA6F1995B1F75447B0F7AA7 /* LTSupportAutomotive */ = {
+			isa = PBXGroup;
+			children = (
+				EEFBCCD44A938DF26A55378C157778A0 /* LTBTLEReadCharacteristicStream.h */,
+				4FE66095E340B3D75525A21351DF901A /* LTBTLEReadCharacteristicStream.m */,
+				B600175EDBF8113C0FF8ADA2F138E2A4 /* LTBTLESerialTransporter.h */,
+				80B4A75ED3CE92BEA90792528083B221 /* LTBTLESerialTransporter.m */,
+				28D61C16D1D6222259234AC0DA920085 /* LTBTLEWriteCharacteristicStream.h */,
+				F68533589F58202D12C9B88ABE04ADBA /* LTBTLEWriteCharacteristicStream.m */,
+				B94022BD1E84AB49E337E11DD0527525 /* LTOBD2Adapter.h */,
+				ACB94E69F8972E5DCCC10DB61F69A8DC /* LTOBD2Adapter.m */,
+				64F5D0787B06D46B46EA089B0FB67AAC /* LTOBD2AdapterCaptureFile.h */,
+				549454D9326FD3D3FADF8DA20963C4C0 /* LTOBD2AdapterCaptureFile.m */,
+				AE1AFE90916A8C933077E16BC166B190 /* LTOBD2AdapterELM327.h */,
+				2605B3BEA515264057240094E8FCF5ED /* LTOBD2AdapterELM327.m */,
+				D2E063C31DF90669F9809BBBF9A78ABE /* LTOBD2CaptureFile.h */,
+				932ED2BE5A513ED3A89E31F65AB56397 /* LTOBD2CaptureFile.m */,
+				59EDB96F7F4E7E628BA08532E753E626 /* LTOBD2Command.h */,
+				6437936EAB2345D0236E2F24BFDA08BD /* LTOBD2Command.m */,
+				7A5EE600A1E58BBFAEC557B39DF84CF2 /* LTOBD2DTC.h */,
+				F7BD0ECE2C064746202352D956D0637B /* LTOBD2DTC.m */,
+				9A5C41650E5590FD283CDC1366A75B7E /* LTOBD2Mode6TestResult.h */,
+				6CA50945517E25D2361CE15BF4B3AE37 /* LTOBD2Mode6TestResult.m */,
+				848D4ABAD8FA04E20DD1B695728C8F45 /* LTOBD2MonitorResult.h */,
+				A2608CCDEB917E8026046FB5D0AAE7E6 /* LTOBD2MonitorResult.m */,
+				6E41A31EA17037247A385D23A4FFF56C /* LTOBD2O2Sensor.h */,
+				8C5B68D1824E1847D12095EAE3025E9D /* LTOBD2O2Sensor.m */,
+				C5ABE5D567CE7A84635DC240C901FF36 /* LTOBD2PerformanceTrackingResult.h */,
+				86EA1017D7759466DC2DFDF52222E42E /* LTOBD2PerformanceTrackingResult.m */,
+				EDB35D5E8E6FA301EF67B67FDC6EC602 /* LTOBD2PID.h */,
+				8330DD203A2561331035D823C5C26B55 /* LTOBD2PID.m */,
+				71DE8FEA63F3D0ACDDAC89E928D35796 /* LTOBD2Protocol.h */,
+				468FEAC0757FFA7BAABEC8064C50E626 /* LTOBD2Protocol.m */,
+				A9CE0117599B6EC78ACA21BDB2A43FA5 /* LTOBD2ProtocolISO14230_4.h */,
+				2C8B5EEB5911FB55D99845C1810F10BB /* LTOBD2ProtocolISO14230_4.m */,
+				13B59C0B32D1BC2BC144F2349034DA78 /* LTOBD2ProtocolISO15765_4.h */,
+				E54453B1A5ED019FECA40A88A097CDB0 /* LTOBD2ProtocolISO15765_4.m */,
+				1D5E5EDA78A7D420D3EB359D29AE988B /* LTOBD2ProtocolISO9141_2.h */,
+				4CF8906A07A0916FCCFBFC006C74DEAC /* LTOBD2ProtocolISO9141_2.m */,
+				0C907A6AF3FFF25567C09BE2F2072528 /* LTOBD2ProtocolSAEJ1850.h */,
+				5A745B40BAA4CD0B3698A6BDE0BFAAAF /* LTOBD2ProtocolSAEJ1850.m */,
+				BCBC4D40B2355E746A126CF1D3A80C5C /* LTSupportAutomotive.h */,
+				EF02914235573C7A1441301C6E5509C5 /* LTSupportAutomotive.m */,
+				C7CC9CAA54782949B666C55038A32E2E /* LTVIN.h */,
+				2789F25A5DC6E7BC3160FAC50860A40B /* LTVIN.m */,
+				50C4E9BFC1755E0EFF2D98D4B4A167FE /* Resources */,
+				D96D2AC9CD63D7D59FEA136416C07326 /* Support Files */,
+			);
+			name = LTSupportAutomotive;
+			path = LTSupportAutomotive;
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAFEFC354BE53171BDC70E0B4B6F6BB8 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		327AAB4DFC676ED0BE6249DD678F32EB /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9EDDFDC75DA6E65FE9A56D91AA7F4020 /* Pods-MapBlueprint */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		50C4E9BFC1755E0EFF2D98D4B4A167FE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BB27EB5928B3295BBF4B5511A5E876F /* Base.lproj */,
+				2BE77A9176AC2162FEB9875809E13D19 /* de.lproj */,
+				8207A2D44CA31843965D9CD98E070018 /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7299650CED4BBA9AF7FDEA5E4E6ADDBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				154FF5F6ABA6F1995B1F75447B0F7AA7 /* LTSupportAutomotive */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9EDDFDC75DA6E65FE9A56D91AA7F4020 /* Pods-MapBlueprint */ = {
+			isa = PBXGroup;
+			children = (
+				485C1BDA7DC4578FD02EBAA475AD987B /* Pods-MapBlueprint.modulemap */,
+				EC201400E26F7521CE786C99E5A1B9F3 /* Pods-MapBlueprint-acknowledgements.markdown */,
+				64E1EAAEA08867B6EECAC7D52E4024AF /* Pods-MapBlueprint-acknowledgements.plist */,
+				3CB93F6563AD908886DB08EFFBCAE961 /* Pods-MapBlueprint-dummy.m */,
+				D55059D76812BC0E635F847AD1D236CB /* Pods-MapBlueprint-frameworks.sh */,
+				C210A0EF9102A11CFFA1E15B8D0A9F34 /* Pods-MapBlueprint-Info.plist */,
+				EBE2221B681944A758362223CB110B2B /* Pods-MapBlueprint-umbrella.h */,
+				CB28B6C69224CC3035AC3EE1848CC48B /* Pods-MapBlueprint.debug.xcconfig */,
+				25E4226F13E2F69720A204977FD12B66 /* Pods-MapBlueprint.release.xcconfig */,
+			);
+			name = "Pods-MapBlueprint";
+			path = "Target Support Files/Pods-MapBlueprint";
+			sourceTree = "<group>";
+		};
+		BAFEFC354BE53171BDC70E0B4B6F6BB8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				99E4023520A82EAF89BE8E4F936C4452 /* CoreBluetooth.framework */,
+				7566FCDAC605EB3D2581B3964A2F6ACB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CBF62B1E8A61C0216C9B163B07BAD2EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CE08FBB2D4C491321CCF53496AE87DB /* LTSupportAutomotive */,
+				AD71165C121D841306A44B561299B643 /* LTSupportAutomotive-LTSupportAutomotive */,
+				3AB3B24EBBB9A55CE621F5D87D48BA6C /* Pods-MapBlueprint */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				7299650CED4BBA9AF7FDEA5E4E6ADDBD /* Pods */,
+				CBF62B1E8A61C0216C9B163B07BAD2EE /* Products */,
+				327AAB4DFC676ED0BE6249DD678F32EB /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D96D2AC9CD63D7D59FEA136416C07326 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5B54CE5998D2238586A4AE1CCEE2E51 /* LTSupportAutomotive.modulemap */,
+				6BF0BE172EA9D201567661FF62C01EB1 /* LTSupportAutomotive-dummy.m */,
+				C4A5E6FF18A7AA4F21036BE764CAAA60 /* LTSupportAutomotive-Info.plist */,
+				4D7193C849E0EFE5FCB2B3642DE92CF4 /* LTSupportAutomotive-prefix.pch */,
+				3C710997FA7F53F2C90EF5EE6DBC3C7A /* LTSupportAutomotive-umbrella.h */,
+				44BD6B2B10BF50CEC67A6C89DD322FCD /* LTSupportAutomotive.debug.xcconfig */,
+				F2BCB1A6AD253066863BC64592EF1706 /* LTSupportAutomotive.release.xcconfig */,
+				77BD26AE64865CDB83CA3092AFA23F13 /* ResourceBundle-LTSupportAutomotive-LTSupportAutomotive-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LTSupportAutomotive";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7A7592A818879C595B4B52880CA2E1BD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90A579CE0ED0E9F33DA72F16D2485F59 /* LTBTLEReadCharacteristicStream.h in Headers */,
+				D7EF1447BB48C5334D76ABAFBE42EB36 /* LTBTLESerialTransporter.h in Headers */,
+				B853C968A869B3C4F605BBD4687BACE6 /* LTBTLEWriteCharacteristicStream.h in Headers */,
+				584A01022BC0953293534A1C0466903D /* LTOBD2Adapter.h in Headers */,
+				9DE8A0305906040CE9B4B0F5B1DFC03D /* LTOBD2AdapterCaptureFile.h in Headers */,
+				62C2471B7127B916E2D30590864C5EE2 /* LTOBD2AdapterELM327.h in Headers */,
+				FE210BACDA20DDA5581B69B4FB4E58E9 /* LTOBD2CaptureFile.h in Headers */,
+				2CE607C135B505FCF660E856EED5EDE1 /* LTOBD2Command.h in Headers */,
+				90F521A1BF794581DE34A3AEB04658F9 /* LTOBD2DTC.h in Headers */,
+				AE6AF478DD5793D6837857C271D2CA7A /* LTOBD2Mode6TestResult.h in Headers */,
+				9658CD575791F8A11156CD8A4FE6183E /* LTOBD2MonitorResult.h in Headers */,
+				862E5AEAA9895DEDE80A8102A7C5C799 /* LTOBD2O2Sensor.h in Headers */,
+				815C0AC84D930A20C05EE9BFB4B98DA3 /* LTOBD2PerformanceTrackingResult.h in Headers */,
+				6CBC6CE466F4B498DD1A80C6A050B01B /* LTOBD2PID.h in Headers */,
+				223E51E02B7C56192AE38BFFD7365CEE /* LTOBD2Protocol.h in Headers */,
+				81BD1624EA586130D8FDD9219CA3FD9E /* LTOBD2ProtocolISO14230_4.h in Headers */,
+				D197CDD648E63E2F8555B864D90934EB /* LTOBD2ProtocolISO15765_4.h in Headers */,
+				03AF6C4DC4803777CD24D73EED894A69 /* LTOBD2ProtocolISO9141_2.h in Headers */,
+				272BEAB88109B68123F33FAC29DC6C6E /* LTOBD2ProtocolSAEJ1850.h in Headers */,
+				DBCB382252C62F82CEA19D12AD45F958 /* LTSupportAutomotive.h in Headers */,
+				5EC14D7FA0173302EE195976248EC667 /* LTSupportAutomotive-umbrella.h in Headers */,
+				5E380B7276DD0F7941CF47665F16ED72 /* LTVIN.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41FA3B99E0D796B5E61717BEB2E9A5F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53018AB28F3492AEE4189505F7B81AA4 /* Pods-MapBlueprint-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6192144E9A5D218052E822EF0B2A29D5 /* Pods-MapBlueprint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89F54B5B8B9B73E32FD5E2CB2F1A7DE5 /* Build configuration list for PBXNativeTarget "Pods-MapBlueprint" */;
+			buildPhases = (
+				A41FA3B99E0D796B5E61717BEB2E9A5F /* Headers */,
+				2CA7A9030CFB2269EFBC92D0C8C9AEE3 /* Sources */,
+				9C8B3823CDA4596BEEE0914FB45AB0B4 /* Frameworks */,
+				666FB445F745124A8A6D2275795FA511 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DF595CADCBD71A2C799310D2B1E2113 /* PBXTargetDependency */,
+			);
+			name = "Pods-MapBlueprint";
+			productName = Pods_MapBlueprint;
+			productReference = 3AB3B24EBBB9A55CE621F5D87D48BA6C /* Pods-MapBlueprint */;
+			productType = "com.apple.product-type.framework";
+		};
+		68E8C9ECCC45578F1F15FC085253A39B /* LTSupportAutomotive-LTSupportAutomotive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B514CEC201AB77EFD5B9C8753CE9D48D /* Build configuration list for PBXNativeTarget "LTSupportAutomotive-LTSupportAutomotive" */;
+			buildPhases = (
+				F8C1328FD76EF69F4B9393B69B35594B /* Sources */,
+				FFCE1908FFDA2C038A720E4704BF7FC5 /* Frameworks */,
+				DDC12E22B0651AAF2DEDDF3B0352202A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LTSupportAutomotive-LTSupportAutomotive";
+			productName = LTSupportAutomotive;
+			productReference = AD71165C121D841306A44B561299B643 /* LTSupportAutomotive-LTSupportAutomotive */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A6319F75A170D0A00022B6F0DB3FA251 /* LTSupportAutomotive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 618E0D845198B5113C0E5B27EE0BE2E9 /* Build configuration list for PBXNativeTarget "LTSupportAutomotive" */;
+			buildPhases = (
+				7A7592A818879C595B4B52880CA2E1BD /* Headers */,
+				8892FE952AA86A5132416AD0AF0C71E2 /* Sources */,
+				715CA76B6906295479E424B2067F392D /* Frameworks */,
+				26331D2506F658F50CD49288AB2B0DD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8212619E16FA79247EC36E10CCBA1503 /* PBXTargetDependency */,
+			);
+			name = LTSupportAutomotive;
+			productName = LTSupportAutomotive;
+			productReference = 5CE08FBB2D4C491321CCF53496AE87DB /* LTSupportAutomotive */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				de,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = CBF62B1E8A61C0216C9B163B07BAD2EE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6319F75A170D0A00022B6F0DB3FA251 /* LTSupportAutomotive */,
+				68E8C9ECCC45578F1F15FC085253A39B /* LTSupportAutomotive-LTSupportAutomotive */,
+				6192144E9A5D218052E822EF0B2A29D5 /* Pods-MapBlueprint */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26331D2506F658F50CD49288AB2B0DD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82BB37D7BA22861C680163BE93A3D409 /* Base.lproj in Resources */,
+				9C4993A525D03792183FD51B33BA113A /* de.lproj in Resources */,
+				BE2752ECFF7B9F9293F282C1E28C16D4 /* Localizable.strings in Resources */,
+				36B9EAC4DE47344169323C1BFA730E02 /* LTSupportAutomotive-LTSupportAutomotive in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		666FB445F745124A8A6D2275795FA511 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC12E22B0651AAF2DEDDF3B0352202A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6796F36FC51EA666C725C7AD1322C1D /* Base.lproj in Resources */,
+				8EB3C6200842A203EDF12C941C9549AC /* de.lproj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CA7A9030CFB2269EFBC92D0C8C9AEE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2DDD6ECA8479751E0A991C1B361E5B /* Pods-MapBlueprint-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8892FE952AA86A5132416AD0AF0C71E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C1AB5E5A81D7984148E30B6772B56 /* LTBTLEReadCharacteristicStream.m in Sources */,
+				AC0707C72FD33C1867255566A84F38D2 /* LTBTLESerialTransporter.m in Sources */,
+				79597BB07C3BCD5D8FE1891D6EF226B5 /* LTBTLEWriteCharacteristicStream.m in Sources */,
+				E78E1CEE2CEBC63E9B4C46579193DE88 /* LTOBD2Adapter.m in Sources */,
+				E5B3AE57B497CAEAD4C448A7B13C2541 /* LTOBD2AdapterCaptureFile.m in Sources */,
+				FA7B389820DECD8AFAD98AC1DC226FCF /* LTOBD2AdapterELM327.m in Sources */,
+				960E018C652714A94599E2C941069C1F /* LTOBD2CaptureFile.m in Sources */,
+				3B62B37908E8884EA5420EBE37B50CB9 /* LTOBD2Command.m in Sources */,
+				87A579FD1437070C62B6C71B94CDE1E5 /* LTOBD2DTC.m in Sources */,
+				F1878450B8E754B281E39D6C9A956B91 /* LTOBD2Mode6TestResult.m in Sources */,
+				0F849017F1E448D4CE26D84E59359F5F /* LTOBD2MonitorResult.m in Sources */,
+				C16EFDF9AF0C7A6A140AECF65F9F19CB /* LTOBD2O2Sensor.m in Sources */,
+				AE154E2D6D1FCE6065CE41C9B703E65C /* LTOBD2PerformanceTrackingResult.m in Sources */,
+				9EB38A376A4A6FE99EA77C5324142BAE /* LTOBD2PID.m in Sources */,
+				EC944E7D04E0E66C6999C963C6287ECD /* LTOBD2Protocol.m in Sources */,
+				3D59DC970681C55BBFF385428A95068C /* LTOBD2ProtocolISO14230_4.m in Sources */,
+				93D9AE92D4A4B180DD769B56020A3D79 /* LTOBD2ProtocolISO15765_4.m in Sources */,
+				269B239BD1E4F9D81D07C29AD8671830 /* LTOBD2ProtocolISO9141_2.m in Sources */,
+				50206902395A71269E39FF4C9B2373E0 /* LTOBD2ProtocolSAEJ1850.m in Sources */,
+				CCA98016AD2E8CD8C986948CBC792C60 /* LTSupportAutomotive.m in Sources */,
+				9F8A1BB4D217E4B2A488A0BF4900FABF /* LTSupportAutomotive-dummy.m in Sources */,
+				9035D4DA14B9341058A828AF0C39F72F /* LTVIN.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C1328FD76EF69F4B9393B69B35594B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DF595CADCBD71A2C799310D2B1E2113 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LTSupportAutomotive;
+			target = A6319F75A170D0A00022B6F0DB3FA251 /* LTSupportAutomotive */;
+			targetProxy = 3DED15FCFA43EEE7003C6FD05BCB70D3 /* PBXContainerItemProxy */;
+		};
+		8212619E16FA79247EC36E10CCBA1503 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LTSupportAutomotive-LTSupportAutomotive";
+			target = 68E8C9ECCC45578F1F15FC085253A39B /* LTSupportAutomotive-LTSupportAutomotive */;
+			targetProxy = 2BFB94C66E921FAA37EC9597F11919DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8207A2D44CA31843965D9CD98E070018 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB0B558BE2E4A39659E9A4D4B5FCB27E /* Localizable.strings */,
+				D2AB29B1EC1120153CB5D13EF42EC95E /* Localizable.strings */,
+			);
+			name = Localizable.strings;
+			path = LTSupportAutomotive;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		032504F201C69275441D32C68CCD1F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		3BE2DE476ED5168D7E419FF53832EF40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44BD6B2B10BF50CEC67A6C89DD322FCD /* LTSupportAutomotive.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LTSupportAutomotive";
+				IBSC_MODULE = LTSupportAutomotive;
+				INFOPLIST_FILE = "Target Support Files/LTSupportAutomotive/ResourceBundle-LTSupportAutomotive-LTSupportAutomotive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = LTSupportAutomotive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		48F67AB1E5DBE79CCF2F86C75296AB01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7181418AE51519D3AF100E14EC10453E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB28B6C69224CC3035AC3EE1848CC48B /* Pods-MapBlueprint.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9266729F41EE69722F9360BD5ABE2DE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2BCB1A6AD253066863BC64592EF1706 /* LTSupportAutomotive.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LTSupportAutomotive";
+				IBSC_MODULE = LTSupportAutomotive;
+				INFOPLIST_FILE = "Target Support Files/LTSupportAutomotive/ResourceBundle-LTSupportAutomotive-LTSupportAutomotive-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = LTSupportAutomotive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D622CEB374ACEB7BEE5A0985F4CD2288 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2BCB1A6AD253066863BC64592EF1706 /* LTSupportAutomotive.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LTSupportAutomotive/LTSupportAutomotive-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LTSupportAutomotive/LTSupportAutomotive-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/LTSupportAutomotive/LTSupportAutomotive.modulemap";
+				PRODUCT_MODULE_NAME = LTSupportAutomotive;
+				PRODUCT_NAME = LTSupportAutomotive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D941F5B542998BD039F1CBB357E9AC9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44BD6B2B10BF50CEC67A6C89DD322FCD /* LTSupportAutomotive.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LTSupportAutomotive/LTSupportAutomotive-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LTSupportAutomotive/LTSupportAutomotive-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/LTSupportAutomotive/LTSupportAutomotive.modulemap";
+				PRODUCT_MODULE_NAME = LTSupportAutomotive;
+				PRODUCT_NAME = LTSupportAutomotive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EEE43DAD06F065C19F59F1C00C540F75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25E4226F13E2F69720A204977FD12B66 /* Pods-MapBlueprint.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48F67AB1E5DBE79CCF2F86C75296AB01 /* Debug */,
+				032504F201C69275441D32C68CCD1F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		618E0D845198B5113C0E5B27EE0BE2E9 /* Build configuration list for PBXNativeTarget "LTSupportAutomotive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D941F5B542998BD039F1CBB357E9AC9B /* Debug */,
+				D622CEB374ACEB7BEE5A0985F4CD2288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89F54B5B8B9B73E32FD5E2CB2F1A7DE5 /* Build configuration list for PBXNativeTarget "Pods-MapBlueprint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7181418AE51519D3AF100E14EC10453E /* Debug */,
+				EEE43DAD06F065C19F59F1C00C540F75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B514CEC201AB77EFD5B9C8753CE9D48D /* Build configuration list for PBXNativeTarget "LTSupportAutomotive-LTSupportAutomotive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BE2DE476ED5168D7E419FF53832EF40 /* Debug */,
+				9266729F41EE69722F9360BD5ABE2DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

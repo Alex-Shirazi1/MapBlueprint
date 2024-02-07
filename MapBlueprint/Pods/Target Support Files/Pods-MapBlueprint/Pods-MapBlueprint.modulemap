@@ -1,0 +1,6 @@
+framework module Pods_MapBlueprint {
+  umbrella header "Pods-MapBlueprint-umbrella.h"
+
+  export *
+  module * { export * }
+}

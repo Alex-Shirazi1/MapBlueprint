@@ -1,0 +1,16 @@
+PODS:
+  - LTSupportAutomotive (1.0)
+
+DEPENDENCIES:
+  - LTSupportAutomotive (~> 1.0)
+
+SPEC REPOS:
+  trunk:
+    - LTSupportAutomotive
+
+SPEC CHECKSUMS:
+  LTSupportAutomotive: 890393b6f13ad95c24195e38b3160f7a04a06fd5
+
+PODFILE CHECKSUM: 77047b7829e3cbc2b3d11879d5182db0aea309ae
+
+COCOAPODS: 1.15.0

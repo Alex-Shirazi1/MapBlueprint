@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "41AAFE65-ED54-4AED-B8AD-35186EFABC2E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF08A813-57C4-4460-B95B-E0C08E4934D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Modules/SettingsModules/TestOBDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "attemptConnection(retries:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFE52A34-F21D-4078-96D3-A2C229E66EFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Modules/SettingsModules/TestOBDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "attemptConnection(retries:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFE52A34-F21D-4078-96D3-A2C229E66EFC - 5a6e88106cd960ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in MapBlueprint.TestOBDViewController.attemptConnection(retries: Swift.Int) -&gt; ()"
+                  moduleName = "MapBlueprint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Modules/SettingsModules/TestOBDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "311"
+                  endingLineNumber = "311"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "DFE52A34-F21D-4078-96D3-A2C229E66EFC - acf1b7d2d2ce2fbf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.LTOBD2Command) -&gt; () in closure #1 @Sendable (__C.NSTimer) -&gt; () in MapBlueprint.TestOBDViewController.attemptConnection(retries: Swift.Int) -&gt; ()"
+                  moduleName = "MapBlueprint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Modules/SettingsModules/TestOBDViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "311"
+                  endingLineNumber = "311"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7C4EDFC-AEDC-49A0-AAF4-0AE257BBFE77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Modules/SettingsModules/TestOBDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "adapterDidConnect(notification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6B2E015-9136-497E-945A-5ECA69CF1232"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Modules/SettingsModules/TestOBDViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
