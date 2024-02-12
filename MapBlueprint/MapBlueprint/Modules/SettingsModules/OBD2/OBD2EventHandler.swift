@@ -9,8 +9,10 @@ import Foundation
 
 protocol OBD2EventHandlerProtocol: AnyObject {
     var viewController: OBD2ViewControllerProtocol? { get set }
-    
+    func handleTransporterAndConnect()
+    func adapterDidConnect()
 }
+
 
 class OBD2EventHandler: OBD2EventHandlerProtocol {
     weak var viewController: OBD2ViewControllerProtocol?
@@ -22,4 +24,11 @@ class OBD2EventHandler: OBD2EventHandlerProtocol {
         self.router = router
     }
     
+    func handleTransporterAndConnect() {
+        interactor.setupTransporterAndConnect()
+    }
+    
+    func adapterDidConnect() {
+        viewController?.updateConnectionStatus(isConnected: true)
+    }
 }

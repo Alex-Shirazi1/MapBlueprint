@@ -16,6 +16,7 @@
 		5CBAED5A2B6B0A7E006C1A34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBAED582B6B0A7E006C1A34 /* Main.storyboard */; };
 		5CBAED5C2B6B0A7F006C1A34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBAED5B2B6B0A7F006C1A34 /* Assets.xcassets */; };
 		5CBAED5F2B6B0A7F006C1A34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBAED5D2B6B0A7F006C1A34 /* LaunchScreen.storyboard */; };
+		5CE4C6292B741AA3003314E7 /* OBD2MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */; };
 		5CEF42902B719C97007C0951 /* OBD2DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */; };
 		5CEF42922B719CA1007C0951 /* OBD2EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */; };
 		5CEF42942B719CA9007C0951 /* OBD2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */; };
@@ -52,6 +53,7 @@
 		5CBAED5B2B6B0A7F006C1A34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CBAED5E2B6B0A7F006C1A34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CBAED602B6B0A7F006C1A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2MetaData.swift; sourceTree = "<group>"; };
 		5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2DataManager.swift; sourceTree = "<group>"; };
 		5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2EventHandler.swift; sourceTree = "<group>"; };
 		5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2ViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */,
 				5CB51AA12B7408BE004B952A /* OBDData.swift */,
 				5CB51AA32B740C20004B952A /* OBDPID.swift */,
+				5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				5CEF42902B719C97007C0951 /* OBD2DataManager.swift in Sources */,
 				5CF230502B6B0CAE00A9E7C6 /* HomeRouter.swift in Sources */,
 				5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */,
+				5CE4C6292B741AA3003314E7 /* OBD2MetaData.swift in Sources */,
 				5CF230602B6B117700A9E7C6 /* TermsViewController.swift in Sources */,
 				5CEF42982B719CBC007C0951 /* OBD2Router.swift in Sources */,
 				5CF230592B6B10E300A9E7C6 /* SettingsInteractor.swift in Sources */,
