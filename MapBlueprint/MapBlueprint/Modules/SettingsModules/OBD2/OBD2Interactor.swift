@@ -22,9 +22,6 @@ class OBD2Interactor: OBD2InteractorProtocol {
     var obd2Adapter: LTOBD2Adapter?
     weak var eventHandler: OBD2EventHandlerProtocol?
     
-    let serviceUUIDs = [
-        CBUUID(string: "18F0")
-    ]
     var outgoingBytesNotification = UILabel()
     var incomingBytesNotification = UILabel()
     
@@ -33,7 +30,7 @@ class OBD2Interactor: OBD2InteractorProtocol {
     }
     
     func setupTransporterAndConnect() {
-        transporter = LTBTLESerialTransporter(identifier: nil, serviceUUIDs: serviceUUIDs)
+        transporter = LTBTLESerialTransporter(identifier: nil, serviceUUIDs: OBD2MetaData.UUIDs)
         transporter?.connect { [weak self] (inputStream, outputStream) in
             guard let self = self, let inputStream = inputStream, let outputStream = outputStream else {
                 print("Could not connect to OBD2 adapter")
