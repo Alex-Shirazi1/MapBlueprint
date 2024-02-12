@@ -9,7 +9,9 @@ import Foundation
 import LTSupportAutomotive
 
 struct OBD2MetaData {
-    static let UUIDs = [CBUUID(string: "18F0")]
+    static let UUIDs = [
+        CBUUID(string: "18F0")
+    ]
     static let commandSupport = "ELM237"
     
 }

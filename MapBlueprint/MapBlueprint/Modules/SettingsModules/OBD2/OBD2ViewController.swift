@@ -16,6 +16,7 @@ protocol OBD2ViewControllerProtocol: AnyObject {
 class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     var eventHandler: OBD2EventHandlerProtocol?
     private let connectButton = UIButton()
+    private let disconnectButton = UIButton()
     private let statusLabel = UILabel()
     
     
@@ -42,6 +43,11 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         connectButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(connectButton)
         
+        disconnectButton.setTitle("Disconnect", for: .normal)
+        disconnectButton.backgroundColor = .red
+        disconnectButton.translatesAutoresizingMaskIntoConstraints = false
+        disconnectButton.isHidden = true
+        view.addSubview(disconnectButton)
         
         statusLabel.text = "Not Connected"
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -54,18 +60,29 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
             connectButton.widthAnchor.constraint(equalToConstant: 200),
             connectButton.heightAnchor.constraint(equalToConstant: 50),
             
-            statusLabel.topAnchor.constraint(equalTo: connectButton.bottomAnchor, constant: 20),
+            disconnectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            disconnectButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
+            disconnectButton.widthAnchor.constraint(equalToConstant: 200),
+            disconnectButton.heightAnchor.constraint(equalToConstant: 50),
+            statusLabel.topAnchor.constraint(equalTo: disconnectButton.bottomAnchor, constant: 20),
             statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             
         ])
         
         connectButton.addTarget(self, action: #selector(connectButtonPressed), for: .touchUpInside)
+        disconnectButton.addTarget(self, action: #selector(disconnectButtonPressed), for: .touchUpInside)
+        
     }
     
     @objc func connectButtonPressed() {
         statusLabel.text = "User Activating"
         eventHandler?.handleTransporterAndConnect()
+    }
+    @objc func disconnectButtonPressed() {
+        eventHandler?.handleDisconnect()
+        self.connectButton.isHidden = false
+        self.disconnectButton.isHidden = true
     }
     
     
@@ -73,6 +90,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         DispatchQueue.main.async {
             self.statusLabel.text = status
             self.connectButton.isHidden = true
+            self.disconnectButton.isHidden = false
         }
     }
 }

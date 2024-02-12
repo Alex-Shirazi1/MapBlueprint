@@ -13,6 +13,7 @@ import LTSupportAutomotive
 protocol OBD2InteractorProtocol: AnyObject {
     var eventHandler: OBD2EventHandlerProtocol? { get set }
     func setupTransporterAndConnect()
+    func disconnectAdapter()
 }
 
 class OBD2Interactor: OBD2InteractorProtocol {
@@ -90,5 +91,10 @@ class OBD2Interactor: OBD2InteractorProtocol {
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func disconnectAdapter() {
+        obd2Adapter?.disconnect()
+        transporter?.disconnect()
     }
 }
