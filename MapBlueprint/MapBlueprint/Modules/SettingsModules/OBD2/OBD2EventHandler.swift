@@ -10,25 +10,26 @@ import Foundation
 protocol OBD2EventHandlerProtocol: AnyObject {
     var viewController: OBD2ViewControllerProtocol? { get set }
     func handleTransporterAndConnect()
-    func adapterDidConnect()
+    func adapterDidConnect(status: String)
 }
 
+import Foundation
 
 class OBD2EventHandler: OBD2EventHandlerProtocol {
     weak var viewController: OBD2ViewControllerProtocol?
     let interactor: OBD2InteractorProtocol
     let router: OBD2RouterProtocol
-    
+
     init(interactor: OBD2InteractorProtocol, router: OBD2RouterProtocol) {
         self.interactor = interactor
         self.router = router
     }
-    
+
     func handleTransporterAndConnect() {
         interactor.setupTransporterAndConnect()
     }
-    
-    func adapterDidConnect() {
-        viewController?.updateConnectionStatus(isConnected: true)
+
+    func adapterDidConnect(status: String) {
+        viewController?.updateConnectionStatus(status: status)
     }
 }

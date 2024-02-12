@@ -25,10 +25,12 @@ class OBD2Router: OBD2RouterProtocol {
     
     static func createModule(navigationViewController navigationViewController: UINavigationController, settingsViewController: SettingsViewControllerProtocol) -> UIViewController {
         
-        let interactor: OBD2InteractorProtocol = OBD2Interactor()
+        let interactor: OBD2InteractorProtocol = OBD2Interactor(dataManager: OBD2DataManager())
         let router: OBD2Router = OBD2Router(navigationController: navigationViewController, settingsViewController: settingsViewController)
         let eventHandler: OBD2EventHandlerProtocol = OBD2EventHandler(interactor: interactor, router: router)
         let viewController = OBD2ViewController(eventHandler: eventHandler)
+        eventHandler.viewController = viewController
+        interactor.eventHandler = eventHandler
         eventHandler.viewController = viewController
         return viewController
     }
