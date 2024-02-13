@@ -44,16 +44,10 @@ struct SimpleEntry: TimelineEntry {
 
 struct FuelComplicationEntryView : View {
     var entry: Provider.Entry
-
+    
     var body: some View {
         VStack {
-            HStack {
-                Text("Time:")
-                Text(entry.date, style: .time)
-            }
-        
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
+            Text("13.1 G")
         }
     }
 }
