@@ -6,9 +6,24 @@
 //
 
 import UIKit
+import CarPlay
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CPApplicationDelegate{
+   
+    var window: UIWindow?
+    var carPlayWindow: CPWindow?
+    
+    func application(_ application: UIApplication, didConnectCarInterfaceController interfaceController: CPInterfaceController, to window: CPWindow) {
+        self.carPlayWindow = window
+              let carPlaySceneDelegate = CarPlaySceneDelegate(interfaceController: interfaceController, window: window)
+              window.rootViewController = carPlaySceneDelegate.createCarPlayRootViewController()
+          }
+    
+    func application(_ application: UIApplication, didDisconnectCarInterfaceController interfaceController: CPInterfaceController, from window: CPWindow) {
+        self.carPlayWindow = nil
+    }
+    
 
 
 
