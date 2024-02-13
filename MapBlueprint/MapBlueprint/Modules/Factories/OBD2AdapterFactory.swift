@@ -8,6 +8,9 @@
 import Foundation
 
 class OBD2AdapterFactory {
+    
+    //TODO: TRANSITION OBD CONTROL TO THIS FACTORY FROM INTERACTOR TO CLEAN UP CODE AND UTILIZE DATAMANAGER TO HANDLE THIS FACTORY LOGIC
+    
     static let shared = OBD2AdapterFactory()
     private var interactor: OBD2Interactor?
 
