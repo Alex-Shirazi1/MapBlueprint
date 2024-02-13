@@ -26,6 +26,12 @@
 		5CBD617F2B7B447C009B00B5 /* MapBlueprintCompanion_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD617E2B7B447C009B00B5 /* MapBlueprintCompanion_Watch_AppUITestsLaunchTests.swift */; };
 		5CBD61822B7B447C009B00B5 /* MapBlueprintCompanion Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5CBD615F2B7B447B009B00B5 /* MapBlueprintCompanion Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CE4C6292B741AA3003314E7 /* OBD2MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */; };
+		5CE57A802B7B5D0D005F3444 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
+		5CE57A822B7B5D0D005F3444 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
+		5CE57A852B7B5D0D005F3444 /* FuelComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE57A842B7B5D0D005F3444 /* FuelComplication.swift */; };
+		5CE57A872B7B5D0D005F3444 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE57A862B7B5D0D005F3444 /* AppIntent.swift */; };
+		5CE57A892B7B5D14005F3444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE57A882B7B5D14005F3444 /* Assets.xcassets */; };
+		5CE57A8D2B7B5D14005F3444 /* FuelComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CEF42902B719C97007C0951 /* OBD2DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */; };
 		5CEF42922B719CA1007C0951 /* OBD2EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */; };
 		5CEF42942B719CA9007C0951 /* OBD2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */; };
@@ -70,6 +76,13 @@
 			remoteGlobalIDString = 5CBD615E2B7B447B009B00B5;
 			remoteInfo = "MapBlueprintCompanion Watch App";
 		};
+		5CE57A8B2B7B5D14005F3444 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CE57A7D2B7B5D0D005F3444;
+			remoteInfo = FuelComplicationExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +95,17 @@
 				5CBD61822B7B447C009B00B5 /* MapBlueprintCompanion Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE57A8E2B7B5D14005F3444 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5CE57A8D2B7B5D14005F3444 /* FuelComplicationExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -112,6 +136,13 @@
 		5CBD617C2B7B447C009B00B5 /* MapBlueprintCompanion_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBlueprintCompanion_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		5CBD617E2B7B447C009B00B5 /* MapBlueprintCompanion_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBlueprintCompanion_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2MetaData.swift; sourceTree = "<group>"; };
+		5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FuelComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5CE57A842B7B5D0D005F3444 /* FuelComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelComplication.swift; sourceTree = "<group>"; };
+		5CE57A862B7B5D0D005F3444 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		5CE57A882B7B5D14005F3444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CE57A8A2B7B5D14005F3444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2DataManager.swift; sourceTree = "<group>"; };
 		5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2EventHandler.swift; sourceTree = "<group>"; };
 		5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +195,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CE57A7B2B7B5D0D005F3444 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE57A822B7B5D0D005F3444 /* SwiftUI.framework in Frameworks */,
+				5CE57A802B7B5D0D005F3444 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -171,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				187B80FF985F8F9A3F3335A0 /* Pods_MapBlueprint.framework */,
+				5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */,
+				5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,6 +224,7 @@
 				5CBD61602B7B447B009B00B5 /* MapBlueprintCompanion Watch App */,
 				5CBD61712B7B447C009B00B5 /* MapBlueprintCompanion Watch AppTests */,
 				5CBD617B2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests */,
+				5CE57A832B7B5D0D005F3444 /* FuelComplication */,
 				5CBAED502B6B0A7E006C1A34 /* Products */,
 				E239000E860E912F1F881502 /* Pods */,
 				444DD090AE941CACEBE8AB4F /* Frameworks */,
@@ -195,6 +238,7 @@
 				5CBD615F2B7B447B009B00B5 /* MapBlueprintCompanion Watch App.app */,
 				5CBD616E2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppTests.xctest */,
 				5CBD61782B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests.xctest */,
+				5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,6 +294,17 @@
 				5CBD617E2B7B447C009B00B5 /* MapBlueprintCompanion_Watch_AppUITestsLaunchTests.swift */,
 			);
 			path = "MapBlueprintCompanion Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		5CE57A832B7B5D0D005F3444 /* FuelComplication */ = {
+			isa = PBXGroup;
+			children = (
+				5CE57A842B7B5D0D005F3444 /* FuelComplication.swift */,
+				5CE57A862B7B5D0D005F3444 /* AppIntent.swift */,
+				5CE57A882B7B5D14005F3444 /* Assets.xcassets */,
+				5CE57A8A2B7B5D14005F3444 /* Info.plist */,
+			);
+			path = FuelComplication;
 			sourceTree = "<group>";
 		};
 		5CEF428E2B719C80007C0951 /* OBD2 */ = {
@@ -361,10 +416,12 @@
 				5CBD615B2B7B447B009B00B5 /* Sources */,
 				5CBD615C2B7B447B009B00B5 /* Frameworks */,
 				5CBD615D2B7B447B009B00B5 /* Resources */,
+				5CE57A8E2B7B5D14005F3444 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5CE57A8C2B7B5D14005F3444 /* PBXTargetDependency */,
 			);
 			name = "MapBlueprintCompanion Watch App";
 			productName = "MapBlueprintCompanion Watch App";
@@ -407,6 +464,23 @@
 			productReference = 5CBD61782B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5CE57A7D2B7B5D0D005F3444 /* FuelComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE57A912B7B5D14005F3444 /* Build configuration list for PBXNativeTarget "FuelComplicationExtension" */;
+			buildPhases = (
+				5CE57A7A2B7B5D0D005F3444 /* Sources */,
+				5CE57A7B2B7B5D0D005F3444 /* Frameworks */,
+				5CE57A7C2B7B5D0D005F3444 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FuelComplicationExtension;
+			productName = FuelComplicationExtension;
+			productReference = 5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -431,6 +505,9 @@
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 5CBD615E2B7B447B009B00B5;
 					};
+					5CE57A7D2B7B5D0D005F3444 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 				};
 			};
 			buildConfigurationList = 5CBAED4A2B6B0A7E006C1A34 /* Build configuration list for PBXProject "MapBlueprint" */;
@@ -450,6 +527,7 @@
 				5CBD615E2B7B447B009B00B5 /* MapBlueprintCompanion Watch App */,
 				5CBD616D2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppTests */,
 				5CBD61772B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests */,
+				5CE57A7D2B7B5D0D005F3444 /* FuelComplicationExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -485,6 +563,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE57A7C2B7B5D0D005F3444 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE57A892B7B5D14005F3444 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +679,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CE57A7A2B7B5D0D005F3444 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE57A852B7B5D0D005F3444 /* FuelComplication.swift in Sources */,
+				5CE57A872B7B5D0D005F3444 /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -610,6 +705,11 @@
 			isa = PBXTargetDependency;
 			target = 5CBD615E2B7B447B009B00B5 /* MapBlueprintCompanion Watch App */;
 			targetProxy = 5CBD61802B7B447C009B00B5 /* PBXContainerItemProxy */;
+		};
+		5CE57A8C2B7B5D14005F3444 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CE57A7D2B7B5D0D005F3444 /* FuelComplicationExtension */;
+			targetProxy = 5CE57A8B2B7B5D14005F3444 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -815,6 +915,7 @@
 		5CBD61842B7B447C009B00B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -846,6 +947,7 @@
 		5CBD61852B7B447C009B00B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -960,6 +1062,68 @@
 			};
 			name = Release;
 		};
+		5CE57A8F2B7B5D14005F3444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FuelComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.FuelComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5CE57A902B7B5D14005F3444 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FuelComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FuelComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.FuelComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1004,6 +1168,15 @@
 			buildConfigurations = (
 				5CBD61882B7B447C009B00B5 /* Debug */,
 				5CBD61892B7B447C009B00B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE57A912B7B5D14005F3444 /* Build configuration list for PBXNativeTarget "FuelComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE57A8F2B7B5D14005F3444 /* Debug */,
+				5CE57A902B7B5D14005F3444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
