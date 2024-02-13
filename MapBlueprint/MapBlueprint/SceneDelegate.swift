@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        // TODO: Add settings such that if autoconnect is enabled, this works, other wise we should skip this line
         OBD2AdapterFactory.shared.setupAndConnect()
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
