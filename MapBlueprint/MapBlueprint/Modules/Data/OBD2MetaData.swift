@@ -1,14 +1,20 @@
 //
-//  OBDData.swift
+//  OBD2MetaData.swift
 //  MapBlueprint
 //
 //  Created by Alex Shirazi on 2/7/24.
 //
 
 import Foundation
+import LTSupportAutomotive
 
-
-class OBDData {
+struct OBD2MetaData {
+    static let UUIDs = [
+        CBUUID(string: "18F0")
+    ]
+    
+    static let commandSupport = "ELM237"
+    
     static let pidInfo: [OBDPID: PIDInfo] = [
         .Engine_Coolant_Temperature: PIDInfo(pid: "0x05", description: "Engine coolant temperature", units: "°C"),
         .Engine_Oil_Temperature: PIDInfo(pid: "0x5C", description: "Engine oil temperature", units: "°C"),
@@ -22,5 +28,3 @@ class OBDData {
         return pidInfo[pid]
     }
 }
-
-

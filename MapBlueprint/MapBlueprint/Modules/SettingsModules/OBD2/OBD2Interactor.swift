@@ -17,6 +17,9 @@ protocol OBD2InteractorProtocol: AnyObject {
 }
 
 class OBD2Interactor: OBD2InteractorProtocol {
+    
+    static let shared = OBD2Interactor()
+    
     let dataManager: OBD2DataManagerProtocol
     var transporter: LTBTLESerialTransporter?
     var obd2Adapter: LTOBD2Adapter?

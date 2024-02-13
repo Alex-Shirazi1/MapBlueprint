@@ -47,4 +47,5 @@ class TermsViewController: UIViewController {
             textView.heightAnchor.constraint(equalTo: textView.widthAnchor)
         ])
     }
+    
 }
