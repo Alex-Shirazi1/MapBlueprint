@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */; };
 		5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */; };
+		5CB3A85C2B7CBE10002A9C49 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
+		5CB3A85D2B7CBE10002A9C49 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
+		5CB3A8602B7CBE10002A9C49 /* CoffeeComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3A85F2B7CBE10002A9C49 /* CoffeeComplication.swift */; };
+		5CB3A8622B7CBE10002A9C49 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3A8612B7CBE10002A9C49 /* AppIntent.swift */; };
+		5CB3A8642B7CBE11002A9C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3A8632B7CBE11002A9C49 /* Assets.xcassets */; };
+		5CB3A8682B7CBE11002A9C49 /* CoffeeComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CB51AA22B7408BE004B952A /* OBDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB51AA12B7408BE004B952A /* OBDData.swift */; };
 		5CB51AA42B740C20004B952A /* OBDPID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB51AA32B740C20004B952A /* OBDPID.swift */; };
 		5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */; };
@@ -59,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5CB3A8662B7CBE11002A9C49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CB3A85A2B7CBE10002A9C49;
+			remoteInfo = CoffeeComplicationExtension;
+		};
 		5CBD616F2B7B447C009B00B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
@@ -107,6 +120,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				5CB3A8682B7CBE11002A9C49 /* CoffeeComplicationExtension.appex in Embed Foundation Extensions */,
 				5CE57A8D2B7B5D14005F3444 /* FuelComplicationExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -119,6 +133,14 @@
 		502E91AD998CC0A44D3088C0 /* Pods-MapBlueprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBlueprint.release.xcconfig"; path = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.release.xcconfig"; sourceTree = "<group>"; };
 		5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDInfo.swift; sourceTree = "<group>"; };
 		5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
+		5CB3A8542B7CB538002A9C49 /* MapBlueprint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapBlueprint.entitlements; sourceTree = "<group>"; };
+		5CB3A8552B7CB554002A9C49 /* MapBlueprintCompanion Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MapBlueprintCompanion Watch App.entitlements"; sourceTree = "<group>"; };
+		5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FuelComplicationExtension.entitlements; sourceTree = "<group>"; };
+		5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CoffeeComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB3A85F2B7CBE10002A9C49 /* CoffeeComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeComplication.swift; sourceTree = "<group>"; };
+		5CB3A8612B7CBE10002A9C49 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		5CB3A8632B7CBE11002A9C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CB3A8652B7CBE11002A9C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CB51AA12B7408BE004B952A /* OBDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDData.swift; sourceTree = "<group>"; };
 		5CB51AA32B740C20004B952A /* OBDPID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDPID.swift; sourceTree = "<group>"; };
 		5CBAED4F2B6B0A7E006C1A34 /* MapBlueprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapBlueprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +196,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5CB3A8582B7CBE10002A9C49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB3A85D2B7CBE10002A9C49 /* SwiftUI.framework in Frameworks */,
+				5CB3A85C2B7CBE10002A9C49 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBAED4C2B6B0A7E006C1A34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,14 +256,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5CB3A85E2B7CBE10002A9C49 /* CoffeeComplication */ = {
+			isa = PBXGroup;
+			children = (
+				5CB3A85F2B7CBE10002A9C49 /* CoffeeComplication.swift */,
+				5CB3A8612B7CBE10002A9C49 /* AppIntent.swift */,
+				5CB3A8632B7CBE11002A9C49 /* Assets.xcassets */,
+				5CB3A8652B7CBE11002A9C49 /* Info.plist */,
+			);
+			path = CoffeeComplication;
+			sourceTree = "<group>";
+		};
 		5CBAED462B6B0A7E006C1A34 = {
 			isa = PBXGroup;
 			children = (
+				5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */,
 				5CBAED512B6B0A7E006C1A34 /* MapBlueprint */,
 				5CBD61602B7B447B009B00B5 /* MapBlueprintCompanion Watch App */,
 				5CBD61712B7B447C009B00B5 /* MapBlueprintCompanion Watch AppTests */,
 				5CBD617B2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests */,
 				5CE57A832B7B5D0D005F3444 /* FuelComplication */,
+				5CB3A85E2B7CBE10002A9C49 /* CoffeeComplication */,
 				5CBAED502B6B0A7E006C1A34 /* Products */,
 				E239000E860E912F1F881502 /* Pods */,
 				444DD090AE941CACEBE8AB4F /* Frameworks */,
@@ -247,6 +291,7 @@
 				5CBD616E2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppTests.xctest */,
 				5CBD61782B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests.xctest */,
 				5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */,
+				5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,6 +299,7 @@
 		5CBAED512B6B0A7E006C1A34 /* MapBlueprint */ = {
 			isa = PBXGroup;
 			children = (
+				5CB3A8542B7CB538002A9C49 /* MapBlueprint.entitlements */,
 				5CF230632B6B119B00A9E7C6 /* Modules */,
 				5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */,
 				5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */,
@@ -271,6 +317,7 @@
 		5CBD61602B7B447B009B00B5 /* MapBlueprintCompanion Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				5CB3A8552B7CB554002A9C49 /* MapBlueprintCompanion Watch App.entitlements */,
 				5CBD61612B7B447B009B00B5 /* MapBlueprintCompanionApp.swift */,
 				5CBD61632B7B447B009B00B5 /* ContentView.swift */,
 				5CBD61652B7B447C009B00B5 /* Assets.xcassets */,
@@ -416,6 +463,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CB3A8692B7CBE11002A9C49 /* Build configuration list for PBXNativeTarget "CoffeeComplicationExtension" */;
+			buildPhases = (
+				5CB3A8572B7CBE10002A9C49 /* Sources */,
+				5CB3A8582B7CBE10002A9C49 /* Frameworks */,
+				5CB3A8592B7CBE10002A9C49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoffeeComplicationExtension;
+			productName = CoffeeComplicationExtension;
+			productReference = 5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5CBAED4E2B6B0A7E006C1A34 /* MapBlueprint */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CBAED632B6B0A7F006C1A34 /* Build configuration list for PBXNativeTarget "MapBlueprint" */;
@@ -450,6 +514,7 @@
 			);
 			dependencies = (
 				5CE57A8C2B7B5D14005F3444 /* PBXTargetDependency */,
+				5CB3A8672B7CBE11002A9C49 /* PBXTargetDependency */,
 			);
 			name = "MapBlueprintCompanion Watch App";
 			productName = "MapBlueprintCompanion Watch App";
@@ -519,6 +584,9 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					5CB3A85A2B7CBE10002A9C49 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					5CBAED4E2B6B0A7E006C1A34 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -556,11 +624,20 @@
 				5CBD616D2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppTests */,
 				5CBD61772B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests */,
 				5CE57A7D2B7B5D0D005F3444 /* FuelComplicationExtension */,
+				5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5CB3A8592B7CBE10002A9C49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB3A8642B7CBE11002A9C49 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBAED4D2B6B0A7E006C1A34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,6 +724,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5CB3A8572B7CBE10002A9C49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB3A8602B7CBE10002A9C49 /* CoffeeComplication.swift in Sources */,
+				5CB3A8622B7CBE10002A9C49 /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CBAED4B2B6B0A7E006C1A34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -723,6 +809,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5CB3A8672B7CBE11002A9C49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */;
+			targetProxy = 5CB3A8662B7CBE11002A9C49 /* PBXContainerItemProxy */;
+		};
 		5CBD61702B7B447C009B00B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5CBD615E2B7B447B009B00B5 /* MapBlueprintCompanion Watch App */;
@@ -765,6 +856,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5CB3A86A2B7CBE11002A9C49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoffeeComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoffeeComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.CoffeeComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5CB3A86B2B7CBE11002A9C49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoffeeComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoffeeComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.CoffeeComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 		5CBAED612B6B0A7F006C1A34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -891,6 +1044,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MapBlueprint/MapBlueprint.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NP96938VJW;
@@ -921,6 +1075,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MapBlueprint/MapBlueprint.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NP96938VJW;
@@ -950,6 +1105,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "MapBlueprintCompanion Watch App/MapBlueprintCompanion Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MapBlueprintCompanion Watch App/Preview Content\"";
@@ -982,6 +1138,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "MapBlueprintCompanion Watch App/MapBlueprintCompanion Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MapBlueprintCompanion Watch App/Preview Content\"";
@@ -1099,6 +1256,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FuelComplicationExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NP96938VJW;
@@ -1130,6 +1288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FuelComplicationExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NP96938VJW;
@@ -1159,6 +1318,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5CB3A8692B7CBE11002A9C49 /* Build configuration list for PBXNativeTarget "CoffeeComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CB3A86A2B7CBE11002A9C49 /* Debug */,
+				5CB3A86B2B7CBE11002A9C49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5CBAED4A2B6B0A7E006C1A34 /* Build configuration list for PBXProject "MapBlueprint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

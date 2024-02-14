@@ -33,6 +33,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
+        updateConnectionStatus(status: eventHandler?.getStatus() ?? "unable to load")
     }
     func updateConnectionStatus(status: String) {
         DispatchQueue.main.async {
@@ -87,11 +88,13 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     @objc func connectButtonPressed() {
         statusLabel.text = "User Activating"
         eventHandler?.handleTransporterAndConnect()
+        updateConnectionStatus(status: eventHandler?.getStatus() ?? "Unable to Load Status")
     }
     @objc func disconnectButtonPressed() {
         eventHandler?.handleDisconnect()
         self.connectButton.isHidden = false
         self.disconnectButton.isHidden = true
+        updateConnectionStatus(status: eventHandler?.getStatus() ?? "Unable to Load Status")
     }
     
     

@@ -1,13 +1,12 @@
 //
 //  AppIntent.swift
-//  FuelComplication
+//  CoffeeComplication
 //
-//  Created by Alex Shirazi on 2/13/24.
+//  Created by Alex Shirazi on 2/14/24.
 //
 
 import WidgetKit
 import AppIntents
-
 
 struct ConfigurationAppIntent: WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Configuration"

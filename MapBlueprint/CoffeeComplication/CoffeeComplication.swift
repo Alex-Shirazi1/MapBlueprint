@@ -1,6 +1,6 @@
 //
-//  FuelComplication.swift
-//  FuelComplication
+//  CoffeeComplication.swift
+//  CoffeeComplication
 //
 //  Created by Alex Shirazi on 2/14/24.
 //
@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), fuelLevel: fetchFuelLevel())
+        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration, fuelLevel: fetchFuelLevel())
+        SimpleEntry(date: Date(), configuration: configuration)
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
@@ -24,7 +24,7 @@ struct Provider: AppIntentTimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, fuelLevel: fetchFuelLevel())
+            let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
 
@@ -33,40 +33,32 @@ struct Provider: AppIntentTimelineProvider {
 
     func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
         // Create an array with all the preconfigured widgets to show.
-        [AppIntentRecommendation(intent: ConfigurationAppIntent(), description: "Fuel level Widget")]
-    }
-    private func fetchFuelLevel() -> Double {
-        print("ELLO:/ FETCHING FUEL LEVEL")
-        let defaults = UserDefaults(suiteName: "group.shirazi")
-        return defaults?.double(forKey: "fuelLevelGallons") ?? 4.0
+        [AppIntentRecommendation(intent: ConfigurationAppIntent(), description: "Coffee Widget")]
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
-    let fuelLevel: Double
 }
 
-struct FuelComplicationEntryView : View {
+struct CoffeeComplicationEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
         VStack {
-            Text(String(format: "%.2f", entry.fuelLevel))
-            Text("L")
+            Text("123")
         }
-        
     }
 }
 
 @main
-struct FuelComplication: Widget {
-    let kind: String = "FuelComplication"
+struct CoffeeComplication: Widget {
+    let kind: String = "CoffeeComplication"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            FuelComplicationEntryView(entry: entry)
+            CoffeeComplicationEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
     }
@@ -87,8 +79,8 @@ extension ConfigurationAppIntent {
 }
 
 #Preview(as: .accessoryRectangular) {
-    FuelComplication()
+    CoffeeComplication()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley, fuelLevel: 2.0)
-    SimpleEntry(date: .now, configuration: .starEyes, fuelLevel: 3.0)
-}
+    SimpleEntry(date: .now, configuration: .smiley)
+    SimpleEntry(date: .now, configuration: .starEyes)
+}    

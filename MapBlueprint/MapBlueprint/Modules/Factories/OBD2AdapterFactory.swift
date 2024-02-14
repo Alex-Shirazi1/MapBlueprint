@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import CoreBluetooth
 import LTSupportAutomotive
+import WidgetKit
 
 class OBD2AdapterFactory {
     
@@ -20,6 +21,8 @@ class OBD2AdapterFactory {
     
     var outgoingBytesNotification = UILabel()
     var incomingBytesNotification = UILabel()
+    
+    private var fuelLevelUpdateTimer: Timer?
     
     
     func setupTransporterAndConnect() {
@@ -36,6 +39,31 @@ class OBD2AdapterFactory {
         }
     }
     
+    func fetchDataFor(pidInfo: PIDInfo, completion: @escaping (String?) -> Void) {
+        guard let obd2Adapter = self.obd2Adapter else {
+            print("Adapter not initialized")
+            completion(nil)
+            return
+        }
+
+        let commandString = "01 " + pidInfo.pid.replacingOccurrences(of: "0x", with: "")
+        let command = LTOBD2Command(string: commandString)
+
+        obd2Adapter.transmitCommand(command) { response in
+            let rawValueString = response.formattedResponse
+            
+            
+            if rawValueString != "NO DATA", !rawValueString.contains("?") {
+                completion(rawValueString)
+            } else {
+                print("Error retrieving data for PID: \(pidInfo.pid)")
+                completion(nil)
+            }
+        }
+    }
+
+
+    
     func getStatus() -> String {
          if let adapterState = obd2Adapter?.friendlyAdapterState {
              return adapterState
@@ -45,13 +73,16 @@ class OBD2AdapterFactory {
      }
     
     @objc private func adapterDidConnect(notification: Notification) {
-        
+    }   
+    
+    @objc private func adapterDidDisconnect(notification: Notification) {
     }
     
     @objc private func adapterDidUpdateState(_ notification: Notification) {
         let state = getStatus()
         DispatchQueue.main.async {
             self.eventHandler?.adapterDidConnect(status: state)
+            self.startFuelLevelPolling()
         }
     }
     
@@ -86,13 +117,58 @@ class OBD2AdapterFactory {
         NotificationCenter.default.addObserver(self, selector: #selector(transporterDidUpdateSignalStrength(_:)), name: NSNotification.Name(LTBTLESerialTransporterDidUpdateSignalStrength), object: transporter)
         NotificationCenter.default.addObserver(self, selector: #selector(adapterDidSendBytes(_:)), name: NSNotification.Name(LTOBD2AdapterDidSend), object: obd2Adapter)
         NotificationCenter.default.addObserver(self, selector: #selector(adapterDidReceiveBytes(_:)), name: NSNotification.Name(LTOBD2AdapterDidReceive), object: obd2Adapter)
+        
     }
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     func disconnectAdapter() {
+        self.stopFuelLevelPolling()
         obd2Adapter?.disconnect()
         transporter?.disconnect()
     }
 }
+
+
+extension OBD2AdapterFactory {
+     
+
+        func startFuelLevelPolling(interval: TimeInterval = 5.0) {
+            print("LOLZZ BEGIN FUEL TRACK")
+            fuelLevelUpdateTimer?.invalidate()
+            fuelLevelUpdateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+                self?.updateFuelLevelForComplication()
+            }
+        }
+
+        func stopFuelLevelPolling() {
+            print("LOLZZ END FUEL TRACK")
+            fuelLevelUpdateTimer?.invalidate()
+        }
+
+        private func updateFuelLevelForComplication() {
+                guard let fuelPIDInfo = OBD2MetaData.getPIDInfo(for: .Fuel_Tank_Level_Input) else {
+                    return
+                }
+
+            fetchDataFor(pidInfo: fuelPIDInfo, completion: { [weak self] rawValue in
+                if let rawValue = rawValue, let hexValue = UInt8(rawValue, radix: 16) {
+                    let fuelLevelPercentage = Double(hexValue) / 255.0 * 100.0
+                    print("Fuel Level: \(fuelLevelPercentage)%")
+
+                    let totalGallons = 13.0 // TODO - Make settings configurable such we can define the tank size
+                    let gallonsLeft = totalGallons * (fuelLevelPercentage / 100.0)
+
+                  
+                    let defaults = UserDefaults(suiteName: "group.shirazi")
+                    defaults?.set(gallonsLeft, forKey: "fuelLevelGallons")
+
+                    WidgetCenter.shared.reloadAllTimelines()
+                } else {
+                    print("Invalid or nil raw value received for fuel level.")
+                }
+            })
+        }
+
+    }
