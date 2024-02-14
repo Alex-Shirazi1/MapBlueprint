@@ -10,8 +10,25 @@ import UIKit
 import CoreBluetooth
 import LTSupportAutomotive
 import WidgetKit
+import WatchConnectivity
 
-class OBD2AdapterFactory {
+class OBD2AdapterFactory: NSObject, WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let error = error {
+             print("WCSession error: \(error.localizedDescription)")
+             return
+         }
+         print("WCSession activated: \(activationState.rawValue)")
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WCSession inactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("WCSession deactivated")
+    }
+    
     
     static let shared = OBD2AdapterFactory()
     
@@ -24,7 +41,17 @@ class OBD2AdapterFactory {
     
     private var fuelLevelUpdateTimer: Timer?
     
-    
+    override init() {
+        super.init()
+        setupWatchConnection()
+    }
+     func setupWatchConnection() {
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
+    }
     func setupTransporterAndConnect() {
         transporter = LTBTLESerialTransporter(identifier: nil, serviceUUIDs: OBD2MetaData.UUIDs)
         transporter?.connect { [weak self] (inputStream, outputStream) in
@@ -134,41 +161,56 @@ class OBD2AdapterFactory {
 extension OBD2AdapterFactory {
      
 
-        func startFuelLevelPolling(interval: TimeInterval = 5.0) {
-            print("LOLZZ BEGIN FUEL TRACK")
-            fuelLevelUpdateTimer?.invalidate()
-            fuelLevelUpdateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
-                self?.updateFuelLevelForComplication()
-            }
-        }
+    func startFuelLevelPolling(interval: TimeInterval = 5.0) {
+         print("Starting fuel level tracking")
+         fuelLevelUpdateTimer?.invalidate()
+         fuelLevelUpdateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+             guard let self = self else {
+                 return
+             }
+             let fuelLevel = self.updateFuelLevel()
+             self.sendFuelDataToWatch(fuelLevel: fuelLevel)
+         }
+     }
 
         func stopFuelLevelPolling() {
-            print("LOLZZ END FUEL TRACK")
+            print("END FUEL TRACK")
             fuelLevelUpdateTimer?.invalidate()
         }
 
-        private func updateFuelLevelForComplication() {
-                guard let fuelPIDInfo = OBD2MetaData.getPIDInfo(for: .Fuel_Tank_Level_Input) else {
-                    return
-                }
+    func updateFuelLevel() -> Double {
+         var fuelLevel: Double = 0.0
+         let semaphore = DispatchSemaphore(value: 0)
 
-            fetchDataFor(pidInfo: fuelPIDInfo, completion: { [weak self] rawValue in
-                if let rawValue = rawValue, let hexValue = UInt8(rawValue, radix: 16) {
-                    let fuelLevelPercentage = Double(hexValue) / 255.0 * 100.0
-                    print("Fuel Level: \(fuelLevelPercentage)%")
+         guard let fuelPIDInfo = OBD2MetaData.getPIDInfo(for: .Fuel_Tank_Level_Input) else {
+             return 0.0
+         }
 
-                    let totalGallons = 13.0 // TODO - Make settings configurable such we can define the tank size
-                    let gallonsLeft = totalGallons * (fuelLevelPercentage / 100.0)
+         fetchDataFor(pidInfo: fuelPIDInfo, completion: { rawValue in
+             if let rawValue = rawValue, let hexValue = UInt8(rawValue, radix: 16) {
+                 let fuelLevelPercentage = Double(hexValue) / 255.0 * 100.0
+                 print("Fuel Level: \(fuelLevelPercentage)%")
 
-                  
-                    let defaults = UserDefaults(suiteName: "group.shirazi")
-                    defaults?.set(gallonsLeft, forKey: "fuelLevelGallons")
+                 let totalGallons = 13.7 // Change later to include app configurable max
+                 fuelLevel = totalGallons * (fuelLevelPercentage / 100.0)
+             } else {
+                 print("Invalid or nil raw value received for fuel level.")
+             }
+             semaphore.signal()
+         })
 
-                    WidgetCenter.shared.reloadAllTimelines()
-                } else {
-                    print("Invalid or nil raw value received for fuel level.")
-                }
-            })
+         semaphore.wait()
+         return fuelLevel
+     }
+    
+    func sendFuelDataToWatch(fuelLevel: Double) {
+        let message = ["fuelLevel": fuelLevel, "maxFuelLevel": 13.7] // Change later to include app configurable max
+
+        do {
+            try WCSession.default.updateApplicationContext(message)
+        } catch {
+            print("Error sending fuel data to watch: \(error.localizedDescription)")
         }
+    }
 
     }

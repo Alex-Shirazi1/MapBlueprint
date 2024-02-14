@@ -7,10 +7,10 @@
 
 import UIKit
 import CarPlay
+import WatchConnectivity
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, CPApplicationDelegate{
-   
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate{
     var window: UIWindow?
     var carPlayWindow: CPWindow?
     
@@ -28,7 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CPApplicationDelegate{
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         return true
     }
 
@@ -45,6 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CPApplicationDelegate{
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if let error = error {
+             print("WCSession error: \(error.localizedDescription)")
+             return
+         }
+         print("WCSession activated: \(activationState.rawValue)")
+     }
+    
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("WCSession inactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("WCSession deactivated")
+    }
+    
+   
 
 
 }

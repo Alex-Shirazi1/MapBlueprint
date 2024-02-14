@@ -19,7 +19,8 @@ struct Provider: AppIntentTimelineProvider {
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
-
+        
+        var currentFuelLevel = fetchFuelLevel()
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -36,9 +37,8 @@ struct Provider: AppIntentTimelineProvider {
         [AppIntentRecommendation(intent: ConfigurationAppIntent(), description: "Fuel level Widget")]
     }
     private func fetchFuelLevel() -> Double {
-        print("ELLO:/ FETCHING FUEL LEVEL")
         let defaults = UserDefaults(suiteName: "group.shirazi")
-        return defaults?.double(forKey: "fuelLevelGallons") ?? 4.0
+        return defaults?.double(forKey: "fuelLevel") ?? 1.0
     }
 }
 
@@ -54,7 +54,7 @@ struct FuelComplicationEntryView : View {
     var body: some View {
         VStack {
             Text(String(format: "%.2f", entry.fuelLevel))
-            Text("L")
+            Text("G")
         }
         
     }
