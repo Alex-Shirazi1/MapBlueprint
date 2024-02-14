@@ -33,10 +33,19 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
-        eventHandler?.handleTransporterAndConnect()
     }
+    func updateConnectionStatus(status: String) {
+        DispatchQueue.main.async {
+            self.statusLabel.text = status
+            let isConnected = status == "OBD2AdapterStateConnected"
+            self.connectButton.isHidden = isConnected
+            self.disconnectButton.isHidden = !isConnected
+        }
+    }
+
     
     func setupUI() {
+        
         
         connectButton.setTitle("Manual Connect", for: .normal)
         connectButton.backgroundColor = .blue
@@ -49,7 +58,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         disconnectButton.isHidden = true
         view.addSubview(disconnectButton)
         
-        statusLabel.text = "Not Connected"
+        statusLabel.text = "Loading..."
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusLabel)
         
@@ -86,12 +95,6 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     }
     
     
-    func updateConnectionStatus(status: String) {
-        DispatchQueue.main.async {
-            self.statusLabel.text = status
-            self.connectButton.isHidden = true
-            self.disconnectButton.isHidden = false
-        }
-    }
+
 }
 

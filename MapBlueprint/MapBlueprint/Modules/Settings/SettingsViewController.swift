@@ -93,7 +93,7 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
         case 1:
             eventHandler.navigateToTerms()
         case 2:
-            eventHandler.navigateToOBD2(settingsViewController: self)
+            eventHandler.navigateToOBD2()
         default:
             break
         }

@@ -12,6 +12,7 @@ protocol OBD2EventHandlerProtocol: AnyObject {
     func handleTransporterAndConnect()
     func handleDisconnect()
     func adapterDidConnect(status: String)
+    func getStatus() -> String
 }
 
 import Foundation
@@ -32,6 +33,9 @@ class OBD2EventHandler: OBD2EventHandlerProtocol {
 
     func adapterDidConnect(status: String) {
         viewController?.updateConnectionStatus(status: status)
+    }
+    func getStatus() -> String {
+        interactor.getStatus()
     }
     func handleDisconnect() {
         interactor.disconnectAdapter()
