@@ -50,11 +50,12 @@ class ConnectivityProvider: NSObject, ObservableObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print("WCSession Recieved Context")
         print("WCSession\(session.applicationContext)")
-        if let fuelLevel = applicationContext["fuelLevel"] as? Double {
+        if let fuelLevel = applicationContext["fuelLevel"] as? Double, let maxFuelLevel = applicationContext["maxFuelLevel"] as? Double {
             print("WCSession \(fuelLevel)")
             DispatchQueue.main.async {
                 let defaults = UserDefaults(suiteName: "group.shirazi")
                 defaults?.set(fuelLevel, forKey: "fuelLevel")
+                defaults?.set(maxFuelLevel, forKey: "maxFuelLevel")
                 
                 WidgetCenter.shared.reloadAllTimelines()
             }
