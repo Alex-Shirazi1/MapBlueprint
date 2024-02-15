@@ -38,7 +38,15 @@ struct Provider: AppIntentTimelineProvider {
     }
     private func fetchFuelLevel() -> Double {
         let defaults = UserDefaults(suiteName: "group.shirazi")
-        return defaults?.double(forKey: "fuelLevel") ?? 1.0
+        let fuelLevel = defaults?.double(forKey: "fuelLevel") ?? -1.0
+        
+        if fuelLevel < 0 {
+            let lastKnownGoodFuelLevel = defaults?.double(forKey: "lastKnownGoodFuelLevel") ?? 999
+            return lastKnownGoodFuelLevel
+        } else {
+            defaults?.set(fuelLevel, forKey: "lastKnownGoodFuelLevel")
+            return fuelLevel
+        }
     }
 }
 
@@ -52,12 +60,14 @@ struct FuelComplicationEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text(String(format: "%.2f", entry.fuelLevel))
-            Text("G")
-        }
-        
-    }
+               VStack(spacing: 2) {
+                   Text(String(format: "%.2f", entry.fuelLevel))
+                   Image(systemName: "fuelpump.fill")
+                       .resizable()
+                       .aspectRatio(contentMode: .fit)
+                       .frame(height: 16)
+           }
+       }
 }
 
 @main

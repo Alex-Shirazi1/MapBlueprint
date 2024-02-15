@@ -66,10 +66,10 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
     }
     
-    func fetchDataFor(pidInfo: PIDInfo, completion: @escaping (String?) -> Void) {
+    func fetchDataFor(pidInfo: PIDInfo, completion: @escaping (String?, Any?) -> Void) {
         guard let obd2Adapter = self.obd2Adapter else {
             print("Adapter not initialized")
-            completion(nil)
+            completion(nil, nil)
             return
         }
 
@@ -79,15 +79,32 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         obd2Adapter.transmitCommand(command) { response in
             let rawValueString = response.formattedResponse
             
-            
             if rawValueString != "NO DATA", !rawValueString.contains("?") {
-                completion(rawValueString)
+                let processedValue = self.processResponse(for: pidInfo, rawValue: rawValueString)
+                completion(rawValueString, processedValue)
             } else {
                 print("Error retrieving data for PID: \(pidInfo.pid)")
-                completion(nil)
+                completion(nil, nil)
             }
         }
     }
+
+    private func processResponse(for pidInfo: PIDInfo, rawValue: String) -> Any? {
+        // Processing logic based on PID type
+        switch pidInfo.obdPID{
+        case .Fuel_Tank_Level_Input:
+            if let hexValue = UInt8(rawValue, radix: 16) {
+                let fuelLevelPercentage = Double(hexValue) / 255.0 * 100.0
+                return fuelLevelPercentage
+            }
+            
+            // TODO add others in terms of processing PIDS
+        default:
+            return nil
+        }
+        return nil
+    }
+
 
 
     
@@ -159,58 +176,53 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
 
 
 extension OBD2AdapterFactory {
-     
+    
+    func startFuelLevelPolling(interval: TimeInterval = 30.0) {
+        print("Starting fuel level tracking")
+        fuelLevelUpdateTimer?.invalidate()
+        fuelLevelUpdateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.updateFuelLevel { fuelLevel in
+                self.sendFuelDataToWatch(fuelLevel: fuelLevel)
+            }
+        }
+    }
 
-    func startFuelLevelPolling(interval: TimeInterval = 5.0) {
-         print("Starting fuel level tracking")
-         fuelLevelUpdateTimer?.invalidate()
-         fuelLevelUpdateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
-             guard let self = self else {
-                 return
-             }
-             let fuelLevel = self.updateFuelLevel()
-             self.sendFuelDataToWatch(fuelLevel: fuelLevel)
-         }
-     }
+    func stopFuelLevelPolling() {
+        print("END FUEL TRACK")
+        fuelLevelUpdateTimer?.invalidate()
+    }
 
-        func stopFuelLevelPolling() {
-            print("END FUEL TRACK")
-            fuelLevelUpdateTimer?.invalidate()
+    func updateFuelLevel(completion: @escaping (Double) -> Void) {
+        guard let fuelPIDInfo = OBD2MetaData.getPIDInfo(for: .Fuel_Tank_Level_Input) else {
+            print("Invalid PIDInfo for fuel level.")
+            completion(-1) // Indicate an error or invalid state
+            return
         }
 
-    func updateFuelLevel() -> Double {
-         var fuelLevel: Double = 0.0
-         let semaphore = DispatchSemaphore(value: 0)
+        fetchDataFor(pidInfo: fuelPIDInfo) { rawValue, processedValue in
+            guard let fuelLevelPercentage = processedValue as? Double else {
+                print("Invalid or nil raw value received for fuel level.")
+                completion(-1) // Indicate an error or invalid state
+                return
+            }
 
-         guard let fuelPIDInfo = OBD2MetaData.getPIDInfo(for: .Fuel_Tank_Level_Input) else {
-             return 0.0
-         }
-
-         fetchDataFor(pidInfo: fuelPIDInfo, completion: { rawValue in
-             if let rawValue = rawValue, let hexValue = UInt8(rawValue, radix: 16) {
-                 let fuelLevelPercentage = Double(hexValue) / 255.0 * 100.0
-                 print("Fuel Level: \(fuelLevelPercentage)%")
-
-                 let totalGallons = 13.7 // Change later to include app configurable max
-                 fuelLevel = totalGallons * (fuelLevelPercentage / 100.0)
-             } else {
-                 print("Invalid or nil raw value received for fuel level.")
-             }
-             semaphore.signal()
-         })
-
-         semaphore.wait()
-         return fuelLevel
-     }
+            let totalGallons = 13.7 // Change later to include app configurable max
+            let fuelLevel = totalGallons * (fuelLevelPercentage / 100.0)
+            print("Fuel Level: \(fuelLevelPercentage)% translates to \(fuelLevel) gallons.")
+            completion(fuelLevel)
+        }
+    }
     
     func sendFuelDataToWatch(fuelLevel: Double) {
         let message = ["fuelLevel": fuelLevel, "maxFuelLevel": 13.7] // Change later to include app configurable max
-
+        
         do {
             try WCSession.default.updateApplicationContext(message)
+            print("Fuel level data sent to watch successfully.")
         } catch {
             print("Error sending fuel data to watch: \(error.localizedDescription)")
         }
     }
+}
 
-    }

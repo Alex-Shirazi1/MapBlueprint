@@ -8,6 +8,7 @@
 import Foundation
 
 struct PIDInfo {
+    let obdPID: OBDPID
     let pid: String
     let description: String
     let units: String
