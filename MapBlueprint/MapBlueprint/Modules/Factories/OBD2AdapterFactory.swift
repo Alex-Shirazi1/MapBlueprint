@@ -39,7 +39,9 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
     var outgoingBytesNotification = UILabel()
     var incomingBytesNotification = UILabel()
     
-    private var fuelLevelUpdateTimer: Timer?
+    
+    
+    private var updateTimer: Timer?
     
     override init() {
         super.init()
@@ -88,15 +90,51 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
             }
         }
     }
+    func fetchDataForAsync(pidInfo: PIDInfo) async -> (String?, Any?) {
+           guard let obd2Adapter = self.obd2Adapter else {
+               print("Adapter not initialized")
+               return (nil, nil)
+           }
+
+           let commandString = "01 " + pidInfo.pid.replacingOccurrences(of: "0x", with: "")
+           let command = LTOBD2Command(string: commandString)
+
+           // Convert the callback-based OBD2 command transmission into an async operation
+           return await withCheckedContinuation { continuation in
+               obd2Adapter.transmitCommand(command) { response in
+                   let rawValueString = response.formattedResponse
+                   
+                   if rawValueString != "NO DATA", !rawValueString.contains("?") {
+                       let processedValue = self.processResponse(for: pidInfo, rawValue: rawValueString)
+                       continuation.resume(returning: (rawValueString, processedValue))
+                   } else {
+                       print("Error retrieving data for PID: \(pidInfo.pid)")
+                       continuation.resume(returning: (nil, nil))
+                   }
+               }
+           }
+       }
+   
+    
 
     private func processResponse(for pidInfo: PIDInfo, rawValue: String) -> Any? {
         // Processing logic based on PID type
         switch pidInfo.obdPID{
+            
         case .Fuel_Tank_Level_Input:
             if let hexValue = UInt8(rawValue, radix: 16) {
                 let fuelLevelPercentage = Double(hexValue) / 255.0 * 100.0
                 return fuelLevelPercentage
             }
+            
+        case .Engine_Oil_Temperature:
+            return hexStringToDouble(hexString: rawValue)
+            
+        case .Engine_Coolant_Temperature:
+            // Used to simplify Coolant Raw Data bc the response for Coolant from the adapter is stupid
+            let refinedRawData = rawValue.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }.first ?? ""
+            return hexStringToDouble(hexString: refinedRawData)
+
             
             // TODO add others in terms of processing PIDS
         default:
@@ -126,7 +164,7 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         let state = getStatus()
         DispatchQueue.main.async {
             self.eventHandler?.adapterDidConnect(status: state)
-            self.startFuelLevelPolling()
+            self.startAllDataPolling()
         }
     }
     
@@ -168,61 +206,105 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
     }
     
     func disconnectAdapter() {
-        self.stopFuelLevelPolling()
         obd2Adapter?.disconnect()
         transporter?.disconnect()
     }
+    func convertCelsiusToFahrenheit(celsius: Double) -> Double {
+        return celsius * 9 / 5 + 32
+    }
+    func hexStringToDouble(hexString: String) -> Double? {
+        let cleanHexString = hexString.filter { "0123456789ABCDEFabcdef".contains($0) }
+        
+        guard let decimalValue = UInt64(cleanHexString, radix: 16) else {
+            return nil
+        }
+        return Double(decimalValue)
+    }
 }
-
 
 extension OBD2AdapterFactory {
-    
-    func startFuelLevelPolling(interval: TimeInterval = 30.0) {
-        print("Starting fuel level tracking")
-        fuelLevelUpdateTimer?.invalidate()
-        fuelLevelUpdateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+    // MARK: - Unified Data Fetching and Sending
+
+    func startAllDataPolling(interval: TimeInterval = 5.0) {
+       print("begin data tracking")
+        updateTimer?.invalidate()
+        updateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            self.updateFuelLevel { fuelLevel in
-                self.sendFuelDataToWatch(fuelLevel: fuelLevel)
+            Task {
+                await self.fetchAndSendAllData()
             }
         }
     }
 
-    func stopFuelLevelPolling() {
-        print("END FUEL TRACK")
-        fuelLevelUpdateTimer?.invalidate()
+    private func fetchAndSendAllData() async {
+        async let fuelLevel = updateFuelLevelAsync()
+        async let coolantTemperature = updateCoolantTemperatureAsync()
+        async let oilTemperature = updateOilTemperatureAsync()
+
+        let allData = await [
+            "fuelLevel": await fuelLevel,
+            "coolantTemperature": await coolantTemperature,
+            "oilTemperature": await oilTemperature
+        ]
+
+        do {
+            try WCSession.default.updateApplicationContext(allData)
+            print("All data sent to watch successfully. observe: \(allData)")
+        } catch {
+            print("Error sending all data to watch: \(error.localizedDescription)")
+        }
     }
 
-    func updateFuelLevel(completion: @escaping (Double) -> Void) {
+    // MARK: - Fuel Level
+
+    func updateFuelLevelAsync() async -> Double {
         guard let fuelPIDInfo = OBD2MetaData.getPIDInfo(for: .Fuel_Tank_Level_Input) else {
             print("Invalid PIDInfo for fuel level.")
-            completion(-1) // Indicate an error or invalid state
-            return
+            return -1
         }
 
-        fetchDataFor(pidInfo: fuelPIDInfo) { rawValue, processedValue in
-            guard let fuelLevelPercentage = processedValue as? Double else {
-                print("Invalid or nil raw value received for fuel level.")
-                completion(-1) // Indicate an error or invalid state
-                return
-            }
-
-            let totalGallons = 13.7 // Change later to include app configurable max
-            let fuelLevel = totalGallons * (fuelLevelPercentage / 100.0)
-            print("Fuel Level: \(fuelLevelPercentage)% translates to \(fuelLevel) gallons.")
-            completion(fuelLevel)
+        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: fuelPIDInfo)
+        guard let fuelLevelPercentage = processedValue as? Double else {
+            print("Invalid or nil raw value received for fuel level.")
+            return -1
         }
+
+        let totalGallons = 13.7 // Change later to include app configurable max
+        return totalGallons * (fuelLevelPercentage / 100.0)
     }
+
+    // MARK: - Coolant Temperature
     
-    func sendFuelDataToWatch(fuelLevel: Double) {
-        let message = ["fuelLevel": fuelLevel, "maxFuelLevel": 13.7] // Change later to include app configurable max
-        
-        do {
-            try WCSession.default.updateApplicationContext(message)
-            print("Fuel level data sent to watch successfully.")
-        } catch {
-            print("Error sending fuel data to watch: \(error.localizedDescription)")
+    func updateCoolantTemperatureAsync() async -> Double {
+        guard let coolantPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_Coolant_Temperature) else {  /// TODO Investigate coolant PID info is valid -- VALUES HAVE GONE AWIRE
+            print("Invalid PIDInfo for Coolant Temperature.")
+            return -1
         }
+
+        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: coolantPIDInfo)
+        guard let coolantTemperatureCelcius = processedValue as? Double else {
+            print("Invalid or nil raw value received for coolant temperature.")
+            return -1
+        }
+
+        return convertCelsiusToFahrenheit(celsius: coolantTemperatureCelcius)
     }
-}
+
+    // MARK: - Oil Temperature
+
+    func updateOilTemperatureAsync() async -> Double {
+        guard let oilPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_Oil_Temperature) else {
+            print("Invalid PIDInfo for oil Temperature.")
+            return -1
+        }
+
+        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: oilPIDInfo)
+        guard let oilTemperatureCelcius = processedValue as? Double else {
+            print("Invalid or nil raw value received for oil temperature.")
+            return -1
+        }
+
+        return convertCelsiusToFahrenheit(celsius: oilTemperatureCelcius)
+    }
+    }
 

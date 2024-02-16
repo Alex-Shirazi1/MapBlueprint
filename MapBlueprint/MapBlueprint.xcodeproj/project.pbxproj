@@ -42,6 +42,18 @@
 		5CE57A962B7B7840005F3444 /* OBDDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE57A952B7B7840005F3444 /* OBDDataFactory.swift */; };
 		5CE57A992B7B798A005F3444 /* OBD2AdapterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE57A982B7B798A005F3444 /* OBD2AdapterFactory.swift */; };
 		5CE57A9B2B7C8B64005F3444 /* SettingsMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE57A9A2B7C8B64005F3444 /* SettingsMetaData.swift */; };
+		5CE9C3592B7F0F6F00E865DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
+		5CE9C35A2B7F0F6F00E865DA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
+		5CE9C35D2B7F0F6F00E865DA /* CoolantComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9C35C2B7F0F6F00E865DA /* CoolantComplication.swift */; };
+		5CE9C35F2B7F0F6F00E865DA /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9C35E2B7F0F6F00E865DA /* AppIntent.swift */; };
+		5CE9C3612B7F0F7000E865DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9C3602B7F0F7000E865DA /* Assets.xcassets */; };
+		5CE9C3652B7F0F7000E865DA /* CoolantComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CE9C3582B7F0F6F00E865DA /* CoolantComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5CE9C36E2B7F0F8300E865DA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
+		5CE9C36F2B7F0F8300E865DA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
+		5CE9C3722B7F0F8300E865DA /* OilTemperatureComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9C3712B7F0F8300E865DA /* OilTemperatureComplication.swift */; };
+		5CE9C3742B7F0F8300E865DA /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9C3732B7F0F8300E865DA /* AppIntent.swift */; };
+		5CE9C3762B7F0F8300E865DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9C3752B7F0F8300E865DA /* Assets.xcassets */; };
+		5CE9C37A2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CE9C36D2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CEF42902B719C97007C0951 /* OBD2DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */; };
 		5CEF42922B719CA1007C0951 /* OBD2EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */; };
 		5CEF42942B719CA9007C0951 /* OBD2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */; };
@@ -100,6 +112,20 @@
 			remoteGlobalIDString = 5CE57A7D2B7B5D0D005F3444;
 			remoteInfo = FuelComplicationExtension;
 		};
+		5CE9C3632B7F0F7000E865DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CE9C3572B7F0F6F00E865DA;
+			remoteInfo = CoolantComplicationExtension;
+		};
+		5CE9C3782B7F0F8300E865DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CE9C36C2B7F0F8300E865DA;
+			remoteInfo = OilTemperatureComplicationExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +147,8 @@
 			dstSubfolderSpec = 13;
 			files = (
 				5CB3A8682B7CBE11002A9C49 /* CoffeeComplicationExtension.appex in Embed Foundation Extensions */,
+				5CE9C3652B7F0F7000E865DA /* CoolantComplicationExtension.appex in Embed Foundation Extensions */,
+				5CE9C37A2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex in Embed Foundation Extensions */,
 				5CE57A8D2B7B5D14005F3444 /* FuelComplicationExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -173,6 +201,18 @@
 		5CE57A952B7B7840005F3444 /* OBDDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDDataFactory.swift; sourceTree = "<group>"; };
 		5CE57A982B7B798A005F3444 /* OBD2AdapterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2AdapterFactory.swift; sourceTree = "<group>"; };
 		5CE57A9A2B7C8B64005F3444 /* SettingsMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMetaData.swift; sourceTree = "<group>"; };
+		5CE9C3582B7F0F6F00E865DA /* CoolantComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CoolantComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE9C35C2B7F0F6F00E865DA /* CoolantComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolantComplication.swift; sourceTree = "<group>"; };
+		5CE9C35E2B7F0F6F00E865DA /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		5CE9C3602B7F0F7000E865DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CE9C3622B7F0F7000E865DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CE9C36D2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OilTemperatureComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE9C3712B7F0F8300E865DA /* OilTemperatureComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilTemperatureComplication.swift; sourceTree = "<group>"; };
+		5CE9C3732B7F0F8300E865DA /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		5CE9C3752B7F0F8300E865DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CE9C3772B7F0F8300E865DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CE9C37E2B7F26E600E865DA /* OilTemperatureComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OilTemperatureComplicationExtension.entitlements; sourceTree = "<group>"; };
+		5CE9C37F2B7F26EF00E865DA /* CoolantComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoolantComplicationExtension.entitlements; sourceTree = "<group>"; };
 		5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2DataManager.swift; sourceTree = "<group>"; };
 		5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2EventHandler.swift; sourceTree = "<group>"; };
 		5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2ViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +283,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CE9C3552B7F0F6F00E865DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE9C35A2B7F0F6F00E865DA /* SwiftUI.framework in Frameworks */,
+				5CE9C3592B7F0F6F00E865DA /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE9C36A2B7F0F8300E865DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE9C36F2B7F0F8300E865DA /* SwiftUI.framework in Frameworks */,
+				5CE9C36E2B7F0F8300E865DA /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -270,6 +328,8 @@
 		5CBAED462B6B0A7E006C1A34 = {
 			isa = PBXGroup;
 			children = (
+				5CE9C37F2B7F26EF00E865DA /* CoolantComplicationExtension.entitlements */,
+				5CE9C37E2B7F26E600E865DA /* OilTemperatureComplicationExtension.entitlements */,
 				5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */,
 				5CBAED512B6B0A7E006C1A34 /* MapBlueprint */,
 				5CBD61602B7B447B009B00B5 /* MapBlueprintCompanion Watch App */,
@@ -277,6 +337,8 @@
 				5CBD617B2B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests */,
 				5CE57A832B7B5D0D005F3444 /* FuelComplication */,
 				5CB3A85E2B7CBE10002A9C49 /* CoffeeComplication */,
+				5CE9C35B2B7F0F6F00E865DA /* CoolantComplication */,
+				5CE9C3702B7F0F8300E865DA /* OilTemperatureComplication */,
 				5CBAED502B6B0A7E006C1A34 /* Products */,
 				E239000E860E912F1F881502 /* Pods */,
 				444DD090AE941CACEBE8AB4F /* Frameworks */,
@@ -292,6 +354,8 @@
 				5CBD61782B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests.xctest */,
 				5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */,
 				5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */,
+				5CE9C3582B7F0F6F00E865DA /* CoolantComplicationExtension.appex */,
+				5CE9C36D2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,6 +443,28 @@
 				5CE57A982B7B798A005F3444 /* OBD2AdapterFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		5CE9C35B2B7F0F6F00E865DA /* CoolantComplication */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9C35C2B7F0F6F00E865DA /* CoolantComplication.swift */,
+				5CE9C35E2B7F0F6F00E865DA /* AppIntent.swift */,
+				5CE9C3602B7F0F7000E865DA /* Assets.xcassets */,
+				5CE9C3622B7F0F7000E865DA /* Info.plist */,
+			);
+			path = CoolantComplication;
+			sourceTree = "<group>";
+		};
+		5CE9C3702B7F0F8300E865DA /* OilTemperatureComplication */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9C3712B7F0F8300E865DA /* OilTemperatureComplication.swift */,
+				5CE9C3732B7F0F8300E865DA /* AppIntent.swift */,
+				5CE9C3752B7F0F8300E865DA /* Assets.xcassets */,
+				5CE9C3772B7F0F8300E865DA /* Info.plist */,
+			);
+			path = OilTemperatureComplication;
 			sourceTree = "<group>";
 		};
 		5CEF428E2B719C80007C0951 /* OBD2 */ = {
@@ -515,6 +601,8 @@
 			dependencies = (
 				5CE57A8C2B7B5D14005F3444 /* PBXTargetDependency */,
 				5CB3A8672B7CBE11002A9C49 /* PBXTargetDependency */,
+				5CE9C3642B7F0F7000E865DA /* PBXTargetDependency */,
+				5CE9C3792B7F0F8300E865DA /* PBXTargetDependency */,
 			);
 			name = "MapBlueprintCompanion Watch App";
 			productName = "MapBlueprintCompanion Watch App";
@@ -574,6 +662,40 @@
 			productReference = 5CE57A7E2B7B5D0D005F3444 /* FuelComplicationExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		5CE9C3572B7F0F6F00E865DA /* CoolantComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE9C3682B7F0F7000E865DA /* Build configuration list for PBXNativeTarget "CoolantComplicationExtension" */;
+			buildPhases = (
+				5CE9C3542B7F0F6F00E865DA /* Sources */,
+				5CE9C3552B7F0F6F00E865DA /* Frameworks */,
+				5CE9C3562B7F0F6F00E865DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoolantComplicationExtension;
+			productName = CoolantComplicationExtension;
+			productReference = 5CE9C3582B7F0F6F00E865DA /* CoolantComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		5CE9C36C2B7F0F8300E865DA /* OilTemperatureComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE9C37B2B7F0F8300E865DA /* Build configuration list for PBXNativeTarget "OilTemperatureComplicationExtension" */;
+			buildPhases = (
+				5CE9C3692B7F0F8300E865DA /* Sources */,
+				5CE9C36A2B7F0F8300E865DA /* Frameworks */,
+				5CE9C36B2B7F0F8300E865DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OilTemperatureComplicationExtension;
+			productName = OilTemperatureComplicationExtension;
+			productReference = 5CE9C36D2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -604,6 +726,12 @@
 					5CE57A7D2B7B5D0D005F3444 = {
 						CreatedOnToolsVersion = 15.2;
 					};
+					5CE9C3572B7F0F6F00E865DA = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					5CE9C36C2B7F0F8300E865DA = {
+						CreatedOnToolsVersion = 15.2;
+					};
 				};
 			};
 			buildConfigurationList = 5CBAED4A2B6B0A7E006C1A34 /* Build configuration list for PBXProject "MapBlueprint" */;
@@ -625,6 +753,8 @@
 				5CBD61772B7B447C009B00B5 /* MapBlueprintCompanion Watch AppUITests */,
 				5CE57A7D2B7B5D0D005F3444 /* FuelComplicationExtension */,
 				5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */,
+				5CE9C3572B7F0F6F00E865DA /* CoolantComplicationExtension */,
+				5CE9C36C2B7F0F8300E865DA /* OilTemperatureComplicationExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -676,6 +806,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CE57A892B7B5D14005F3444 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE9C3562B7F0F6F00E865DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE9C3612B7F0F7000E865DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE9C36B2B7F0F8300E865DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE9C3762B7F0F8300E865DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +952,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CE9C3542B7F0F6F00E865DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE9C35D2B7F0F6F00E865DA /* CoolantComplication.swift in Sources */,
+				5CE9C35F2B7F0F6F00E865DA /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE9C3692B7F0F8300E865DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE9C3722B7F0F8300E865DA /* OilTemperatureComplication.swift in Sources */,
+				5CE9C3742B7F0F8300E865DA /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -833,6 +997,16 @@
 			isa = PBXTargetDependency;
 			target = 5CE57A7D2B7B5D0D005F3444 /* FuelComplicationExtension */;
 			targetProxy = 5CE57A8B2B7B5D14005F3444 /* PBXContainerItemProxy */;
+		};
+		5CE9C3642B7F0F7000E865DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CE9C3572B7F0F6F00E865DA /* CoolantComplicationExtension */;
+			targetProxy = 5CE9C3632B7F0F7000E865DA /* PBXContainerItemProxy */;
+		};
+		5CE9C3792B7F0F8300E865DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CE9C36C2B7F0F8300E865DA /* OilTemperatureComplicationExtension */;
+			targetProxy = 5CE9C3782B7F0F8300E865DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1315,6 +1489,134 @@
 			};
 			name = Release;
 		};
+		5CE9C3662B7F0F7000E865DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CoolantComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoolantComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoolantComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.CoolantComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5CE9C3672B7F0F7000E865DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CoolantComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoolantComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoolantComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.CoolantComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		5CE9C37C2B7F0F8300E865DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OilTemperatureComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OilTemperatureComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OilTemperatureComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.OilTemperatureComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5CE9C37D2B7F0F8300E865DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = OilTemperatureComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OilTemperatureComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OilTemperatureComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.OilTemperatureComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1377,6 +1679,24 @@
 			buildConfigurations = (
 				5CE57A8F2B7B5D14005F3444 /* Debug */,
 				5CE57A902B7B5D14005F3444 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE9C3682B7F0F7000E865DA /* Build configuration list for PBXNativeTarget "CoolantComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE9C3662B7F0F7000E865DA /* Debug */,
+				5CE9C3672B7F0F7000E865DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE9C37B2B7F0F8300E865DA /* Build configuration list for PBXNativeTarget "OilTemperatureComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE9C37C2B7F0F8300E865DA /* Debug */,
+				5CE9C37D2B7F0F8300E865DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

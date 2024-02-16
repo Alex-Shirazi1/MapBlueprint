@@ -151,32 +151,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4BE0DEF9-503E-4FF3-AD1A-787A4B44DCD3"
+            uuid = "C1D2946B-A576-4E91-ABA0-094E3A2B85D3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapBlueprintCompanion Watch App/MapBlueprintCompanionApp.swift"
+            filePath = "MapBlueprint/Modules/Factories/OBD2AdapterFactory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "session(_:didReceiveApplicationContext:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "02609E2B-61A1-49EC-81B8-92BD3120D27B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MapBlueprintCompanion Watch App/MapBlueprintCompanionApp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "session(_:didReceiveApplicationContext:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "processResponse(for:rawValue:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -22,8 +22,6 @@ struct MapBlueprintCompanion_Watch_AppApp: App {
 }
 
 class ConnectivityProvider: NSObject, ObservableObject, WCSessionDelegate {
-    @Published var fuelLevel: Double = 2
-    @Published var maxFuelLevel: Double = 13 // default test values
 
     override init() {
         super.init()
@@ -48,18 +46,38 @@ class ConnectivityProvider: NSObject, ObservableObject, WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        print("WCSession Recieved Context")
-        print("WCSession\(session.applicationContext)")
-        if let fuelLevel = applicationContext["fuelLevel"] as? Double, let maxFuelLevel = applicationContext["maxFuelLevel"] as? Double {
-            print("WCSession \(fuelLevel)")
-            DispatchQueue.main.async {
-                let defaults = UserDefaults(suiteName: "group.shirazi")
+        
+        print("WCSession Received Context \(applicationContext)")
+        
+        DispatchQueue.main.async {
+            let defaults = UserDefaults(suiteName: "group.shirazi")
+            
+            // Checks and save fuel level data
+            if let fuelLevel = applicationContext["fuelLevel"] as? Double {
+                print("WCSession FUEL \(fuelLevel)")
                 defaults?.set(fuelLevel, forKey: "fuelLevel")
-                defaults?.set(maxFuelLevel, forKey: "maxFuelLevel")
-                
-                WidgetCenter.shared.reloadAllTimelines()
             }
+            
+            // Checks and save max fuel data
+            if let maxFuelLevel = applicationContext["maxFuelLevel"] as? Double {
+                defaults?.set(maxFuelLevel, forKey: "maxFuelLevel")
+            }
+            
+            // Checks and save coolant temperature
+            if let coolantTemperature = applicationContext["coolantTemperature"] as? Double {
+                print("WCSession COOL \(coolantTemperature)")
+                defaults?.set(coolantTemperature, forKey: "coolantTemperature")
+            }
+            
+            // Checks and save oil temperature
+            if let oilTemperature = applicationContext["oilTemperature"] as? Double {
+                print("WCSession OIL \(oilTemperature)")
+                defaults?.set(oilTemperature, forKey: "oilTemperature")
+            }
+            
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
+
 
 }
