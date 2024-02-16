@@ -276,7 +276,7 @@ extension OBD2AdapterFactory {
     // MARK: - Coolant Temperature
     
     func updateCoolantTemperatureAsync() async -> Double {
-        guard let coolantPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_Coolant_Temperature) else {  /// TODO Investigate coolant PID info is valid -- VALUES HAVE GONE AWIRE
+        guard let coolantPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_Coolant_Temperature) else {
             print("Invalid PIDInfo for Coolant Temperature.")
             return -1
         }
