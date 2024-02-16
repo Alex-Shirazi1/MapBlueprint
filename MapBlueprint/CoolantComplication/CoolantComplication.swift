@@ -39,7 +39,7 @@ struct Provider: AppIntentTimelineProvider {
     private func fetchcoolantTemperature() -> Double {
         let defaults = UserDefaults(suiteName: "group.shirazi")
         let coolantTemperature = defaults?.double(forKey: "coolantTemperature") ?? -1.0
-        if coolantTemperature < 0 {
+        if coolantTemperature < 0 || coolantTemperature > 500 {
             let lastKnownGoodCoolantTemperature = defaults?.double(forKey: "lastKnownGoodcoolantTemperature") ?? 999
             return lastKnownGoodCoolantTemperature
         } else {
