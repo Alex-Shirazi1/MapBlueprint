@@ -210,6 +210,7 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         transporter?.disconnect()
     }
     func convertCelsiusToFahrenheit(celsius: Double) -> Double {
+        
         return celsius * 9 / 5 + 32
     }
     func hexStringToDouble(hexString: String) -> Double? {
@@ -220,6 +221,10 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
         return Double(decimalValue)
     }
+    func handleFarenheitConversion(number: Double) -> Double {
+        return number - 71.5
+    }
+    
 }
 
 extension OBD2AdapterFactory {
@@ -263,7 +268,7 @@ extension OBD2AdapterFactory {
             return -1
         }
 
-        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: fuelPIDInfo)
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: fuelPIDInfo)
         guard let fuelLevelPercentage = processedValue as? Double else {
             print("Invalid or nil raw value received for fuel level.")
             return -1
@@ -281,13 +286,13 @@ extension OBD2AdapterFactory {
             return -1
         }
 
-        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: coolantPIDInfo)
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: coolantPIDInfo)
         guard let coolantTemperatureCelcius = processedValue as? Double else {
             print("Invalid or nil raw value received for coolant temperature.")
             return -1
         }
 
-        return convertCelsiusToFahrenheit(celsius: coolantTemperatureCelcius)
+        return handleFarenheitConversion(number: convertCelsiusToFahrenheit(celsius: coolantTemperatureCelcius))
     }
 
     // MARK: - Oil Temperature
@@ -298,13 +303,13 @@ extension OBD2AdapterFactory {
             return -1
         }
 
-        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: oilPIDInfo)
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: oilPIDInfo)
         guard let oilTemperatureCelcius = processedValue as? Double else {
             print("Invalid or nil raw value received for oil temperature.")
             return -1
         }
 
-        return convertCelsiusToFahrenheit(celsius: oilTemperatureCelcius)
+        return handleFarenheitConversion(number: convertCelsiusToFahrenheit(celsius: oilTemperatureCelcius))
     }
     }
 
