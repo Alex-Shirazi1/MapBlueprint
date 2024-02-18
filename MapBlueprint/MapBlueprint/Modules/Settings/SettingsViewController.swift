@@ -50,7 +50,7 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -79,9 +79,7 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let roughCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let tableOption = settingsOptions[indexPath.row]
-        
         let cell = tableViewCellFactory.styleCell(cell: roughCell, tableOption: tableOption)
-        
         return cell
     }
     

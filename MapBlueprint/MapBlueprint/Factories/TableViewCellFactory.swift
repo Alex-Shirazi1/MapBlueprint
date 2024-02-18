@@ -22,7 +22,8 @@ class TableViewCellFactory: TableViewCellFactoryType {
         cell.imageView?.image = UIImage(systemName: tableOption.image)
 
         cell.selectionStyle = .none
-        cell.contentView.backgroundColor = .white
+        cell.textLabel?.textColor = .label // Adapts to light/dark mode
+        cell.backgroundColor = .secondarySystemGroupedBackground
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
@@ -32,7 +33,8 @@ class TableViewCellFactory: TableViewCellFactoryType {
     func styleCell(cell: UITableViewCell, label: String) -> UITableViewCell {
         cell.textLabel?.text = label
         cell.selectionStyle = .none
-        cell.contentView.backgroundColor = .white
+        cell.textLabel?.textColor = .label
+        cell.backgroundColor = .secondarySystemGroupedBackground
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true

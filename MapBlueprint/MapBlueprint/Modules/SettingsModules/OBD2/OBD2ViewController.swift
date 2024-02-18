@@ -36,7 +36,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupUI()
         updateConnectionStatus(status: eventHandler?.getStatus() ?? "unable to load")
     }
@@ -65,6 +65,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         view.addSubview(disconnectButton)
         
         statusLabel.text = "Loading..."
+        statusLabel.textColor = .label
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusLabel)
         
@@ -78,6 +79,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         autoConnectSwitch.isOn = AppConfigurable.shared.autoConnectToAdapter
            
         autoConnectLabel.text = "Auto Connect To Adapter"
+        autoConnectLabel.textColor = .label
         autoConnectLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(autoConnectLabel)
         

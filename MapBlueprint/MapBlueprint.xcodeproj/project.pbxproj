@@ -500,11 +500,11 @@
 		5CEF428E2B719C80007C0951 /* OBD2 */ = {
 			isa = PBXGroup;
 			children = (
-				5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */,
-				5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */,
 				5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */,
+				5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */,
 				5CEF42952B719CB5007C0951 /* OBD2Interactor.swift */,
 				5CEF42972B719CBC007C0951 /* OBD2Router.swift */,
+				5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */,
 			);
 			path = OBD2;
 			sourceTree = "<group>";

@@ -23,7 +23,7 @@ class TermsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         var linkAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.blue,

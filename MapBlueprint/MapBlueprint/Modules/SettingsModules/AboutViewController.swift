@@ -21,7 +21,7 @@ class AboutViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         title = "About"
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         tableView.delegate = self
         tableView.dataSource = self

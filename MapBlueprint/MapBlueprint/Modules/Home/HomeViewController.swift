@@ -21,6 +21,9 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
         self.eventHandler = eventHandler
         super.init(nibName: nil, bundle: nil)
     }
+    override func viewDidLoad() {
+        view.backgroundColor = .systemBackground
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
