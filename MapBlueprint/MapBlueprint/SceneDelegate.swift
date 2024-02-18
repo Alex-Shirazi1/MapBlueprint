@@ -51,14 +51,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         homeNavigationController.viewControllers = [homeViewController]
         homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         
+        
+        // Dashboard Module Logic
+        
+        let dashboardNavigationController = UINavigationController()
+        let dashboardViewController = DashboardRouter.createModule(navigationController: dashboardNavigationController)
+        dashboardNavigationController.viewControllers = [dashboardViewController]
+        dashboardNavigationController.tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(systemName: "gauge.with.dots.needle.67percent"), tag: 2)
+        
         // Settings Module Logic
         
         let settingsNavigationController = UINavigationController()
         let settingsViewController = SettingsRouter.createModule(navigationController: settingsNavigationController)
         settingsNavigationController.viewControllers = [settingsViewController]
-        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 4)
+        settingsNavigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 3)
         
-        return [homeNavigationController,   settingsNavigationController]
+        
+        
+        
+        return [homeNavigationController, dashboardNavigationController, settingsNavigationController]
     }
 
     private func tabbar(controllers: [UIViewController]) -> UITabBarController {

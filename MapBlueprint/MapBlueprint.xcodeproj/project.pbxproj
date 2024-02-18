@@ -10,6 +10,11 @@
 		5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */; };
 		5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */; };
 		5C9EBE6E2B81EAC100F6AABD /* AppConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */; };
+		5C9EBE942B820B1D00F6AABD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE932B820B1D00F6AABD /* DashboardViewController.swift */; };
+		5C9EBE962B820B2800F6AABD /* DashboardEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE952B820B2800F6AABD /* DashboardEventHandler.swift */; };
+		5C9EBE982B820B2F00F6AABD /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE972B820B2F00F6AABD /* DashboardInteractor.swift */; };
+		5C9EBE9A2B820B3700F6AABD /* DashboardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE992B820B3700F6AABD /* DashboardDataManager.swift */; };
+		5C9EBE9C2B820B4000F6AABD /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE9B2B820B4000F6AABD /* DashboardRouter.swift */; };
 		5CB3A85C2B7CBE10002A9C49 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
 		5CB3A85D2B7CBE10002A9C49 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
 		5CB3A8602B7CBE10002A9C49 /* CoffeeComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3A85F2B7CBE10002A9C49 /* CoffeeComplication.swift */; };
@@ -164,6 +169,11 @@
 		5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		5C7990FD2B81C1FC000528D8 /* MapBlueprintCompanion-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MapBlueprintCompanion-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurable.swift; sourceTree = "<group>"; };
+		5C9EBE932B820B1D00F6AABD /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		5C9EBE952B820B2800F6AABD /* DashboardEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEventHandler.swift; sourceTree = "<group>"; };
+		5C9EBE972B820B2F00F6AABD /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
+		5C9EBE992B820B3700F6AABD /* DashboardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDataManager.swift; sourceTree = "<group>"; };
+		5C9EBE9B2B820B4000F6AABD /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		5CB3A8542B7CB538002A9C49 /* MapBlueprint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapBlueprint.entitlements; sourceTree = "<group>"; };
 		5CB3A8552B7CB554002A9C49 /* MapBlueprintCompanion Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MapBlueprintCompanion Watch App.entitlements"; sourceTree = "<group>"; };
 		5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FuelComplicationExtension.entitlements; sourceTree = "<group>"; };
@@ -317,6 +327,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5C9EBE922B820AFD00F6AABD /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				5C9EBE932B820B1D00F6AABD /* DashboardViewController.swift */,
+				5C9EBE952B820B2800F6AABD /* DashboardEventHandler.swift */,
+				5C9EBE972B820B2F00F6AABD /* DashboardInteractor.swift */,
+				5C9EBE992B820B3700F6AABD /* DashboardDataManager.swift */,
+				5C9EBE9B2B820B4000F6AABD /* DashboardRouter.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		5CB3A85E2B7CBE10002A9C49 /* CoffeeComplication */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +389,9 @@
 			isa = PBXGroup;
 			children = (
 				5CB3A8542B7CB538002A9C49 /* MapBlueprint.entitlements */,
+				5CE57A922B7B6594005F3444 /* Data */,
+				5CF230642B6B11AA00A9E7C6 /* Models */,
+				5CE57A972B7B797A005F3444 /* Factories */,
 				5CF230632B6B119B00A9E7C6 /* Modules */,
 				5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */,
 				5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */,
@@ -521,9 +546,7 @@
 		5CF230632B6B119B00A9E7C6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				5CE57A972B7B797A005F3444 /* Factories */,
-				5CE57A922B7B6594005F3444 /* Data */,
-				5CF230642B6B11AA00A9E7C6 /* Models */,
+				5C9EBE922B820AFD00F6AABD /* Dashboard */,
 				5CF2305E2B6B115700A9E7C6 /* SettingsModules */,
 				5CF230532B6B108800A9E7C6 /* Settings */,
 				5CF230482B6B0C8800A9E7C6 /* Home */,
@@ -890,23 +913,28 @@
 			files = (
 				5CBAED572B6B0A7E006C1A34 /* ViewController.swift in Sources */,
 				5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */,
+				5C9EBE9A2B820B3700F6AABD /* DashboardDataManager.swift in Sources */,
 				5C9EBE6E2B81EAC100F6AABD /* AppConfigurable.swift in Sources */,
 				5CF230682B6B11E900A9E7C6 /* TableViewCellFactory.swift in Sources */,
 				5CE57A992B7B798A005F3444 /* OBD2AdapterFactory.swift in Sources */,
 				5CF2304C2B6B0CA300A9E7C6 /* HomeEventHandler.swift in Sources */,
 				5CEF42922B719CA1007C0951 /* OBD2EventHandler.swift in Sources */,
+				5C9EBE9C2B820B4000F6AABD /* DashboardRouter.swift in Sources */,
 				5CB51AA42B740C20004B952A /* OBDPID.swift in Sources */,
 				5CF230572B6B10C500A9E7C6 /* SettingsEventHandler.swift in Sources */,
 				5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */,
+				5C9EBE982B820B2F00F6AABD /* DashboardInteractor.swift in Sources */,
 				5CEF42942B719CA9007C0951 /* OBD2ViewController.swift in Sources */,
 				5CE57A942B7B750B005F3444 /* OBDDataModel.swift in Sources */,
 				5CEF42962B719CB5007C0951 /* OBD2Interactor.swift in Sources */,
 				5CB51AA22B7408BE004B952A /* OBDData.swift in Sources */,
 				5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */,
 				5CF2305D2B6B111500A9E7C6 /* SettingsDataManager.swift in Sources */,
+				5C9EBE962B820B2800F6AABD /* DashboardEventHandler.swift in Sources */,
 				5CE57A962B7B7840005F3444 /* OBDDataFactory.swift in Sources */,
 				5CEF42902B719C97007C0951 /* OBD2DataManager.swift in Sources */,
 				5CF230502B6B0CAE00A9E7C6 /* HomeRouter.swift in Sources */,
+				5C9EBE942B820B1D00F6AABD /* DashboardViewController.swift in Sources */,
 				5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */,
 				5CE4C6292B741AA3003314E7 /* OBD2MetaData.swift in Sources */,
 				5CF230602B6B117700A9E7C6 /* TermsViewController.swift in Sources */,

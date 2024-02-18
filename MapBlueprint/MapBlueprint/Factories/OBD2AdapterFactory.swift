@@ -236,22 +236,25 @@ extension OBD2AdapterFactory {
         updateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             Task {
-                await self.fetchAndSendAllData()
+                let allData = await self.fetchData()
+                self.sendDataToWatch(allData)
             }
         }
     }
 
-    private func fetchAndSendAllData() async {
-        async let fuelLevel = updateFuelLevelAsync()
-        async let coolantTemperature = updateCoolantTemperatureAsync()
-        async let oilTemperature = updateOilTemperatureAsync()
-
-        let allData = await [
-            "fuelLevel": await fuelLevel,
-            "coolantTemperature": await coolantTemperature,
-            "oilTemperature": await oilTemperature
+    func fetchData() async -> [String: Any] {
+         let fuelLevel = await updateFuelLevelAsync()
+         let coolantTemperature = await updateCoolantTemperatureAsync()
+         let oilTemperature = await updateOilTemperatureAsync()
+        
+        return  [
+            "fuelLevel":  fuelLevel,
+            "coolantTemperature":  coolantTemperature,
+            "oilTemperature":  oilTemperature
         ]
-
+    }
+    
+    func sendDataToWatch(_ allData: [String: Any]) {
         do {
             try WCSession.default.updateApplicationContext(allData)
             print("All data sent to watch successfully. observe: \(allData)")
