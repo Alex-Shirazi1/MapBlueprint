@@ -17,6 +17,11 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     var eventHandler: OBD2EventHandlerProtocol?
     private let connectButton = UIButton()
     private let disconnectButton = UIButton()
+    
+    private let autoConnectContainerView = UIView()
+    private let autoConnectSwitch = UISwitch()
+    private let autoConnectLabel = UILabel()
+    
     private let statusLabel = UILabel()
     
     
@@ -63,6 +68,18 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(statusLabel)
         
+ 
+        autoConnectContainerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(autoConnectContainerView)
+
+        
+        autoConnectSwitch.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(autoConnectSwitch)
+        autoConnectSwitch.isOn = AppConfigurable.shared.autoConnectToAdapter
+           
+        autoConnectLabel.text = "Auto Connect To Adapter"
+        autoConnectLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(autoConnectLabel)
         
         NSLayoutConstraint.activate([
             connectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -78,10 +95,19 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
             statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             
+            autoConnectContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            autoConnectContainerView.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 20),
+            autoConnectSwitch.centerYAnchor.constraint(equalTo: autoConnectContainerView.centerYAnchor),
+            autoConnectSwitch.trailingAnchor.constraint(equalTo: autoConnectContainerView.trailingAnchor),
+            autoConnectLabel.centerYAnchor.constraint(equalTo: autoConnectSwitch.centerYAnchor),
+            autoConnectLabel.trailingAnchor.constraint(equalTo: autoConnectSwitch.leadingAnchor, constant: -10),
+            autoConnectLabel.leadingAnchor.constraint(equalTo: autoConnectContainerView.leadingAnchor)
+    
         ])
         
         connectButton.addTarget(self, action: #selector(connectButtonPressed), for: .touchUpInside)
         disconnectButton.addTarget(self, action: #selector(disconnectButtonPressed), for: .touchUpInside)
+        autoConnectSwitch.addTarget(self, action: #selector(handleAutoConnectSwitch(_:)), for: .valueChanged)
         
     }
     
@@ -95,6 +121,10 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         self.connectButton.isHidden = false
         self.disconnectButton.isHidden = true
         updateConnectionStatus(status: eventHandler?.getStatus() ?? "Unable to Load Status")
+    }
+    
+    @objc func handleAutoConnectSwitch(_ sender: UISwitch) {
+        AppConfigurable.shared.autoConnectToAdapter = sender.isOn
     }
     
     

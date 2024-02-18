@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */; };
 		5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */; };
+		5C9EBE6E2B81EAC100F6AABD /* AppConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */; };
 		5CB3A85C2B7CBE10002A9C49 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
 		5CB3A85D2B7CBE10002A9C49 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
 		5CB3A8602B7CBE10002A9C49 /* CoffeeComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3A85F2B7CBE10002A9C49 /* CoffeeComplication.swift */; };
@@ -161,6 +162,8 @@
 		502E91AD998CC0A44D3088C0 /* Pods-MapBlueprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBlueprint.release.xcconfig"; path = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.release.xcconfig"; sourceTree = "<group>"; };
 		5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDInfo.swift; sourceTree = "<group>"; };
 		5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
+		5C7990FD2B81C1FC000528D8 /* MapBlueprintCompanion-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MapBlueprintCompanion-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurable.swift; sourceTree = "<group>"; };
 		5CB3A8542B7CB538002A9C49 /* MapBlueprint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapBlueprint.entitlements; sourceTree = "<group>"; };
 		5CB3A8552B7CB554002A9C49 /* MapBlueprintCompanion Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MapBlueprintCompanion Watch App.entitlements"; sourceTree = "<group>"; };
 		5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FuelComplicationExtension.entitlements; sourceTree = "<group>"; };
@@ -373,7 +376,6 @@
 				5CBAED5B2B6B0A7F006C1A34 /* Assets.xcassets */,
 				5CBAED5D2B6B0A7F006C1A34 /* LaunchScreen.storyboard */,
 				5CBAED602B6B0A7F006C1A34 /* Info.plist */,
-				5CF230672B6B11E900A9E7C6 /* TableViewCellFactory.swift */,
 			);
 			path = MapBlueprint;
 			sourceTree = "<group>";
@@ -381,6 +383,7 @@
 		5CBD61602B7B447B009B00B5 /* MapBlueprintCompanion Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				5C7990FD2B81C1FC000528D8 /* MapBlueprintCompanion-Watch-App-Info.plist */,
 				5CB3A8552B7CB554002A9C49 /* MapBlueprintCompanion Watch App.entitlements */,
 				5CBD61612B7B447B009B00B5 /* MapBlueprintCompanionApp.swift */,
 				5CBD61632B7B447B009B00B5 /* ContentView.swift */,
@@ -432,6 +435,7 @@
 				5CE57A9A2B7C8B64005F3444 /* SettingsMetaData.swift */,
 				5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */,
 				5CB51AA12B7408BE004B952A /* OBDData.swift */,
+				5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -439,6 +443,7 @@
 		5CE57A972B7B797A005F3444 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				5CF230672B6B11E900A9E7C6 /* TableViewCellFactory.swift */,
 				5CE57A952B7B7840005F3444 /* OBDDataFactory.swift */,
 				5CE57A982B7B798A005F3444 /* OBD2AdapterFactory.swift */,
 			);
@@ -885,6 +890,7 @@
 			files = (
 				5CBAED572B6B0A7E006C1A34 /* ViewController.swift in Sources */,
 				5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */,
+				5C9EBE6E2B81EAC100F6AABD /* AppConfigurable.swift in Sources */,
 				5CF230682B6B11E900A9E7C6 /* TableViewCellFactory.swift in Sources */,
 				5CE57A992B7B798A005F3444 /* OBD2AdapterFactory.swift in Sources */,
 				5CF2304C2B6B0CA300A9E7C6 /* HomeEventHandler.swift in Sources */,
@@ -1224,9 +1230,12 @@
 				DEVELOPMENT_TEAM = NP96938VJW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapBlueprint/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Connecting to OBD2 adapters";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1255,9 +1264,12 @@
 				DEVELOPMENT_TEAM = NP96938VJW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapBlueprint/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Connecting to OBD2 adapters";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1287,6 +1299,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MapBlueprintCompanion-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MapBlueprintCompanion;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "Alex-S.MapBlueprint";
@@ -1320,6 +1333,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MapBlueprintCompanion-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MapBlueprintCompanion;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "Alex-S.MapBlueprint";
