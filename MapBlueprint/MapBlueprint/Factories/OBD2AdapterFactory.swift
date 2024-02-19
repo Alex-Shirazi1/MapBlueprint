@@ -233,7 +233,7 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
 extension OBD2AdapterFactory {
     // MARK: - Unified Data Fetching and Sending
     
-    func startAllDataPolling(interval: TimeInterval = 5.0) {
+    func startAllDataPolling(interval: TimeInterval = 1.0) {
         print("begin data tracking")
         updateTimer?.invalidate()
         updateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in

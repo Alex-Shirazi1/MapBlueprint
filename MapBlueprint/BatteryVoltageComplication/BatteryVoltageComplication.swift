@@ -20,7 +20,7 @@ struct Provider: AppIntentTimelineProvider {
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
         
-        var currentbatteryVoltage = fetchbatteryVoltage()
+        let currentbatteryVoltage = fetchbatteryVoltage()
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
@@ -75,7 +75,7 @@ struct CircularView: View {
 
     var body: some View {
         Gauge(value: entry.batteryVoltage,
-              in: 0...250) {
+              in: 10...16) {
             Image(systemName: "minus.plus.batteryblock.fill")
         } currentValueLabel: {
             Text(String(format: "%.1f V", entry.batteryVoltage))
