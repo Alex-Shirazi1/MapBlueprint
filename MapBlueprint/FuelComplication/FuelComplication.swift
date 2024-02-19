@@ -86,7 +86,11 @@ struct CircularView: View {
 
         Gauge(value: entry.fuelLevel,
               in: 0...entry.maxFuelLevel) {
-            Image(systemName: "fuelpump.fill")
+            if entry.fuelLevel > 2.5 {
+                Image(systemName: "fuelpump.fill")
+            } else {
+                Image(systemName: "fuelpump.exclamationmark.fill")
+            }
         } currentValueLabel: {
             Text(String(format: "%.2f", entry.fuelLevel))
         }
