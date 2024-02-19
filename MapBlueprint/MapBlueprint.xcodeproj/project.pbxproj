@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */; };
+		5C3384E42B82DF880083903E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
+		5C3384E52B82DF880083903E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
+		5C3384E82B82DF880083903E /* BatteryVoltageComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3384E72B82DF880083903E /* BatteryVoltageComplication.swift */; };
+		5C3384EA2B82DF880083903E /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3384E92B82DF880083903E /* AppIntent.swift */; };
+		5C3384EC2B82DF890083903E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C3384EB2B82DF890083903E /* Assets.xcassets */; };
+		5C3384F02B82DF890083903E /* BatteryVoltageComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5C3384E32B82DF880083903E /* BatteryVoltageComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */; };
 		5C9EBE6E2B81EAC100F6AABD /* AppConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */; };
 		5C9EBE942B820B1D00F6AABD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE932B820B1D00F6AABD /* DashboardViewController.swift */; };
@@ -83,6 +89,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5C3384EE2B82DF890083903E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C3384E22B82DF880083903E;
+			remoteInfo = BatteryVoltageComplicationExtension;
+		};
 		5CB3A8662B7CBE11002A9C49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5CBAED472B6B0A7E006C1A34 /* Project object */;
@@ -153,6 +166,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				5CB3A8682B7CBE11002A9C49 /* CoffeeComplicationExtension.appex in Embed Foundation Extensions */,
+				5C3384F02B82DF890083903E /* BatteryVoltageComplicationExtension.appex in Embed Foundation Extensions */,
 				5CE9C3652B7F0F7000E865DA /* CoolantComplicationExtension.appex in Embed Foundation Extensions */,
 				5CE9C37A2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex in Embed Foundation Extensions */,
 				5CE57A8D2B7B5D14005F3444 /* FuelComplicationExtension.appex in Embed Foundation Extensions */,
@@ -166,6 +180,12 @@
 		187B80FF985F8F9A3F3335A0 /* Pods_MapBlueprint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapBlueprint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		502E91AD998CC0A44D3088C0 /* Pods-MapBlueprint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapBlueprint.release.xcconfig"; path = "Target Support Files/Pods-MapBlueprint/Pods-MapBlueprint.release.xcconfig"; sourceTree = "<group>"; };
 		5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIDInfo.swift; sourceTree = "<group>"; };
+		5C3384E32B82DF880083903E /* BatteryVoltageComplicationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BatteryVoltageComplicationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C3384E72B82DF880083903E /* BatteryVoltageComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryVoltageComplication.swift; sourceTree = "<group>"; };
+		5C3384E92B82DF880083903E /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		5C3384EB2B82DF890083903E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C3384ED2B82DF890083903E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C3384F42B82E25A0083903E /* BatteryVoltageComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BatteryVoltageComplicationExtension.entitlements; sourceTree = "<group>"; };
 		5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		5C7990FD2B81C1FC000528D8 /* MapBlueprintCompanion-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MapBlueprintCompanion-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurable.swift; sourceTree = "<group>"; };
@@ -249,6 +269,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C3384E02B82DF880083903E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C3384E52B82DF880083903E /* SwiftUI.framework in Frameworks */,
+				5C3384E42B82DF880083903E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CB3A8582B7CBE10002A9C49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,6 +356,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5C3384E62B82DF880083903E /* BatteryVoltageComplication */ = {
+			isa = PBXGroup;
+			children = (
+				5C3384E72B82DF880083903E /* BatteryVoltageComplication.swift */,
+				5C3384E92B82DF880083903E /* AppIntent.swift */,
+				5C3384EB2B82DF890083903E /* Assets.xcassets */,
+				5C3384ED2B82DF890083903E /* Info.plist */,
+			);
+			path = BatteryVoltageComplication;
+			sourceTree = "<group>";
+		};
 		5C9EBE922B820AFD00F6AABD /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +393,7 @@
 		5CBAED462B6B0A7E006C1A34 = {
 			isa = PBXGroup;
 			children = (
+				5C3384F42B82E25A0083903E /* BatteryVoltageComplicationExtension.entitlements */,
 				5CE9C37F2B7F26EF00E865DA /* CoolantComplicationExtension.entitlements */,
 				5CE9C37E2B7F26E600E865DA /* OilTemperatureComplicationExtension.entitlements */,
 				5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */,
@@ -364,6 +405,7 @@
 				5CB3A85E2B7CBE10002A9C49 /* CoffeeComplication */,
 				5CE9C35B2B7F0F6F00E865DA /* CoolantComplication */,
 				5CE9C3702B7F0F8300E865DA /* OilTemperatureComplication */,
+				5C3384E62B82DF880083903E /* BatteryVoltageComplication */,
 				5CBAED502B6B0A7E006C1A34 /* Products */,
 				E239000E860E912F1F881502 /* Pods */,
 				444DD090AE941CACEBE8AB4F /* Frameworks */,
@@ -381,6 +423,7 @@
 				5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */,
 				5CE9C3582B7F0F6F00E865DA /* CoolantComplicationExtension.appex */,
 				5CE9C36D2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex */,
+				5C3384E32B82DF880083903E /* BatteryVoltageComplicationExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -577,6 +620,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5C3384E22B82DF880083903E /* BatteryVoltageComplicationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C3384F32B82DF890083903E /* Build configuration list for PBXNativeTarget "BatteryVoltageComplicationExtension" */;
+			buildPhases = (
+				5C3384DF2B82DF880083903E /* Sources */,
+				5C3384E02B82DF880083903E /* Frameworks */,
+				5C3384E12B82DF880083903E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BatteryVoltageComplicationExtension;
+			productName = BatteryVoltageComplicationExtension;
+			productReference = 5C3384E32B82DF880083903E /* BatteryVoltageComplicationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CB3A8692B7CBE11002A9C49 /* Build configuration list for PBXNativeTarget "CoffeeComplicationExtension" */;
@@ -631,6 +691,7 @@
 				5CB3A8672B7CBE11002A9C49 /* PBXTargetDependency */,
 				5CE9C3642B7F0F7000E865DA /* PBXTargetDependency */,
 				5CE9C3792B7F0F8300E865DA /* PBXTargetDependency */,
+				5C3384EF2B82DF890083903E /* PBXTargetDependency */,
 			);
 			name = "MapBlueprintCompanion Watch App";
 			productName = "MapBlueprintCompanion Watch App";
@@ -734,6 +795,9 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					5C3384E22B82DF880083903E = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					5CB3A85A2B7CBE10002A9C49 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -783,11 +847,20 @@
 				5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */,
 				5CE9C3572B7F0F6F00E865DA /* CoolantComplicationExtension */,
 				5CE9C36C2B7F0F8300E865DA /* OilTemperatureComplicationExtension */,
+				5C3384E22B82DF880083903E /* BatteryVoltageComplicationExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5C3384E12B82DF880083903E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C3384EC2B82DF890083903E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CB3A8592B7CBE10002A9C49 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -898,6 +971,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5C3384DF2B82DF880083903E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C3384E82B82DF880083903E /* BatteryVoltageComplication.swift in Sources */,
+				5C3384EA2B82DF880083903E /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CB3A8572B7CBE10002A9C49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1007,6 +1089,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5C3384EF2B82DF890083903E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C3384E22B82DF880083903E /* BatteryVoltageComplicationExtension */;
+			targetProxy = 5C3384EE2B82DF890083903E /* PBXContainerItemProxy */;
+		};
 		5CB3A8672B7CBE11002A9C49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5CB3A85A2B7CBE10002A9C49 /* CoffeeComplicationExtension */;
@@ -1064,6 +1151,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5C3384F12B82DF890083903E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BatteryVoltageComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BatteryVoltageComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BatteryVoltageComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.BatteryVoltageComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		5C3384F22B82DF890083903E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BatteryVoltageComplicationExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NP96938VJW;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BatteryVoltageComplication/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BatteryVoltageComplication;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alex-S.MapBlueprint.watchkitapp.BatteryVoltageComplication";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
 		5CB3A86A2B7CBE11002A9C49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1662,6 +1813,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5C3384F32B82DF890083903E /* Build configuration list for PBXNativeTarget "BatteryVoltageComplicationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C3384F12B82DF890083903E /* Debug */,
+				5C3384F22B82DF890083903E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5CB3A8692B7CBE11002A9C49 /* Build configuration list for PBXNativeTarget "CoffeeComplicationExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

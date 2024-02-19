@@ -20,7 +20,9 @@ struct OBD2MetaData {
         .Engine_Oil_Temperature: PIDInfo(obdPID: .Engine_Oil_Temperature, pid: "0x5C", description: "Engine oil temperature", units: "°C"),
         .Vehicle_Speed: PIDInfo(obdPID: .Vehicle_Speed, pid: "0x0D", description: "Vehicle speed", units: "km/h"),
         .Engine_RPM: PIDInfo(obdPID: .Engine_RPM, pid: "0x0C", description: "Engine RPM", units: "rpm"),
-        .Fuel_Tank_Level_Input: PIDInfo(obdPID: .Fuel_Tank_Level_Input, pid: "0x2F", description: "Fuel Tank Level Input", units: "%")
+        .Fuel_Tank_Level_Input: PIDInfo(obdPID: .Fuel_Tank_Level_Input, pid: "0x2F", description: "Fuel Tank Level Input", units: "%"),
+        .Control_Module_Voltage: PIDInfo(obdPID: .Control_Module_Voltage, pid: "0x42", description: "Control Module Voltage", units: "V")
+
         // Add additional PIDs as needed
     ]
     

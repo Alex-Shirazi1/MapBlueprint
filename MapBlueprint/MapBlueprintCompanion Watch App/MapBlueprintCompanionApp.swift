@@ -75,6 +75,13 @@ class ConnectivityProvider: NSObject, ObservableObject, WCSessionDelegate {
                 defaults?.set(oilTemperature, forKey: "oilTemperature")
             }
             
+            //Checkes and saves Control Module Voltage
+            
+            if let controlModuleVoltage = applicationContext["controlModuleVoltage"] as? Double {
+                print("WCSession Voltage \(controlModuleVoltage)")
+                defaults?.set(controlModuleVoltage, forKey: "batteryVoltage")
+            }
+            
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
