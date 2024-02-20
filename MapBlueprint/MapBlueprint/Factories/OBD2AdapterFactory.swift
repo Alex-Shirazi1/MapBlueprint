@@ -326,13 +326,13 @@ extension OBD2AdapterFactory {
             return -1
         }
         
-        let (rawValue, processedValue) = await fetchDataForAsync(pidInfo: controlModuleVoltagePIDInfo)
-        guard let milliVoltage = processedValue as? Double else {
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: controlModuleVoltagePIDInfo)
+        guard let milliVolts = processedValue as? Double else {
             print("Invalid or nil raw value received for oil temperature.")
             return -1
         }
         
-        return milliVoltage/1000 // Converts to Volts
+        return milliVolts/1000 // Converts to Volts
         
     }
 }
