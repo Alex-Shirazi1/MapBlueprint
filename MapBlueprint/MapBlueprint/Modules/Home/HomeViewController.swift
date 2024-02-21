@@ -18,8 +18,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     let eventHandler: HomeEventHandlerProtocol
     var mapView = MKMapView()
     let locationManager = CLLocationManager()
+    
+    var routeInfoContainerView = UIView()
     var searchBar =  UISearchBar()
-    var searchBarBottomConstraint = NSLayoutConstraint()
+    var routeInfoContainerViewBottomConstraint = NSLayoutConstraint()
     var distanceLabel = UILabel()
     var estimatedTimeLabel = UILabel()
     var endRouteButton = UIButton()
@@ -35,8 +37,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMapView()
-        setupRouteInfoUI()
+        setup()
     
     }
 
@@ -74,68 +75,102 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     }
     
 
-    func setupRouteInfoUI() {
+    private func setup() {
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        view.addSubview(mapView)
         
-        let guide = view.safeAreaLayoutGuide
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         
-        searchBar = UISearchBar()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        } else {
+            print("Location services are not available.")
+        }
+        
+        routeInfoContainerView.translatesAutoresizingMaskIntoConstraints = false
+        routeInfoContainerViewBottomConstraint = routeInfoContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+
+        view.addSubview(routeInfoContainerView)
+        
+        let blurEffect = UIBlurEffect(style: .systemMaterial)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        routeInfoContainerView.addSubview(blurEffectView)
+        
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "Enter destination..."
         searchBar.delegate = self
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.showsCancelButton = true
-        searchBarBottomConstraint = searchBar.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -(navigationController?.toolbar.frame.size.height ?? 0))
+        routeInfoContainerView.addSubview(searchBar)
         
         distanceLabel.translatesAutoresizingMaskIntoConstraints = false
         distanceLabel.textAlignment = .center
         distanceLabel.text = "Distance"
         distanceLabel.backgroundColor = .systemBackground
         distanceLabel.isHidden = true
+        routeInfoContainerView.addSubview(distanceLabel)
         
-     
         estimatedTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         estimatedTimeLabel.textAlignment = .center
         estimatedTimeLabel.text = "Estimated Time"
         estimatedTimeLabel.backgroundColor = .systemBackground
         estimatedTimeLabel.isHidden = true
+        routeInfoContainerView.addSubview(estimatedTimeLabel)
         
-        endRouteButton = UIButton(type: .system)
         endRouteButton.translatesAutoresizingMaskIntoConstraints = false
         endRouteButton.setTitle("End Route", for: .normal)
-        endRouteButton.backgroundColor = .black
+        endRouteButton.backgroundColor = .red
         endRouteButton.setTitleColor(.label, for: .normal)
         endRouteButton.addTarget(self, action: #selector(endCurrentRoute), for: .touchUpInside)
         endRouteButton.isHidden = true
-        
-        view.addSubview(searchBar)
-        view.addSubview(distanceLabel)
-        view.addSubview(estimatedTimeLabel)
-        view.addSubview(endRouteButton)
-        
-
+        routeInfoContainerView.addSubview(endRouteButton)
         
         NSLayoutConstraint.activate([
+
             
+            routeInfoContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            routeInfoContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            routeInfoContainerViewBottomConstraint,
             
-            searchBar.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
-            searchBarBottomConstraint,
+            blurEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            blurEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            blurEffectView.topAnchor.constraint(equalTo: view.topAnchor),
+            blurEffectView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -50),
+
+            
+            searchBar.topAnchor.constraint(equalTo: routeInfoContainerView.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: routeInfoContainerView.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: routeInfoContainerView.trailingAnchor),
             searchBar.heightAnchor.constraint(equalToConstant: 50),
             
+            distanceLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 8),
+            distanceLabel.leadingAnchor.constraint(equalTo: routeInfoContainerView.leadingAnchor, constant: 12),
+            distanceLabel.trailingAnchor.constraint(equalTo: routeInfoContainerView.trailingAnchor, constant: -12),
             
-            distanceLabel.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 2),
-            distanceLabel.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 12),
-            distanceLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -12),
+            estimatedTimeLabel.topAnchor.constraint(equalTo: distanceLabel.bottomAnchor, constant: 8),
+            estimatedTimeLabel.leadingAnchor.constraint(equalTo: routeInfoContainerView.leadingAnchor, constant: 12),
+            estimatedTimeLabel.trailingAnchor.constraint(equalTo: routeInfoContainerView.trailingAnchor, constant: -12),
             
-            estimatedTimeLabel.topAnchor.constraint(equalTo: distanceLabel.bottomAnchor, constant: 0),
-            estimatedTimeLabel.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 12),
-            estimatedTimeLabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -12),
-            
-            endRouteButton.topAnchor.constraint(equalTo: estimatedTimeLabel.bottomAnchor, constant: 2),
-            endRouteButton.centerXAnchor.constraint(equalTo: guide.centerXAnchor),
+            endRouteButton.topAnchor.constraint(equalTo: estimatedTimeLabel.bottomAnchor, constant: 8),
+            endRouteButton.centerXAnchor.constraint(equalTo: routeInfoContainerView.centerXAnchor),
             endRouteButton.heightAnchor.constraint(equalToConstant: 44),
-            endRouteButton.widthAnchor.constraint(equalToConstant: 100)
+            endRouteButton.widthAnchor.constraint(equalToConstant: 100),
+            endRouteButton.bottomAnchor.constraint(equalTo: routeInfoContainerView.bottomAnchor, constant: -20),
+            
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: routeInfoContainerView.topAnchor)
         ])
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -174,20 +209,16 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
-            let safeAreaBottomInset = view.safeAreaInsets.bottom
-            let offset = keyboardHeight - safeAreaBottomInset
-            
             UIView.animate(withDuration: 0.3) {
-                self.searchBarBottomConstraint.constant = -offset
+                self.routeInfoContainerViewBottomConstraint.constant = -keyboardHeight + self.view.safeAreaInsets.bottom
                 self.view.layoutIfNeeded()
             }
         }
-        
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
         UIView.animate(withDuration: 0.3) {
-            self.searchBarBottomConstraint.constant = -(self.tabBarController?.tabBar.frame.size.height ?? 0)
+            self.routeInfoContainerViewBottomConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
     }
