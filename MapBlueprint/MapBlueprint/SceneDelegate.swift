@@ -13,10 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if AppConfigurable.shared.autoConnectToAdapter {
-            OBD2AdapterFactory.shared.setupTransporterAndConnect()
-        }
-        
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
@@ -118,7 +114,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
+        
+            if OBD2AdapterFactory.shared.getStatus() != .connected && AppConfigurable.shared.autoConnectToAdapter {
+                OBD2AdapterFactory.shared.setupTransporterAndConnect()
+            }
+        }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.

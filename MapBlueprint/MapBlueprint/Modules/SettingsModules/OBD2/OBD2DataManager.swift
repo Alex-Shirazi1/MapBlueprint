@@ -9,7 +9,7 @@ import Foundation
 
 protocol OBD2DataManagerProtocol: AnyObject {
     func connect()
-    func getStatus() -> String
+    func getStatus() -> OBD2AdapterState
     func disconnect()
 }
 
@@ -24,7 +24,7 @@ class OBD2DataManager: OBD2DataManagerProtocol {
     func connect() {
         factory.setupTransporterAndConnect()
     }
-    func getStatus() -> String {
+    func getStatus() -> OBD2AdapterState {
         factory.getStatus()
     }
     

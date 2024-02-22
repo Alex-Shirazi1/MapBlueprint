@@ -145,17 +145,14 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
         return nil
     }
-
-
-
     
-    func getStatus() -> String {
-         if let adapterState = obd2Adapter?.friendlyAdapterState {
-             return adapterState
-         } else {
-             return "Unknown State"
-         }
-     }
+    func getStatus() -> OBD2AdapterState {
+        guard let stateString = obd2Adapter?.friendlyAdapterState else {
+            return .unknown
+        }
+        return OBD2AdapterState(rawValue: stateString) ?? .unknown
+    }
+
     
     @objc private func adapterDidConnect(notification: Notification) {
     }

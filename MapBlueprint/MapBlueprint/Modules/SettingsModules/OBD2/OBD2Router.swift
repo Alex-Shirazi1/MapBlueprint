@@ -9,26 +9,20 @@ import Foundation
 import UIKit
 
 protocol OBD2RouterProtocol: AnyObject {
-    static func createModule(navigationViewController: UINavigationController) -> UIViewController
+    static func createModule(navigationController: UINavigationController) -> UIViewController
 }
 
 class OBD2Router: OBD2RouterProtocol {
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    static func createModule(navigationViewController navigationController: UINavigationController) -> UIViewController {
-        let dataManager = OBD2DataManager(factory: OBD2AdapterFactory.shared)
-        let interactor = OBD2Interactor(dataManager: dataManager)
-        let router = OBD2Router(navigationController: navigationController) // Adjusted constructor
-        let eventHandler = OBD2EventHandler(interactor: interactor, router: router)
+    static func createModule(navigationController: UINavigationController) -> UIViewController {
+        let interactor: OBD2InteractorProtocol = OBD2Interactor()
+        let router: OBD2Router = OBD2Router()
+        router.navigationController = navigationController
+        let eventHandler: OBD2EventHandlerProtocol = OBD2EventHandler(interactor: interactor, router: router)
         let viewController = OBD2ViewController(eventHandler: eventHandler)
-
         eventHandler.viewController = viewController
-        interactor.eventHandler = eventHandler
-
         return viewController
     }
+    
 }

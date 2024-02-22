@@ -13,7 +13,7 @@ import LTSupportAutomotive
 protocol OBD2InteractorProtocol: AnyObject {
     var eventHandler: OBD2EventHandlerProtocol? { get set }
     func setupTransporterAndConnect()
-    func getStatus() -> String
+    func getStatus() -> OBD2AdapterState
     func disconnectAdapter()
 }
 
@@ -37,7 +37,7 @@ class OBD2Interactor: OBD2InteractorProtocol {
         dataManager.connect()
         }
     
-    func getStatus() -> String {
+    func getStatus() -> OBD2AdapterState {
         dataManager.getStatus()
     }
     

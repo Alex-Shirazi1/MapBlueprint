@@ -46,7 +46,7 @@ class SettingsRouter: SettingsRouterProtocol {
             return
         }
         
-        let OBD2ViewController = OBD2Router.createModule(navigationViewController: navigationController)
+        let OBD2ViewController = OBD2Router.createModule(navigationController: navigationController)
         navigationController.pushViewController(OBD2ViewController, animated: false)
     }
 }

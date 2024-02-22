@@ -10,11 +10,11 @@
 import UIKit
 
 protocol OBD2ViewControllerProtocol: AnyObject {
-    func updateConnectionStatus(status: String)
+    func updateConnectionStatus(status: OBD2AdapterState)
 }
 
 class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
-    var eventHandler: OBD2EventHandlerProtocol?
+    var eventHandler: OBD2EventHandlerProtocol
     private let connectButton = UIButton()
     private let disconnectButton = UIButton()
     
@@ -24,6 +24,7 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     
     private let statusLabel = UILabel()
     
+    private var isConnected: Bool = false
     
     init(eventHandler: OBD2EventHandlerProtocol) {
         self.eventHandler = eventHandler
@@ -38,14 +39,16 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
-        updateConnectionStatus(status: eventHandler?.getStatus() ?? "unable to load")
+        updateConnectionStatus(status: eventHandler.getStatus())
     }
-    func updateConnectionStatus(status: String) {
+    func updateConnectionStatus(status: OBD2AdapterState) {
         DispatchQueue.main.async {
-            self.statusLabel.text = status
-            let isConnected = status == "OBD2AdapterStateConnected"
-            self.connectButton.isHidden = isConnected
-            self.disconnectButton.isHidden = !isConnected
+            self.statusLabel.text = status.description
+            if status == .connected {
+                self.isConnected = true
+                self.connectButton.isHidden = self.isConnected
+                self.disconnectButton.isHidden = !self.isConnected
+            }
         }
     }
 
@@ -115,14 +118,14 @@ class OBD2ViewController: UIViewController, OBD2ViewControllerProtocol {
     
     @objc func connectButtonPressed() {
         statusLabel.text = "User Activating"
-        eventHandler?.handleTransporterAndConnect()
-        updateConnectionStatus(status: eventHandler?.getStatus() ?? "Unable to Load Status")
+        eventHandler.handleTransporterAndConnect()
+        updateConnectionStatus(status: eventHandler.getStatus())
     }
     @objc func disconnectButtonPressed() {
-        eventHandler?.handleDisconnect()
+        eventHandler.handleDisconnect()
         self.connectButton.isHidden = false
         self.disconnectButton.isHidden = true
-        updateConnectionStatus(status: eventHandler?.getStatus() ?? "Unable to Load Status")
+        updateConnectionStatus(status: eventHandler.getStatus())
     }
     
     @objc func handleAutoConnectSwitch(_ sender: UISwitch) {
