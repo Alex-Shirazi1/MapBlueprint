@@ -22,6 +22,7 @@
 		5C9EBE982B820B2F00F6AABD /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE972B820B2F00F6AABD /* DashboardInteractor.swift */; };
 		5C9EBE9A2B820B3700F6AABD /* DashboardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE992B820B3700F6AABD /* DashboardDataManager.swift */; };
 		5C9EBE9C2B820B4000F6AABD /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE9B2B820B4000F6AABD /* DashboardRouter.swift */; };
+		5CA26EA02B87000100A356C8 /* CustomBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA26E9F2B87000100A356C8 /* CustomBlue.swift */; };
 		5CB3A85C2B7CBE10002A9C49 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
 		5CB3A85D2B7CBE10002A9C49 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
 		5CB3A8602B7CBE10002A9C49 /* CoffeeComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3A85F2B7CBE10002A9C49 /* CoffeeComplication.swift */; };
@@ -196,6 +197,7 @@
 		5C9EBE972B820B2F00F6AABD /* DashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
 		5C9EBE992B820B3700F6AABD /* DashboardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDataManager.swift; sourceTree = "<group>"; };
 		5C9EBE9B2B820B4000F6AABD /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
+		5CA26E9F2B87000100A356C8 /* CustomBlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBlue.swift; sourceTree = "<group>"; };
 		5CB3A8542B7CB538002A9C49 /* MapBlueprint.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapBlueprint.entitlements; sourceTree = "<group>"; };
 		5CB3A8552B7CB554002A9C49 /* MapBlueprintCompanion Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MapBlueprintCompanion Watch App.entitlements"; sourceTree = "<group>"; };
 		5CB3A8562B7CB55F002A9C49 /* FuelComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FuelComplicationExtension.entitlements; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 				5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */,
 				5CB51AA32B740C20004B952A /* OBDPID.swift */,
 				5CE57A932B7B750B005F3444 /* OBDDataModel.swift */,
+				5CA26E9F2B87000100A356C8 /* CustomBlue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1011,6 +1014,7 @@
 				5C9EBE982B820B2F00F6AABD /* DashboardInteractor.swift in Sources */,
 				5CEF42942B719CA9007C0951 /* OBD2ViewController.swift in Sources */,
 				5CE57A942B7B750B005F3444 /* OBDDataModel.swift in Sources */,
+				5CA26EA02B87000100A356C8 /* CustomBlue.swift in Sources */,
 				5CEF42962B719CB5007C0951 /* OBD2Interactor.swift in Sources */,
 				5CB51AA22B7408BE004B952A /* OBDData.swift in Sources */,
 				5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */,

@@ -93,6 +93,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         
         routeInfoContainerView.translatesAutoresizingMaskIntoConstraints = false
         routeInfoContainerViewBottomConstraint = routeInfoContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        routeInfoContainerView.backgroundColor = .systemBackground
 
         view.addSubview(routeInfoContainerView)
         

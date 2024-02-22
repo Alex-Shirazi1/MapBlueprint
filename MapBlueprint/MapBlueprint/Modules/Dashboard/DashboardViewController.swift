@@ -14,27 +14,30 @@ protocol DashboardViewControllerProtocol: AnyObject {
 
 class DashboardViewController: UIViewController, DashboardViewControllerProtocol {
     let eventHandler: DashboardEventHandlerProtocol
-    var stackView =  UIStackView()
     var updateTimer: Timer?
+    var scrollView = UIScrollView()
+    var verticalStackView = UIStackView()
+    let dialsPerRow = 2
+    
     
     // Dials Init Lazy Loading
     lazy var coolantTempDial: DialView = {
-        let dial = DialView(value: 0, title: "Coolant Temp", icon: UIImage(systemName: "snowflake") ?? UIImage())
+        let dial = DialView(value: 0, minValue: 0, maxValue: 250, title: "Coolant", icon: UIImage(systemName: "snowflake") ?? UIImage())
         return dial
     }()
     
     lazy var oilTempDial: DialView = {
-        let dial = DialView(value: 0, title: "Oil Temp", icon: UIImage(systemName: "oilcan.fill") ?? UIImage())
+        let dial = DialView(value: 0,  minValue: 0, maxValue: 250, title: "Oil Temp", icon: UIImage(systemName: "oilcan.fill") ?? UIImage())
         return dial
     }()
     
     lazy var fuelLevelDial: DialView = {
-        let dial = DialView(value: 0, title: "Fuel Level", icon: UIImage(systemName: "fuelpump.fill") ?? UIImage())
+        let dial = DialView(value: 0,  minValue: 0, maxValue: 13.7, title: "Fuel Level", icon: UIImage(systemName: "fuelpump.fill") ?? UIImage())
         return dial
     }()
     
     lazy var controlModuleVoltageDial: DialView = {
-        let dial = DialView(value: 0, title: "Control Module Voltage", icon: UIImage(systemName: "minus.plus.batteryblock.fill") ?? UIImage())
+        let dial = DialView(value: 0,  minValue: 0, maxValue: 16, title: "Voltage", icon: UIImage(systemName: "minus.plus.batteryblock.fill") ?? UIImage())
         return dial
     }()
     
@@ -48,34 +51,63 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        setupDials()
-        fetchDataAndUpdateUI()
-    }
-    
-    func setupDials() {
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        stackView.spacing = 10
-        
-        stackView.addArrangedSubview(coolantTempDial)
-        stackView.addArrangedSubview(oilTempDial)
-        stackView.addArrangedSubview(fuelLevelDial)
-        stackView.addArrangedSubview(controlModuleVoltageDial)
-        
-        view.addSubview(stackView)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
+          super.viewDidLoad()
+          view.backgroundColor = .systemBackground
+          
+          setupScrollView()
+          setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial]) // Will be custom later when i add edit view/ selection view
+          
+          fetchDataAndUpdateUI()
+      }
+      
+      func setupScrollView() {
+          view.addSubview(scrollView)
+          scrollView.translatesAutoresizingMaskIntoConstraints = false
+       
+          
+          scrollView.addSubview(verticalStackView)
+          verticalStackView.axis = .vertical
+          verticalStackView.spacing = 50
+          
+          verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+          NSLayoutConstraint.activate([
+              scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+              scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+              scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+              scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+              
+              verticalStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+              verticalStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+              verticalStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50),
+              verticalStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+              verticalStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+          ])
+          
+      }
+
+      func setupDials(dials: [DialView]) {
+          // Iterate through the dials and add them to rows
+          for (index, dial) in dials.enumerated() {
+              let rowIndex = index / dialsPerRow
+              if rowIndex >= verticalStackView.arrangedSubviews.count {
+                  // Create a new row if needed
+                  let rowStackView = createRowStackView()
+                  verticalStackView.addArrangedSubview(rowStackView)
+              }
+              if let rowStackView = verticalStackView.arrangedSubviews[rowIndex] as? UIStackView {
+                  // Add the dial to the appropriate row
+                  rowStackView.addArrangedSubview(dial)
+              }
+          }
+      }
+      
+      func createRowStackView() -> UIStackView {
+          let rowStackView = UIStackView()
+          rowStackView.axis = .horizontal
+          rowStackView.distribution = .fillEqually
+          rowStackView.spacing = 10
+          return rowStackView
+      }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startUpdatingData()
@@ -97,8 +129,13 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
     
     @objc func fetchDataAndUpdateUI() {
         Task {
-            let data = await fetchData()
-            
+           let data = await fetchData()
+//           let data = [
+//            "coolantTemperature": 210,
+//            "oilTemperature": 150,
+//            "fuelLevel": 13.5,
+//            "controlModuleVoltage": 10.5
+//                        ]
             DispatchQueue.main.async {
                 if let coolantTemp = data["coolantTemperature"] as? Double {
                     let refinedCoolantTemp = self.formatTemperature(coolantTemp)
@@ -106,6 +143,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                         self.coolantTempDial.valueLabel.text = "--"
                     } else {
                         self.coolantTempDial.valueLabel.text = String(format: "%.2f°F", refinedCoolantTemp)
+                        self.coolantTempDial.currentValue = refinedCoolantTemp
                     }
                 }
                 if let oilTemp = data["oilTemperature"] as? Double {
@@ -114,14 +152,16 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                         self.oilTempDial.valueLabel.text = "--"
                     } else {
                         self.oilTempDial.valueLabel.text = String(format: "%.2f°F", refinedOilTemp)
+                        self.oilTempDial.currentValue = refinedOilTemp
                     }
                 }
                 if let fuelLevel = data["fuelLevel"] as? Double {
                     if fuelLevel == -1 {
                         self.fuelLevelDial.valueLabel.text = "--"
                     } else {
-                        self.checkFuelLevel(fuelLevel: fuelLevel)
                         self.fuelLevelDial.valueLabel.text = String(format: "%.2f G", fuelLevel)
+                        self.fuelLevelDial.currentValue = fuelLevel
+                        self.checkFuelLevel(fuelLevel: fuelLevel)
                     }
                 }
                 if let voltage = data["controlModuleVoltage"] as? Double {
@@ -129,6 +169,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                         self.controlModuleVoltageDial.valueLabel.text = "--"
                     } else {
                         self.controlModuleVoltageDial.valueLabel.text = "\(voltage)V"
+                        self.controlModuleVoltageDial.currentValue = voltage
                     }
                 }
             }
@@ -147,11 +188,14 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
             return temperature
         }
     }
-    // If we are low fuel, show user with updated Image
+    // If we are low fuel, show user with updated Image, restore image if tank exceed low value
     private func checkFuelLevel(fuelLevel: Double) {
         if fuelLevel < 2.5 {
-            let fuelImage = UIImage(systemName: "fuelpump.exclamationmark.fill") ?? UIImage()
-            fuelLevelDial.alterImage(image: fuelImage)
+            let fuelImageLow = UIImage(systemName: "fuelpump.exclamationmark.fill") ?? UIImage()
+            fuelLevelDial.alterImage(image: fuelImageLow)
+        } else {
+            let fuelImageGood = UIImage(systemName: "fuelpump.fill") ?? UIImage()
+            fuelLevelDial.alterImage(image: fuelImageGood)
         }
     }
 }
