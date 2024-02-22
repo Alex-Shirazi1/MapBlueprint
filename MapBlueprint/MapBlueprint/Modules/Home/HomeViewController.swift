@@ -25,6 +25,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     var distanceLabel = UILabel()
     var estimatedTimeLabel = UILabel()
     var endRouteButton = UIButton()
+    var currentLocationButton = UIButton()
 
     init(eventHandler: HomeEventHandlerProtocol) {
         self.eventHandler = eventHandler
@@ -39,42 +40,10 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         super.viewDidLoad()
         setup()
     
-    }
-
-    private func setupMapView() {
-        mapView = MKMapView(frame: view.bounds)
-         view.addSubview(mapView)
-         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-         mapView.delegate = self
-         mapView.showsUserLocation = true
-
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        } else {
-           print("Location Services not available")
-        }
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        mapView.showsUserLocation = true
-            
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-     }
-    
-    func centerMapOnLocation(location: CLLocation) {
-        let regionRadius: CLLocationDistance = 1000
-        let coordinateRegion = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: regionRadius,
-            longitudinalMeters: regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+        //Center current location on startup
+        centerOnCurrentLocation()
     }
     
-
     private func setup() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.delegate = self
@@ -130,6 +99,15 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         endRouteButton.isHidden = true
         routeInfoContainerView.addSubview(endRouteButton)
         
+        currentLocationButton.setImage(UIImage(systemName: "location.fill"), for: .normal)
+        currentLocationButton.backgroundColor = .systemBackground
+        currentLocationButton.layer.cornerRadius = 25
+        currentLocationButton.clipsToBounds = true
+        currentLocationButton.addTarget(self, action: #selector(centerOnCurrentLocation), for: .touchUpInside)
+
+        mapView.addSubview(currentLocationButton)
+        currentLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
 
             
@@ -165,13 +143,26 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: routeInfoContainerView.topAnchor)
+            mapView.bottomAnchor.constraint(equalTo: routeInfoContainerView.topAnchor),
+            
+            currentLocationButton.leftAnchor.constraint(equalTo: mapView.leftAnchor, constant: 20),
+            currentLocationButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            currentLocationButton.widthAnchor.constraint(equalToConstant: 50),
+            currentLocationButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
+    func centerMapOnLocation(location: CLLocation) {
+        let regionRadius: CLLocationDistance = 1000
+        let coordinateRegion = MKCoordinateRegion(
+            center: location.coordinate,
+            latitudinalMeters: regionRadius,
+            longitudinalMeters: regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -201,26 +192,19 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         }
     }
 
-
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.blue
+            renderer.lineWidth = 4.0
+            return renderer
+        }
+        return MKOverlayRenderer()
+    }
+    
     func getCoordinateFrom(address: String, completion: @escaping (_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> ()) {
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
             completion(placemarks?.first?.location?.coordinate, error)
-        }
-    }
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let keyboardHeight = keyboardSize.height
-            UIView.animate(withDuration: 0.3) {
-                self.routeInfoContainerViewBottomConstraint.constant = -keyboardHeight + self.view.safeAreaInsets.bottom
-                self.view.layoutIfNeeded()
-            }
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        UIView.animate(withDuration: 0.3) {
-            self.routeInfoContainerViewBottomConstraint.constant = 0
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -236,24 +220,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
           print("Accessed Denied")
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    @objc func endCurrentRoute() {
-        mapView.overlays.forEach { if $0 is MKPolyline { mapView.removeOverlay($0) } }
-        if let userLocation = locationManager.location {
-            let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-            mapView.setRegion(region, animated: true)
-            endRouteButton.isHidden = true
-            distanceLabel.isHidden = true
-            estimatedTimeLabel.isHidden = true
-        }
-    }
+
     func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
         let pickupPlacemark = MKPlacemark(coordinate: pickupCoordinate)
         let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate)
@@ -297,14 +264,38 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
 
     }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay is MKPolyline {
-            let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.blue
-            renderer.lineWidth = 4.0
-            return renderer
+  
+    @objc private func endCurrentRoute() {
+        mapView.overlays.forEach { if $0 is MKPolyline { mapView.removeOverlay($0) } }
+        if let userLocation = locationManager.location {
+            let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapView.setRegion(region, animated: true)
+            endRouteButton.isHidden = true
+            distanceLabel.isHidden = true
+            estimatedTimeLabel.isHidden = true
         }
-        return MKOverlayRenderer()
     }
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            UIView.animate(withDuration: 0.3) {
+                self.routeInfoContainerViewBottomConstraint.constant = -keyboardHeight + self.view.safeAreaInsets.bottom
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.routeInfoContainerViewBottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    @objc private func centerOnCurrentLocation() {
+        if let currentLocation = locationManager.location {
+            let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+
 }
 
