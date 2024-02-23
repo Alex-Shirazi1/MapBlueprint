@@ -24,9 +24,20 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     var routeInfoContainerViewBottomConstraint = NSLayoutConstraint()
     var distanceLabel = UILabel()
     var estimatedTimeLabel = UILabel()
+    
+    var startRouteButton = UIButton()
     var endRouteButton = UIButton()
     var currentLocationButton = UIButton()
+    
+    
+    
+    var startingLocation: CLLocation?
+    var destinationLocation: CLLocation?
+    
+    var waypoints: [CLLocation] = []
+    var currentWaypointIndex: Int = 0
 
+    
     init(eventHandler: HomeEventHandlerProtocol) {
         self.eventHandler = eventHandler
         super.init(nibName: nil, bundle: nil)
@@ -40,7 +51,6 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         super.viewDidLoad()
         setup()
     
-        //Center current location on startup
         centerOnCurrentLocation()
     }
     
@@ -56,6 +66,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
         } else {
             print("Location services are not available.")
         }
@@ -90,6 +101,13 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         estimatedTimeLabel.backgroundColor = .systemBackground
         estimatedTimeLabel.isHidden = true
         routeInfoContainerView.addSubview(estimatedTimeLabel)
+        
+        startRouteButton.setTitle("Start", for: .normal)
+        startRouteButton.translatesAutoresizingMaskIntoConstraints = false
+        startRouteButton.addTarget(self, action: #selector(startRoute), for: .touchUpInside)
+        startRouteButton.backgroundColor = .systemBlue
+        startRouteButton.isHidden = true
+        routeInfoContainerView.addSubview(startRouteButton)
         
         endRouteButton.translatesAutoresizingMaskIntoConstraints = false
         endRouteButton.setTitle("End Route", for: .normal)
@@ -133,6 +151,11 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             estimatedTimeLabel.topAnchor.constraint(equalTo: distanceLabel.bottomAnchor, constant: 8),
             estimatedTimeLabel.leadingAnchor.constraint(equalTo: routeInfoContainerView.leadingAnchor, constant: 12),
             estimatedTimeLabel.trailingAnchor.constraint(equalTo: routeInfoContainerView.trailingAnchor, constant: -12),
+            
+            startRouteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+             startRouteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+             startRouteButton.widthAnchor.constraint(equalToConstant: 100),
+             startRouteButton.heightAnchor.constraint(equalToConstant: 50),
             
             endRouteButton.topAnchor.constraint(equalTo: estimatedTimeLabel.bottomAnchor, constant: 8),
             endRouteButton.centerXAnchor.constraint(equalTo: routeInfoContainerView.centerXAnchor),
@@ -202,6 +225,22 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         return MKOverlayRenderer()
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "UserLocation")
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "UserLocation")
+                annotationView?.canShowCallout = false
+            }
+            
+            annotationView?.image = UIImage(systemName: "location.fill")
+            return annotationView
+        }
+        
+        return nil
+    }
+
+    
     func getCoordinateFrom(address: String, completion: @escaping (_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> ()) {
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
             completion(placemarks?.first?.location?.coordinate, error)
@@ -220,6 +259,56 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
           print("Accessed Denied")
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.first else {
+            return
+        }
+        
+        print("DEBUG Locations \(locations)")
+        if let nextRoutePoint = findNextRoutePoint(after: currentLocation) {
+            let bearing = calculateBearing(to: nextRoutePoint, from: currentLocation)
+            rotateArrow(to: bearing)
+        }
+    }
+
+    func rotateArrow(to bearing: CLLocationDirection) {
+        if let arrowView = mapView.view(for: mapView.userLocation) {
+            let rotationRadians = degreesToRadians(degrees: bearing)
+            UIView.animate(withDuration: 0.5) {
+                arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(rotationRadians))
+            }
+        }
+    }
+
+    func findNextRoutePoint(after currentLocation: CLLocation) -> CLLocation? {
+        guard !waypoints.isEmpty else { return nil }
+
+        let sortedWaypoints = waypoints.enumerated().min(by: { (first, second) -> Bool in
+            let firstDistance = currentLocation.distance(from: first.element)
+            let secondDistance = currentLocation.distance(from: second.element)
+            return firstDistance < secondDistance
+        })
+
+        guard let nextIndex = sortedWaypoints?.offset, nextIndex + 1 < waypoints.count else { return nil }
+        currentWaypointIndex = nextIndex
+        return waypoints[nextIndex + 1]
+    }
+
+    func calculateBearing(to destination: CLLocation, from origin: CLLocation) -> CLLocationDirection {
+        let lat1 = degreesToRadians(degrees: origin.coordinate.latitude)
+        let lon1 = degreesToRadians(degrees: origin.coordinate.longitude)
+        let lat2 = degreesToRadians(degrees: destination.coordinate.latitude)
+        let lon2 = degreesToRadians(degrees: destination.coordinate.longitude)
+        let deltaLon = lon2 - lon1
+        let y = sin(deltaLon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(deltaLon)
+        let radiansBearing = atan2(y, x)
+        return radiansToDegrees(radians: radiansBearing)
+    }
+
+
+
 
     func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
         let pickupPlacemark = MKPlacemark(coordinate: pickupCoordinate)
@@ -232,6 +321,9 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         directionRequest.source = pickupItem
         directionRequest.destination = destinationItem
         directionRequest.transportType = .automobile
+        
+        startingLocation = CLLocation(latitude: pickupCoordinate.latitude, longitude: pickupCoordinate.longitude)
+        destinationLocation = CLLocation(latitude: destinationCoordinate.latitude, longitude: destinationCoordinate.longitude)
         
         self.searchBar.text = nil
         
@@ -248,6 +340,16 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             
             self.mapView.addOverlay(route.polyline, level: .aboveRoads)
             let rect = route.polyline.boundingMapRect
+            if let route = response.routes.first {
+                var coordinates = [CLLocationCoordinate2D]()
+                let points = route.polyline.points()
+                for i in 0..<route.polyline.pointCount {
+                    coordinates.append(points[i].coordinate)
+                }
+                
+                self.waypoints = coordinates.map { CLLocation(latitude: $0.latitude, longitude: $0.longitude) }
+            }
+
             self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
 
             // Update UI with route details
@@ -258,13 +360,35 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             self.estimatedTimeLabel.text = String(format: "%.0f minutes", estimatedTravelTime)
             self.distanceLabel.isHidden = false
             self.estimatedTimeLabel.isHidden = false
-            self.endRouteButton.isHidden = false
+            self.startRouteButton.isHidden = false
+            self.endRouteButton.isHidden = true
             
         }
 
     }
+
+    @objc private func startRoute() {
+        print("DEBUG WAYPOINTS \(waypoints)")
+        guard let startingPoint = startingLocation?.coordinate else { return }
+        
+        let zoomRegion = MKCoordinateRegion(center: startingPoint, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapView.setRegion(zoomRegion, animated: true)
+        
+        startRouteButton.isHidden = true
+        endRouteButton.isHidden = false
+        distanceLabel.isHidden = false
+        estimatedTimeLabel.isHidden = false
+    }
+
+    func calculateInitialRouteHeading() -> CLLocationDirection? {
+        guard let startingLocation = self.startingLocation,
+              let destinationLocation = self.destinationLocation else {
+            return nil
+        }
+
+        return calculateBearing(to: destinationLocation, from: startingLocation)
+    }
     
-  
     @objc private func endCurrentRoute() {
         mapView.overlays.forEach { if $0 is MKPolyline { mapView.removeOverlay($0) } }
         if let userLocation = locationManager.location {
@@ -273,6 +397,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             endRouteButton.isHidden = true
             distanceLabel.isHidden = true
             estimatedTimeLabel.isHidden = true
+            searchBar.isHidden = false
         }
     }
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -296,6 +421,11 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             mapView.setRegion(region, animated: true)
         }
     }
-
+    private func degreesToRadians(degrees: Double) -> Double {
+        return degrees * .pi / 180
+    }
+    private func radiansToDegrees(radians: Double) -> Double {
+        return radians * 180 / .pi
+    }
 }
 
