@@ -261,12 +261,16 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation = locations.first else {
+        guard let currentLocation = locations.last else {
             return
         }
+        let regionRadius: CLLocationDistance = 1000 // Radius of Map itself
         
-        print("DEBUG Locations \(locations)")
-        if let nextRoutePoint = findNextRoutePoint(after: currentLocation) {
+        let center = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(region, animated: true)
+
+        if let nextRoutePoint = findNextRoutePoint(after: currentLocation), !waypoints.isEmpty {
             let bearing = calculateBearing(to: nextRoutePoint, from: currentLocation)
             rotateArrow(to: bearing)
         }
@@ -274,7 +278,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
 
     func rotateArrow(to bearing: CLLocationDirection) {
         if let arrowView = mapView.view(for: mapView.userLocation) {
-            let rotationRadians = degreesToRadians(degrees: bearing)
+            let rotationRadians = degreesToRadians(degrees: bearing - mapView.camera.heading)
             UIView.animate(withDuration: 0.5) {
                 arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(rotationRadians))
             }
@@ -366,6 +370,14 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         }
 
     }
+    
+    func lockToUser() {
+        mapView.setUserTrackingMode(.followWithHeading, animated: true)
+    }
+
+    func unlockFromUser() {
+        mapView.setUserTrackingMode(.none, animated: true)
+    }
 
     @objc private func startRoute() {
         print("DEBUG WAYPOINTS \(waypoints)")
@@ -419,6 +431,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         if let currentLocation = locationManager.location {
             let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
             mapView.setRegion(region, animated: true)
+            lockToUser()
         }
     }
     private func degreesToRadians(degrees: Double) -> Double {
