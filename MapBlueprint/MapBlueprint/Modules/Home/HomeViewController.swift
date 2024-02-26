@@ -29,7 +29,8 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     var endRouteButton = UIButton()
     var currentLocationButton = UIButton()
     
-    
+    var currentRoutePolyline = MKPolyline()
+    var isInitialRouteSetupDone = false
     
     var startingLocation: CLLocation?
     var destinationLocation: CLLocation?
@@ -233,13 +234,45 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
                 annotationView?.canShowCallout = false
             }
             
-            annotationView?.image = UIImage(systemName: "location.fill")
+            annotationView?.image = UIImage(systemName: "location.north.circle.fill")
+            annotationView?.backgroundColor = .clear
             return annotationView
         }
         
         return nil
     }
-
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+          guard let location = userLocation.location else { return }
+          
+          if isInitialRouteSetupDone {
+              updateUserLocationAnnotationBearing(location: location)
+          } else {
+              if let firstWaypoint = waypoints.first {
+                  let initialBearing = calculateBearing(to: firstWaypoint.coordinate, from: location.coordinate)
+                  rotateArrow(to: initialBearing)
+                  
+                  isInitialRouteSetupDone = true
+              }
+          }
+      }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.last else {
+            return
+        }
+        updateUserLocationAnnotationBearing(location: currentLocation)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            manager.startUpdatingLocation()
+            mapView.showsUserLocation = true
+        } else {
+          print("Accessed Denied")
+        }
+    }
     
     func getCoordinateFrom(address: String, completion: @escaping (_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> ()) {
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
@@ -250,30 +283,6 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
-    }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
-            manager.startUpdatingLocation()
-            mapView.showsUserLocation = true
-        } else {
-          print("Accessed Denied")
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation = locations.last else {
-            return
-        }
-        let regionRadius: CLLocationDistance = 1000 // Radius of Map itself
-        
-        let center = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        mapView.setRegion(region, animated: true)
-
-        if let nextRoutePoint = findNextRoutePoint(after: currentLocation), !waypoints.isEmpty {
-            let bearing = calculateBearing(to: nextRoutePoint, from: currentLocation)
-            rotateArrow(to: bearing)
-        }
     }
 
     func rotateArrow(to bearing: CLLocationDirection) {
@@ -299,20 +308,17 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
         return waypoints[nextIndex + 1]
     }
 
-    func calculateBearing(to destination: CLLocation, from origin: CLLocation) -> CLLocationDirection {
-        let lat1 = degreesToRadians(degrees: origin.coordinate.latitude)
-        let lon1 = degreesToRadians(degrees: origin.coordinate.longitude)
-        let lat2 = degreesToRadians(degrees: destination.coordinate.latitude)
-        let lon2 = degreesToRadians(degrees: destination.coordinate.longitude)
+    func calculateBearing(to destination: CLLocationCoordinate2D, from origin: CLLocationCoordinate2D) -> CLLocationDirection {
+        let lat1 = degreesToRadians(degrees: origin.latitude)
+        let lon1 = degreesToRadians(degrees: origin.longitude)
+        let lat2 = degreesToRadians(degrees: destination.latitude)
+        let lon2 = degreesToRadians(degrees: destination.longitude)
         let deltaLon = lon2 - lon1
         let y = sin(deltaLon) * cos(lat2)
         let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(deltaLon)
         let radiansBearing = atan2(y, x)
         return radiansToDegrees(radians: radiansBearing)
     }
-
-
-
 
     func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
         let pickupPlacemark = MKPlacemark(coordinate: pickupCoordinate)
@@ -342,6 +348,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
                 return
             }
             
+            self.currentRoutePolyline = route.polyline
             self.mapView.addOverlay(route.polyline, level: .aboveRoads)
             let rect = route.polyline.boundingMapRect
             if let route = response.routes.first {
@@ -371,35 +378,121 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
 
     }
     
-    func lockToUser() {
+    // Helper Functions
+    
+   private func lockToUser() {
         mapView.setUserTrackingMode(.followWithHeading, animated: true)
     }
 
-    func unlockFromUser() {
+    private func unlockFromUser() {
         mapView.setUserTrackingMode(.none, animated: true)
     }
+    
+    private func degreesToRadians(degrees: Double) -> Double {
+        return degrees * .pi / 180
+    }
+    private func radiansToDegrees(radians: Double) -> Double {
+        return radians * 180 / .pi
+    }
+    
+    
+    private func bearingBetweenLocations(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> Double {
+        let fromLat = degreesToRadians(degrees: from.latitude)
+        let fromLng = degreesToRadians(degrees: from.longitude)
+        let toLat = degreesToRadians(degrees: to.latitude)
+        let toLng = degreesToRadians(degrees: to.longitude)
+        let deltaLng = toLng - fromLng
+        let y = sin(deltaLng) * cos(toLat)
+        let x = cos(fromLat) * sin(toLat) - sin(fromLat) * cos(toLat) * cos(deltaLng)
+        let radiansBearing = atan2(y, x)
+        
+        return radiansBearing
+    }
 
+    private func updateUserLocationAnnotationBearing(location: CLLocation) {
+        let polyline = self.currentRoutePolyline
+        
+        let coordinates = coordinatesFromPolyline(polyline: polyline)
+        guard coordinates.count > 1 else {
+        // Here we need 2 points to give our cursor direction
+            return
+        }
+
+        var closestCoordinateIndex: Int?
+        var minimumDistance: CLLocationDistance = .greatestFiniteMagnitude
+
+        // Finds closest polyline coordinate to the user's location.
+        for i in 0..<coordinates.count {
+            let coordinateLocation = CLLocation(latitude: coordinates[i].latitude, longitude: coordinates[i].longitude)
+            let distance = location.distance(from: coordinateLocation)
+            if distance < minimumDistance {
+                minimumDistance = distance
+                closestCoordinateIndex = i
+            }
+        }
+        
+        if let closestIndex = closestCoordinateIndex, closestIndex < coordinates.count - 1 {
+            let currentCoordinate = coordinates[closestIndex]
+            let nextCoordinate = coordinates[closestIndex + 1]
+            let bearing = bearingBetweenLocations(from: currentCoordinate, to: nextCoordinate)
+            
+            let mapRotation = degreesToRadians(degrees: mapView.camera.heading)
+            let adjustedBearing = bearing - mapRotation
+
+            if let userLocationView = mapView.view(for: mapView.userLocation) {
+                UIView.animate(withDuration: 1.0) {
+                    userLocationView.transform = CGAffineTransform(rotationAngle: CGFloat(adjustedBearing))
+                }
+            }
+        }
+    }
+    private func coordinatesFromPolyline(polyline: MKPolyline) -> [CLLocationCoordinate2D] {
+        var coordinates = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: polyline.pointCount)
+        polyline.getCoordinates(&coordinates, range: NSRange(location: 0, length: polyline.pointCount))
+        return coordinates
+    }
+    
+    private func closestPointOnPolyline(to location: CLLocation, polyline: MKPolyline) -> CLLocationCoordinate2D? {
+        let coordinates = self.coordinatesFromPolyline(polyline: polyline)
+        var closestPoint: CLLocationCoordinate2D?
+        var minimumDistance: CLLocationDistance = .greatestFiniteMagnitude
+        
+        for coordinate in coordinates {
+            let distance = location.distance(from: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
+            if distance < minimumDistance {
+                minimumDistance = distance
+                closestPoint = coordinate
+            }
+        }
+        
+        return closestPoint
+    }
+
+    // Button Helper Functions
+    
     @objc private func startRoute() {
-        print("DEBUG WAYPOINTS \(waypoints)")
-        guard let startingPoint = startingLocation?.coordinate else { return }
+        guard let startingPoint = startingLocation?.coordinate, let currentLocation = locationManager.location else {
+            print("Starting location is not available.")
+            return
+        }
+
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: true)
+        lockToUser()
         
-        let zoomRegion = MKCoordinateRegion(center: startingPoint, latitudinalMeters: 500, longitudinalMeters: 500)
-        mapView.setRegion(zoomRegion, animated: true)
-        
+        // Set the initial bearing of the arrow
+        if let firstWaypoint = waypoints.first?.coordinate {
+            let initialBearing = calculateBearing(to: firstWaypoint, from: startingPoint)
+            rotateArrow(to: initialBearing)
+        }
+
         startRouteButton.isHidden = true
         endRouteButton.isHidden = false
         distanceLabel.isHidden = false
         estimatedTimeLabel.isHidden = false
+        isInitialRouteSetupDone = true
     }
-
-    func calculateInitialRouteHeading() -> CLLocationDirection? {
-        guard let startingLocation = self.startingLocation,
-              let destinationLocation = self.destinationLocation else {
-            return nil
-        }
-
-        return calculateBearing(to: destinationLocation, from: startingLocation)
-    }
+    
     
     @objc private func endCurrentRoute() {
         mapView.overlays.forEach { if $0 is MKPolyline { mapView.removeOverlay($0) } }
@@ -434,11 +527,4 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol, CLLocati
             lockToUser()
         }
     }
-    private func degreesToRadians(degrees: Double) -> Double {
-        return degrees * .pi / 180
-    }
-    private func radiansToDegrees(radians: Double) -> Double {
-        return radians * 180 / .pi
-    }
 }
-
