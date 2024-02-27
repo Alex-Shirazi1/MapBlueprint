@@ -250,6 +250,7 @@ extension OBD2AdapterFactory {
         
         return  [
             "fuelLevel":  fuelLevel,
+            "maxFuelLevel": SettingsMetaData.shared.fuelTankCapacity,
             "coolantTemperature":  coolantTemperature,
             "oilTemperature":  oilTemperature,
             "controlModuleVoltage": controlModuleVoltage
@@ -279,8 +280,13 @@ extension OBD2AdapterFactory {
             return -1
         }
         
-        let totalGallons = 13.7 // Change later to include app configurable max
-        return totalGallons * (fuelLevelPercentage / 100.0)
+        let fuelTankCapacity = SettingsMetaData.shared.fuelTankCapacity
+        
+        guard fuelTankCapacity != 0 else {
+            // If fuel Tank Capacity is not set show percentage
+            return fuelLevelPercentage
+        }
+        return fuelTankCapacity * (fuelLevelPercentage / 100.0)
     }
     
     // MARK: - Coolant Temperature

@@ -50,8 +50,8 @@ struct Provider: AppIntentTimelineProvider {
     private func fetchMaxFuelLevel() -> Double {
         let defaults = UserDefaults(suiteName: "group.shirazi")
         let max =  defaults?.double(forKey: "maxFuelLevel") ?? 13.7
-        if max < 5 {
-            return 13.7
+        if max < 1 {
+            return 100
         }
         return max
     }

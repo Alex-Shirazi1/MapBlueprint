@@ -16,6 +16,8 @@ protocol SettingsRouterProtocol: AnyObject {
     func navigateToTerms()
     
     func navigateToOBD2()
+    
+    func navigateToFuelTank()
 
 }
 
@@ -48,5 +50,10 @@ class SettingsRouter: SettingsRouterProtocol {
         
         let OBD2ViewController = OBD2Router.createModule(navigationController: navigationController)
         navigationController.pushViewController(OBD2ViewController, animated: false)
+    }
+    
+    func navigateToFuelTank() {
+        let fuelViewController = FuelTankViewController()
+        navigationController?.pushViewController(fuelViewController, animated: true)
     }
 }

@@ -7,5 +7,21 @@
 
 import Foundation
 
-struct SettingsMetaData {
+class SettingsMetaData {
+    static let shared = SettingsMetaData()
+    
+    private let fuelTankLevelKey = "fuelTankLevelKey"
+    
+    var fuelTankCapacity: Double {
+        get {
+            return UserDefaults.standard.double(forKey: fuelTankLevelKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: fuelTankLevelKey)
+        }
+    }
+    
+    init() {
+        
+    }
 }
