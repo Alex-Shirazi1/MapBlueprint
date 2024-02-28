@@ -131,25 +131,25 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         Task {
             let data = await fetchData()
             DispatchQueue.main.async {
-                if let coolantTemp = data["coolantTemperature"] as? Double {
+                if let coolantTemp = data["coolantTemperature"] as? Double, let units = data["temperatureUnits"] as? String {
                     let refinedCoolantTemp = self.formatTemperature(coolantTemp)
                     if refinedCoolantTemp == -1 {
                         self.coolantTempDial.valueLabel.text = "--"
                     } else {
-                        self.coolantTempDial.valueLabel.text = String(format: "%.2f°F", refinedCoolantTemp)
+                        self.coolantTempDial.valueLabel.text = String(format: "%.2f \(units)", refinedCoolantTemp)
                         self.coolantTempDial.currentValue = refinedCoolantTemp
                     }
                 }
-                if let oilTemp = data["oilTemperature"] as? Double {
+                if let oilTemp = data["oilTemperature"] as? Double, let units = data["temperatureUnits"] as? String {
                     let refinedOilTemp = self.formatTemperature(oilTemp)
                     if refinedOilTemp == -1 {
                         self.oilTempDial.valueLabel.text = "--"
                     } else {
-                        self.oilTempDial.valueLabel.text = String(format: "%.2f°F", refinedOilTemp)
+                        self.oilTempDial.valueLabel.text = String(format: "%.2f \(units)", refinedOilTemp)
                         self.oilTempDial.currentValue = refinedOilTemp
                     }
                 }
-                if let fuelLevel = data["fuelLevel"] as? Double, let maxFuelLevel = data["maxFuelLevel"] as? Double {
+                if let fuelLevel = data["fuelLevel"] as? Double, let maxFuelLevel = data["maxFuelLevel"] as? Double, let units = data["volumeUnits"] as? String {
                     if fuelLevel == -1 {
                         self.fuelLevelDial.valueLabel.text = "--"
                     } else {
@@ -158,7 +158,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                             self.fuelLevelDial.valueLabel.text = String(format: "%.2f%%", fuelLevel)
                             self.maxFuelCapactity = 100
                         } else {
-                            self.fuelLevelDial.valueLabel.text = String(format: "%.2f G", fuelLevel)
+                            self.fuelLevelDial.valueLabel.text = String(format: "%.2f \(units)", fuelLevel)
                             self.maxFuelCapactity = maxFuelLevel
                         }
                         self.fuelLevelDial.maxValue = self.maxFuelCapactity
@@ -170,7 +170,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                     if voltage == -1 {
                         self.controlModuleVoltageDial.valueLabel.text = "--"
                     } else {
-                        self.controlModuleVoltageDial.valueLabel.text = "\(voltage)V"
+                        self.controlModuleVoltageDial.valueLabel.text = "\(voltage) V"
                         self.controlModuleVoltageDial.currentValue = voltage
                     }
                 }

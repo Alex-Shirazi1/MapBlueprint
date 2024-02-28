@@ -221,10 +221,17 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
         return Double(decimalValue)
     }
-    func handleFarenheitConversion(number: Double) -> Double {
-        return number - 71.5
+
+    func processTemperature(temperature: Double) -> Double {
+        let calculatedTemperature = temperature * 9 / 5 - 39.5
+        
+        switch SettingsMetaData.shared.temperatureUnits {
+        case .fahrenheit:
+            return calculatedTemperature
+        case .celsius:
+            return convertFahrenheitToCelsius(fahrenheit: calculatedTemperature)
+        }
     }
-    
 }
 
 extension OBD2AdapterFactory {
@@ -247,13 +254,17 @@ extension OBD2AdapterFactory {
         let coolantTemperature = await updateCoolantTemperatureAsync()
         let oilTemperature = await updateOilTemperatureAsync()
         let controlModuleVoltage = await updateControlModuleVoltageAsync()
+        let temperatureUnits = handleTemperatureUnits()
+        let volumeUnits = handleVolumeUnits()
         
         return  [
             "fuelLevel":  fuelLevel,
             "maxFuelLevel": SettingsMetaData.shared.fuelTankCapacity,
             "coolantTemperature":  coolantTemperature,
             "oilTemperature":  oilTemperature,
-            "controlModuleVoltage": controlModuleVoltage
+            "controlModuleVoltage": controlModuleVoltage,
+            "temperatureUnits": temperatureUnits,
+            "volumeUnits": volumeUnits
         ]
     }
     
@@ -298,12 +309,11 @@ extension OBD2AdapterFactory {
         }
         
         let (_, processedValue) = await fetchDataForAsync(pidInfo: coolantPIDInfo)
-        guard let coolantTemperatureCelcius = processedValue as? Double else {
+        guard let coolantTemperature = processedValue as? Double else {
             print("Invalid or nil raw value received for coolant temperature.")
             return -1
         }
-
-        return handleFarenheitConversion(number: convertCelsiusToFahrenheit(celsius: coolantTemperatureCelcius))
+            return processTemperature(temperature: coolantTemperature)
     }
 
     // MARK: - Oil Temperature
@@ -315,12 +325,12 @@ extension OBD2AdapterFactory {
         }
         
         let (_, processedValue) = await fetchDataForAsync(pidInfo: oilPIDInfo)
-        guard let oilTemperatureCelcius = processedValue as? Double else {
+        guard let oilTemperature = processedValue as? Double else {
             print("Invalid or nil raw value received for oil temperature.")
             return -1
         }
-        
-        return handleFarenheitConversion(number: convertCelsiusToFahrenheit(celsius: oilTemperatureCelcius))
+    
+        return processTemperature(temperature: oilTemperature)
     }
     
     func updateControlModuleVoltageAsync() async -> Double {
@@ -337,6 +347,32 @@ extension OBD2AdapterFactory {
         
         return milliVolts/1000 // Converts to Volts
         
+    }
+    
+    func handleTemperatureUnits() -> String {
+        switch SettingsMetaData.shared.temperatureUnits {
+        case .fahrenheit:
+            return "°F"
+        case .celsius:
+            return "°C"
+        }
+    }
+    
+    func handleVolumeUnits() -> String {
+        switch SettingsMetaData.shared.volumeUnits {
+        case .gallons:
+            return "G"
+        case .liters:
+            return "L"
+        }
+    }
+    
+    func celsiusToFahrenheit(celsius: Double) -> Double {
+        return (celsius * 9/5) + 32
+    }
+    
+    func convertFahrenheitToCelsius(fahrenheit: Double) -> Double {
+        return (fahrenheit - 32) * 5/9
     }
 }
 

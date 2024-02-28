@@ -31,7 +31,8 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
         TableOption(text: "About", image: "info.circle.fill"),
         TableOption(text: "Terms and Conditions", image: "newspaper.fill"),
         TableOption(text: "OBD2 Scanner", image: "car.side.fill"),
-        TableOption(text: "Fuel Tank", image: "fuelpump.circle.fill")
+        TableOption(text: "Fuel Tank", image: "fuelpump.circle.fill"),
+        TableOption(text: "Units", image: "slider.horizontal.3")
     ]
     
     let tableView: UITableView = {
@@ -95,6 +96,8 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol, 
             eventHandler.navigateToOBD2()
         case 3:
             eventHandler.navigateToFuelTank()
+        case 4:
+            eventHandler.navigateToUnits()
         default:
             break
         }

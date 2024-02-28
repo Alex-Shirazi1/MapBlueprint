@@ -10,22 +10,23 @@ import SwiftUI
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), oilTemperature: 169)
+        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), oilTemperature: 169, units: "°F")
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration, oilTemperature: fetchOilTemperature())
+        SimpleEntry(date: Date(), configuration: configuration, oilTemperature: fetchOilTemperature(), units: fetchUnits())
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
         
-        var currentOilTemperature = fetchOilTemperature()
+        let currentOilTemperature = fetchOilTemperature()
+        let currentUnits = fetchUnits()
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, oilTemperature: currentOilTemperature)
+            let entry = SimpleEntry(date: entryDate, configuration: configuration, oilTemperature: currentOilTemperature, units: currentUnits)
             entries.append(entry)
         }
 
@@ -47,7 +48,13 @@ struct Provider: AppIntentTimelineProvider {
             return oilTemperature
         }
     }
-
+    private func fetchUnits() -> String {
+        let defaults = UserDefaults(suiteName: "group.shirazi")
+        guard let units = defaults?.string(forKey: "temperatureUnits") else {
+            return ""
+        }
+        return units
+    }
     
 }
 
@@ -55,6 +62,7 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
     let oilTemperature: Double
+    let units: String
 }
 
 struct oilComplicationEntryView : View {
@@ -80,7 +88,7 @@ struct CircularView: View {
               in: 0...250) {
             Image(systemName: "oilcan.fill")
         } currentValueLabel: {
-            Text("\(Int(entry.oilTemperature)) °F")
+            Text("\(Int(entry.oilTemperature)) \(entry.units)")
         }
         .gaugeStyle(.circular)
 
@@ -129,6 +137,6 @@ extension ConfigurationAppIntent {
 #Preview(as: .accessoryRectangular) {
     oilComplication()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley, oilTemperature: 20.0)
-    SimpleEntry(date: .now, configuration: .starEyes, oilTemperature: 30.0)
+    SimpleEntry(date: .now, configuration: .smiley, oilTemperature: 20.0, units: "°C")
+    SimpleEntry(date: .now, configuration: .starEyes, oilTemperature: 30.0, units: "°F")
 }

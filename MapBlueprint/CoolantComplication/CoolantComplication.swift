@@ -10,22 +10,23 @@ import SwiftUI
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), coolantTemperature: 169)
+        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), coolantTemperature: 169, units: "°F")
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration, coolantTemperature: fetchcoolantTemperature())
+        SimpleEntry(date: Date(), configuration: configuration, coolantTemperature: fetchcoolantTemperature(), units: fetchUnits())
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
         
-        var currentcoolantTemperature = fetchcoolantTemperature()
+        let currentcoolantTemperature = fetchcoolantTemperature()
+        let currentUnits = fetchUnits()
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, coolantTemperature: currentcoolantTemperature)
+            let entry = SimpleEntry(date: entryDate, configuration: configuration, coolantTemperature: currentcoolantTemperature, units: currentUnits)
             entries.append(entry)
         }
 
@@ -49,10 +50,19 @@ struct Provider: AppIntentTimelineProvider {
     }
 }
 
+private func fetchUnits() -> String {
+    let defaults = UserDefaults(suiteName: "group.shirazi")
+    guard let units = defaults?.string(forKey: "temperatureUnits") else {
+        return ""
+    }
+    return units
+}
+
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
     let coolantTemperature: Double
+    let units: String
 }
 
 struct CoolantComplicationEntryView : View {
@@ -78,7 +88,7 @@ struct CircularView: View {
               in: 0...250) {
             Image(systemName: "snowflake")
         } currentValueLabel: {
-            Text("\(Int(entry.coolantTemperature)) °F")
+            Text("\(Int(entry.coolantTemperature)) \(entry.units)")
         }
         .gaugeStyle(.circular)
 
@@ -127,6 +137,6 @@ extension ConfigurationAppIntent {
 #Preview(as: .accessoryRectangular) {
     CoolantComplication()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley, coolantTemperature: 20.0)
-    SimpleEntry(date: .now, configuration: .starEyes, coolantTemperature: 30.0)
+    SimpleEntry(date: .now, configuration: .smiley, coolantTemperature: 20.0, units: "°C")
+    SimpleEntry(date: .now, configuration: .starEyes, coolantTemperature: 30.0, units: "°F")
 }

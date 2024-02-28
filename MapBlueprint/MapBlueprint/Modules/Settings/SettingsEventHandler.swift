@@ -17,6 +17,8 @@ protocol SettingsEventHandlerProtocol: AnyObject {
     func navigateToOBD2()
     
     func navigateToFuelTank()
+    
+    func navigateToUnits()
 }
 
 class SettingsEventHandler: SettingsEventHandlerProtocol {
@@ -41,5 +43,8 @@ class SettingsEventHandler: SettingsEventHandlerProtocol {
     }
     func navigateToFuelTank() {
         router.navigateToFuelTank()
+    }
+    func navigateToUnits() {
+        router.navigateToUnits()
     }
 }

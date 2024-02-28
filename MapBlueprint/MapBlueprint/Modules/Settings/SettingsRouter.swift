@@ -18,6 +18,8 @@ protocol SettingsRouterProtocol: AnyObject {
     func navigateToOBD2()
     
     func navigateToFuelTank()
+    
+    func navigateToUnits()
 
 }
 
@@ -55,5 +57,10 @@ class SettingsRouter: SettingsRouterProtocol {
     func navigateToFuelTank() {
         let fuelViewController = FuelTankViewController()
         navigationController?.pushViewController(fuelViewController, animated: true)
+    }
+    
+    func navigateToUnits() {
+        let unitsViewController = UnitsViewController()
+        navigationController?.pushViewController(unitsViewController, animated: true)
     }
 }

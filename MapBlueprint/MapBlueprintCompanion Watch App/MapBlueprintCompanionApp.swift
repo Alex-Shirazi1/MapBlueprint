@@ -82,6 +82,13 @@ class ConnectivityProvider: NSObject, ObservableObject, WCSessionDelegate {
                 defaults?.set(controlModuleVoltage, forKey: "batteryVoltage")
             }
             
+            // MARK: Units
+            
+            if let temperatureUnits = applicationContext["temperatureUnits"] as? String {
+                print("WCSession Temperature Units \(temperatureUnits)")
+                defaults?.set(temperatureUnits, forKey: "temperatureUnits")
+            }
+            
             WidgetCenter.shared.reloadAllTimelines()
         }
     }
