@@ -41,6 +41,11 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         return dial
     }()
     
+    lazy var rpmDial: DialView = {
+        let dial = DialView(value: 0, minValue: 0, maxValue: 7000, title: "RPM", icon: UIImage(systemName: "engine.combustion.fill") ?? UIImage())
+        return dial
+    }()
+    
     init(eventHandler: DashboardEventHandlerProtocol) {
         self.eventHandler = eventHandler
         super.init(nibName: nil, bundle: nil)
@@ -55,7 +60,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         view.backgroundColor = .systemBackground
         
         setupScrollView()
-        setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial]) // Will be custom later when i add edit view/ selection view
+        setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial, rpmDial]) // Will be custom later when i add edit view/ selection view
         
         fetchDataAndUpdateUI()
     }
@@ -172,6 +177,17 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                     } else {
                         self.controlModuleVoltageDial.valueLabel.text = "\(voltage) V"
                         self.controlModuleVoltageDial.currentValue = voltage
+                    }
+                }
+                if let rpm = data["engineRPM"] as? Double {
+                    if rpm == -1 {
+                        self.rpmDial.valueLabel.text = "--"
+                    } else if rpm == 0 {
+                        self.rpmDial.valueLabel.text = "Off"
+                    }
+                    else {
+                        self.rpmDial.valueLabel.text = "\(rpm)"
+                        self.rpmDial.currentValue = rpm
                     }
                 }
             }

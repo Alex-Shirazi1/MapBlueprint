@@ -136,8 +136,8 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         case .Control_Module_Voltage:
             let refinedRawData = rawValue.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }.first ?? ""
             return hexStringToDouble(hexString: refinedRawData)
-
-
+        case .Engine_RPM:
+           return handleRPMValue(rawValue: rawValue)
             
             // TODO add others in terms of processing PIDS
         default:
@@ -254,6 +254,7 @@ extension OBD2AdapterFactory {
         let coolantTemperature = await updateCoolantTemperatureAsync()
         let oilTemperature = await updateOilTemperatureAsync()
         let controlModuleVoltage = await updateControlModuleVoltageAsync()
+        let engineRPM = await updateEngineRPMAsync()
         let temperatureUnits = handleTemperatureUnits()
         let volumeUnits = handleVolumeUnits()
         
@@ -263,6 +264,7 @@ extension OBD2AdapterFactory {
             "coolantTemperature":  coolantTemperature,
             "oilTemperature":  oilTemperature,
             "controlModuleVoltage": controlModuleVoltage,
+            "engineRPM": engineRPM,
             "temperatureUnits": temperatureUnits,
             "volumeUnits": volumeUnits
         ]
@@ -313,7 +315,7 @@ extension OBD2AdapterFactory {
             print("Invalid or nil raw value received for coolant temperature.")
             return -1
         }
-            return processTemperature(temperature: coolantTemperature)
+        return processTemperature(temperature: coolantTemperature)
     }
 
     // MARK: - Oil Temperature
@@ -347,6 +349,45 @@ extension OBD2AdapterFactory {
         
         return milliVolts/1000 // Converts to Volts
         
+    }
+    
+    func updateEngineRPMAsync() async -> Double {
+        // Fetch data for the engine RPM PID
+        guard let rpmPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_RPM) else {
+            print("Invalid PIDInfo for engine RPM.")
+            return -1
+        }
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: rpmPIDInfo)
+        
+        guard let rpm = processedValue as? Double else {
+            return -1
+        }
+        return rpm
+    }
+    
+     func handleRPMValue(rawValue: String?) -> Double {
+        guard let rawValue = rawValue, rawValue != "No data" else {
+            print("engine no data")
+            return -1
+        }
+        
+        if rawValue == "0000, 0000" {
+            print("engine off")
+            return 0
+        }
+        let hexValues = rawValue.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        if hexValues.count == 2,
+           let hexA = UInt64(hexValues[0], radix: 16),
+           let hexB = UInt64(hexValues[1], radix: 16) {
+            let rpmA = Double(hexA) / 4
+            let rpmB = Double(hexB) / 4
+            let averageRPM = (rpmA + rpmB) / 2
+            print("ENGINE RPM A: \(rpmA), B: \(rpmB), Average: \(averageRPM)")
+            return averageRPM
+        } else {
+            print("engine error -1")
+            return -1
+        }
     }
     
     func handleTemperatureUnits() -> String {
