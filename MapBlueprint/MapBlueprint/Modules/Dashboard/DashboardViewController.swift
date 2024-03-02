@@ -46,6 +46,11 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         return dial
     }()
     
+    lazy var speedDial: DialView = {
+        let dial = DialView(value: 0, minValue: 0, maxValue: 100, title: getSpeedUnits(), icon: UIImage(systemName: "car.2.fill") ?? UIImage())
+        return dial
+    }()
+    
     init(eventHandler: DashboardEventHandlerProtocol) {
         self.eventHandler = eventHandler
         super.init(nibName: nil, bundle: nil)
@@ -60,7 +65,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         view.backgroundColor = .systemBackground
         
         setupScrollView()
-        setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial, rpmDial]) // Will be custom later when i add edit view/ selection view
+        setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial, rpmDial, speedDial]) // Will be custom later when i add edit view/ selection view
         
         fetchDataAndUpdateUI()
     }
@@ -186,8 +191,19 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                         self.rpmDial.valueLabel.text = "Off"
                     }
                     else {
-                        self.rpmDial.valueLabel.text = "\(rpm)"
+                        self.rpmDial.valueLabel.text = "\(Int(rpm))"
                         self.rpmDial.currentValue = rpm
+                    }
+                }
+                if let speed = data["vehicleSpeed"] as? Double {
+                    
+                    self.speedDial.titleLabel.text = self.getSpeedUnits()
+                    if speed == -1 {
+                        self.speedDial.valueLabel.text = "--"
+                    }
+                    else {
+                        self.speedDial.valueLabel.text = "\(Int(speed))"
+                        self.speedDial.currentValue = speed
                     }
                 }
             }
@@ -224,5 +240,12 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         }
         return self.maxFuelCapactity
         
+    }
+    private func getSpeedUnits() -> String {
+        if SettingsMetaData.shared.speedUnits == .mph {
+            return "MPH"
+        } else {
+            return "KMH"
+        }
     }
 }

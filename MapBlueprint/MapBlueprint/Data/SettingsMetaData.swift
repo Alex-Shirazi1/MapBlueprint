@@ -39,6 +39,16 @@ class SettingsMetaData {
             UserDefaults.standard.set(newValue.rawValue, forKey: "volumeUnitKey")
         }
     }
+    
+    var speedUnits: SpeedUnitType {
+        get {
+            let unitString = UserDefaults.standard.string(forKey: "speedUnitKey") ?? VolumeUnitType.gallons.rawValue
+            return SpeedUnitType(rawValue: unitString) ?? .mph
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "speedUnitKey")
+        }
+    }
 
     init() {
         

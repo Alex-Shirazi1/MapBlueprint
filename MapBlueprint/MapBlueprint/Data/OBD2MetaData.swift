@@ -76,15 +76,3 @@ struct OBD2MetaData {
  0x5C
 
  */
-
-/*
- 
- Engine on
- PID: 0C, Raw Value: Optional("11EE, 11DE"), Processed Value: Optional("11EE, 11DE")
- PID: 0D, Raw Value: Optional("00, 00"), Processed Value: Optional("00, 00")
- 
- Engine off
- PID: 0C, Raw Value: Optional("0000, 0000"), Processed Value: Optional("0000, 0000")
- PID: 0D, Raw Value: Optional("00, 00"), Processed Value: Optional("00, 00")
- 
- */

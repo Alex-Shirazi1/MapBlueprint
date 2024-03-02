@@ -15,10 +15,10 @@ import WatchConnectivity
 class OBD2AdapterFactory: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-             print("WCSession error: \(error.localizedDescription)")
-             return
-         }
-         print("WCSession activated: \(activationState.rawValue)")
+            print("WCSession error: \(error.localizedDescription)")
+            return
+        }
+        print("WCSession activated: \(activationState.rawValue)")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -47,7 +47,7 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         super.init()
         setupWatchConnection()
     }
-     func setupWatchConnection() {
+    func setupWatchConnection() {
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
@@ -74,10 +74,10 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
             completion(nil, nil)
             return
         }
-
+        
         let commandString = "01 " + pidInfo.pid.replacingOccurrences(of: "0x", with: "")
         let command = LTOBD2Command(string: commandString)
-
+        
         obd2Adapter.transmitCommand(command) { response in
             let rawValueString = response.formattedResponse
             
@@ -91,31 +91,31 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
     }
     func fetchDataForAsync(pidInfo: PIDInfo) async -> (String?, Any?) {
-           guard let obd2Adapter = self.obd2Adapter else {
-               print("Adapter not initialized")
-               return (nil, nil)
-           }
-
-           let commandString = "01 " + pidInfo.pid.replacingOccurrences(of: "0x", with: "")
-           let command = LTOBD2Command(string: commandString)
-
-           // Convert the callback-based OBD2 command transmission into an async operation
-           return await withCheckedContinuation { continuation in
-               obd2Adapter.transmitCommand(command) { response in
-                   let rawValueString = response.formattedResponse
-                   
-                   if rawValueString != "NO DATA", !rawValueString.contains("?") {
-                       let processedValue = self.processResponse(for: pidInfo, rawValue: rawValueString)
-                       continuation.resume(returning: (rawValueString, processedValue))
-                   } else {
-                       print("Error retrieving data for PID: \(pidInfo.pid)")
-                       continuation.resume(returning: (nil, nil))
-                   }
-               }
-           }
-       }
-
-
+        guard let obd2Adapter = self.obd2Adapter else {
+            print("Adapter not initialized")
+            return (nil, nil)
+        }
+        
+        let commandString = "01 " + pidInfo.pid.replacingOccurrences(of: "0x", with: "")
+        let command = LTOBD2Command(string: commandString)
+        
+        // Convert the callback-based OBD2 command transmission into an async operation
+        return await withCheckedContinuation { continuation in
+            obd2Adapter.transmitCommand(command) { response in
+                let rawValueString = response.formattedResponse
+                
+                if rawValueString != "NO DATA", !rawValueString.contains("?") {
+                    let processedValue = self.processResponse(for: pidInfo, rawValue: rawValueString)
+                    continuation.resume(returning: (rawValueString, processedValue))
+                } else {
+                    print("Error retrieving data for PID: \(pidInfo.pid)")
+                    continuation.resume(returning: (nil, nil))
+                }
+            }
+        }
+    }
+    
+    
     private func processResponse(for pidInfo: PIDInfo, rawValue: String) -> Any? {
         // Processing logic based on PID type
         switch pidInfo.obdPID{
@@ -137,7 +137,9 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
             let refinedRawData = rawValue.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }.first ?? ""
             return hexStringToDouble(hexString: refinedRawData)
         case .Engine_RPM:
-           return handleRPMValue(rawValue: rawValue)
+            return handleRPMValue(rawValue: rawValue)
+        case .Vehicle_Speed:
+            return handleVehicleSpeed(rawValue: rawValue)
             
             // TODO add others in terms of processing PIDS
         default:
@@ -152,7 +154,7 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
         return OBD2AdapterState(rawValue: stateString) ?? .unknown
     }
-
+    
     
     @objc private func adapterDidConnect(notification: Notification) {
     }
@@ -221,7 +223,7 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
         }
         return Double(decimalValue)
     }
-
+    
     func processTemperature(temperature: Double) -> Double {
         let calculatedTemperature = temperature * 9 / 5 - 39.5
         
@@ -255,6 +257,7 @@ extension OBD2AdapterFactory {
         let oilTemperature = await updateOilTemperatureAsync()
         let controlModuleVoltage = await updateControlModuleVoltageAsync()
         let engineRPM = await updateEngineRPMAsync()
+        let vehicleSpeed = await updateVehicleSpeedAsync()
         let temperatureUnits = handleTemperatureUnits()
         let volumeUnits = handleVolumeUnits()
         
@@ -265,6 +268,7 @@ extension OBD2AdapterFactory {
             "oilTemperature":  oilTemperature,
             "controlModuleVoltage": controlModuleVoltage,
             "engineRPM": engineRPM,
+            "vehicleSpeed": vehicleSpeed,
             "temperatureUnits": temperatureUnits,
             "volumeUnits": volumeUnits
         ]
@@ -317,9 +321,9 @@ extension OBD2AdapterFactory {
         }
         return processTemperature(temperature: coolantTemperature)
     }
-
+    
     // MARK: - Oil Temperature
-
+    
     func updateOilTemperatureAsync() async -> Double {
         guard let oilPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_Oil_Temperature) else {
             print("Invalid PIDInfo for oil Temperature.")
@@ -331,7 +335,7 @@ extension OBD2AdapterFactory {
             print("Invalid or nil raw value received for oil temperature.")
             return -1
         }
-    
+        
         return processTemperature(temperature: oilTemperature)
     }
     
@@ -351,7 +355,9 @@ extension OBD2AdapterFactory {
         
     }
     
-    func updateEngineRPMAsync() async -> Double {
+    
+    
+    func updateEngineRPMAsync() async -> Int {
         // Fetch data for the engine RPM PID
         guard let rpmPIDInfo = OBD2MetaData.getPIDInfo(for: .Engine_RPM) else {
             print("Invalid PIDInfo for engine RPM.")
@@ -359,13 +365,13 @@ extension OBD2AdapterFactory {
         }
         let (_, processedValue) = await fetchDataForAsync(pidInfo: rpmPIDInfo)
         
-        guard let rpm = processedValue as? Double else {
+        guard let rpm = processedValue as? Int else {
             return -1
         }
         return rpm
     }
     
-     func handleRPMValue(rawValue: String?) -> Double {
+    func handleRPMValue(rawValue: String?) -> Double {
         guard let rawValue = rawValue, rawValue != "No data" else {
             print("engine no data")
             return -1
@@ -376,17 +382,53 @@ extension OBD2AdapterFactory {
             return 0
         }
         let hexValues = rawValue.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
-        if hexValues.count == 2,
-           let hexA = UInt64(hexValues[0], radix: 16),
-           let hexB = UInt64(hexValues[1], radix: 16) {
-            let rpmA = Double(hexA) / 4
-            let rpmB = Double(hexB) / 4
-            let averageRPM = (rpmA + rpmB) / 2
-            print("ENGINE RPM A: \(rpmA), B: \(rpmB), Average: \(averageRPM)")
-            return averageRPM
-        } else {
-            print("engine error -1")
+        var totalRPM: Double = 0
+        hexValues.forEach { hexValue in
+            guard let res = UInt64(hexValue, radix: 16) else {
+                return
+            }
+            totalRPM = totalRPM + Double(res)/4
+        }
+        let average = totalRPM/Double(hexValues.count)
+        return average
+    }
+    func updateVehicleSpeedAsync() async -> Int {
+        guard let speedPIDInfo = OBD2MetaData.getPIDInfo(for: .Vehicle_Speed) else {
+            print("Invalid PIDInfo for car speed")
             return -1
+        }
+        
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: speedPIDInfo)
+        
+        guard let vehicleSpeed = processedValue as? Int else {
+            return -1
+        }
+        return vehicleSpeed
+    }
+    func handleVehicleSpeed(rawValue: String?) -> Double {
+        guard let rawValue = rawValue, rawValue != "No data" else {
+            print("Not connected")
+            return -1
+        }
+        
+        let speedValues = rawValue.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        
+        var totalSpeed: Double = 0
+        speedValues.forEach { hexValue in
+            guard let speed = UInt64(hexValue, radix: 16) else {
+                return
+            }
+            totalSpeed = totalSpeed + Double(speed)
+        }
+        
+        let averageSpeed = totalSpeed / Double(speedValues.count)
+        
+        // Convert To MPH if we want MPH as units
+        if SettingsMetaData.shared.speedUnits == .mph {
+            return convertKmhToMph(kmh: averageSpeed)
+        } else {
+            // Adapter Default is KMH
+            return averageSpeed
         }
     }
     
@@ -415,5 +457,9 @@ extension OBD2AdapterFactory {
     func convertFahrenheitToCelsius(fahrenheit: Double) -> Double {
         return (fahrenheit - 32) * 5/9
     }
+    func convertKmhToMph(kmh: Double) -> Double {
+        return kmh * 0.621371
+    }
+    
 }
 
