@@ -18,6 +18,7 @@
 		5C3384EC2B82DF890083903E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C3384EB2B82DF890083903E /* Assets.xcassets */; };
 		5C3384F02B82DF890083903E /* BatteryVoltageComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5C3384E32B82DF880083903E /* BatteryVoltageComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C3384F62B8318F20083903E /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3384F52B8318F20083903E /* DialView.swift */; };
+		5C5B3D622B93052000332AE7 /* SpeedUnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B3D612B93052000332AE7 /* SpeedUnitType.swift */; };
 		5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */; };
 		5C959FF82B8E79E900E01FCD /* FuelTankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C959FF72B8E79E900E01FCD /* FuelTankViewController.swift */; };
 		5C9EBE6E2B81EAC100F6AABD /* AppConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */; };
@@ -197,6 +198,7 @@
 		5C3384ED2B82DF890083903E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C3384F42B82E25A0083903E /* BatteryVoltageComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BatteryVoltageComplicationExtension.entitlements; sourceTree = "<group>"; };
 		5C3384F52B8318F20083903E /* DialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
+		5C5B3D612B93052000332AE7 /* SpeedUnitType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedUnitType.swift; sourceTree = "<group>"; };
 		5C678C362B7A33B500D9A979 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		5C7990FD2B81C1FC000528D8 /* MapBlueprintCompanion-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MapBlueprintCompanion-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5C959FF72B8E79E900E01FCD /* FuelTankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTankViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				5CB51AA32B740C20004B952A /* OBDPID.swift */,
 				5C1B7DBB2B8E98DC00E31AF7 /* TemperatureUnitType.swift */,
 				5C1B7DBF2B8E994D00E31AF7 /* VolumeUnitType.swift */,
+				5C5B3D612B93052000332AE7 /* SpeedUnitType.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -1035,6 +1038,7 @@
 				5CEF42922B719CA1007C0951 /* OBD2EventHandler.swift in Sources */,
 				5C9EBE9C2B820B4000F6AABD /* DashboardRouter.swift in Sources */,
 				5CB51AA42B740C20004B952A /* OBDPID.swift in Sources */,
+				5C5B3D622B93052000332AE7 /* SpeedUnitType.swift in Sources */,
 				5CF230572B6B10C500A9E7C6 /* SettingsEventHandler.swift in Sources */,
 				5C678C372B7A33B500D9A979 /* CarPlaySceneDelegate.swift in Sources */,
 				5C9EBE982B820B2F00F6AABD /* DashboardInteractor.swift in Sources */,

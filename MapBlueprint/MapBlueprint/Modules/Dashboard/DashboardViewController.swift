@@ -184,26 +184,26 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                         self.controlModuleVoltageDial.currentValue = voltage
                     }
                 }
-                if let rpm = data["engineRPM"] as? Double {
+                if let rpm = data["engineRPM"] as? Int {
                     if rpm == -1 {
                         self.rpmDial.valueLabel.text = "--"
                     } else if rpm == 0 {
                         self.rpmDial.valueLabel.text = "Off"
                     }
                     else {
-                        self.rpmDial.valueLabel.text = "\(Int(rpm))"
-                        self.rpmDial.currentValue = rpm
+                        self.rpmDial.valueLabel.text = "\(rpm)"
+                        self.rpmDial.currentValue = Double(rpm)
                     }
                 }
-                if let speed = data["vehicleSpeed"] as? Double {
+                if let speed = data["vehicleSpeed"] as? Int {
                     
                     self.speedDial.titleLabel.text = self.getSpeedUnits()
                     if speed == -1 {
                         self.speedDial.valueLabel.text = "--"
                     }
                     else {
-                        self.speedDial.valueLabel.text = "\(Int(speed))"
-                        self.speedDial.currentValue = speed
+                        self.speedDial.valueLabel.text = "\(speed)"
+                        self.speedDial.currentValue = Double(speed)
                     }
                 }
             }

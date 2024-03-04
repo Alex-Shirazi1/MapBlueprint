@@ -365,10 +365,10 @@ extension OBD2AdapterFactory {
         }
         let (_, processedValue) = await fetchDataForAsync(pidInfo: rpmPIDInfo)
         
-        guard let rpm = processedValue as? Int else {
+        guard let rpm = processedValue as? Double else {
             return -1
         }
-        return rpm
+        return Int(rpm)
     }
     
     func handleRPMValue(rawValue: String?) -> Double {
@@ -400,10 +400,10 @@ extension OBD2AdapterFactory {
         
         let (_, processedValue) = await fetchDataForAsync(pidInfo: speedPIDInfo)
         
-        guard let vehicleSpeed = processedValue as? Int else {
+        guard let vehicleSpeed = processedValue as? Double else {
             return -1
         }
-        return vehicleSpeed
+        return Int(vehicleSpeed)
     }
     func handleVehicleSpeed(rawValue: String?) -> Double {
         guard let rawValue = rawValue, rawValue != "No data" else {
