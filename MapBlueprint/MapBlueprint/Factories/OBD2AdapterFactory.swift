@@ -39,11 +39,13 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
     var outgoingBytesNotification = UILabel()
     var incomingBytesNotification = UILabel()
     
+    let serverFactory = ServerFactory()
     
     
     private var updateTimer: Timer?
     
     override init() {
+        serverFactory.testRoute()
         super.init()
         setupWatchConnection()
     }
@@ -245,13 +247,14 @@ extension OBD2AdapterFactory {
         updateTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             Task {
-                let allData = await self.fetchData()
-                self.sendDataToWatch(allData)
+                let vehicleData = await self.fetchData()
+                self.serverFactory.sendVehicleData(vehicleData)
+                self.sendDataToWatch(vehicleData)
             }
         }
     }
     
-    func fetchData() async -> [String: Any] {
+    func fetchData() async -> VehicleData {
         let fuelLevel = await updateFuelLevelAsync()
         let coolantTemperature = await updateCoolantTemperatureAsync()
         let oilTemperature = await updateOilTemperatureAsync()
@@ -261,23 +264,27 @@ extension OBD2AdapterFactory {
         let temperatureUnits = handleTemperatureUnits()
         let volumeUnits = handleVolumeUnits()
         
-        return  [
-            "fuelLevel":  fuelLevel,
-            "maxFuelLevel": SettingsMetaData.shared.fuelTankCapacity,
-            "coolantTemperature":  coolantTemperature,
-            "oilTemperature":  oilTemperature,
-            "controlModuleVoltage": controlModuleVoltage,
-            "engineRPM": engineRPM,
-            "vehicleSpeed": vehicleSpeed,
-            "temperatureUnits": temperatureUnits,
-            "volumeUnits": volumeUnits
-        ]
+        return VehicleData(
+                    _id: "bmwf23",
+                    fuelLevel: fuelLevel,
+                    maxFuelLevel: SettingsMetaData.shared.fuelTankCapacity,
+                    coolantTemperature: coolantTemperature,
+                    oilTemperature: oilTemperature,
+                    controlModuleVoltage: controlModuleVoltage,
+                    engineRPM: engineRPM,
+                    vehicleSpeed: vehicleSpeed,
+                    temperatureUnits: temperatureUnits,
+                    volumeUnits: volumeUnits
+                )
     }
     
-    func sendDataToWatch(_ allData: [String: Any]) {
+    func sendDataToWatch(_ vehicleData: VehicleData) {
         do {
-            try WCSession.default.updateApplicationContext(allData)
-            print("All data sent to watch successfully. observe: \(allData)")
+            let data = try JSONEncoder().encode(vehicleData)
+            if let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                try WCSession.default.updateApplicationContext(jsonObject)
+            }
+            print("All data sent to watch successfully. observe: \(vehicleData)")
         } catch {
             print("Error sending all data to watch: \(error.localizedDescription)")
         }

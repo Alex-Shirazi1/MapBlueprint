@@ -139,78 +139,79 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
     
     @objc func fetchDataAndUpdateUI() {
         Task {
-            let data = await fetchData()
+            let vehicleData = await self.fetchData()
+            
             DispatchQueue.main.async {
-                if let coolantTemp = data["coolantTemperature"] as? Double, let units = data["temperatureUnits"] as? String {
-                    let refinedCoolantTemp = self.formatTemperature(coolantTemp)
-                    if refinedCoolantTemp == -1 {
-                        self.coolantTempDial.valueLabel.text = "--"
+                let refinedCoolantTemp = self.formatTemperature(vehicleData.coolantTemperature)
+                if refinedCoolantTemp == -1 {
+                    self.coolantTempDial.valueLabel.text = "--"
+                } else {
+                    self.coolantTempDial.valueLabel.text = String(format: "%.2f \(vehicleData.temperatureUnits)", refinedCoolantTemp)
+                    self.coolantTempDial.currentValue = refinedCoolantTemp
+                }
+                
+                let refinedOilTemp = self.formatTemperature(vehicleData.oilTemperature)
+                if refinedOilTemp == -1 {
+                    self.oilTempDial.valueLabel.text = "--"
+                } else {
+                    self.oilTempDial.valueLabel.text = String(format: "%.2f \(vehicleData.temperatureUnits)", refinedOilTemp)
+                    self.oilTempDial.currentValue = refinedOilTemp
+                }
+                
+                let fuelLevel = vehicleData.fuelLevel
+                let maxFuelLevel = vehicleData.maxFuelLevel
+                
+                if fuelLevel == -1 {
+                    self.fuelLevelDial.valueLabel.text = "--"
+                } else {
+                    if maxFuelLevel == 0 {
+                        // If the max capacity is zero, display as a percentage
+                        self.fuelLevelDial.valueLabel.text = String(format: "%.2f%%", fuelLevel)
+                        self.maxFuelCapactity = 100
                     } else {
-                        self.coolantTempDial.valueLabel.text = String(format: "%.2f \(units)", refinedCoolantTemp)
-                        self.coolantTempDial.currentValue = refinedCoolantTemp
+                        self.fuelLevelDial.valueLabel.text = String(format: "%.2f \(vehicleData.volumeUnits)", fuelLevel)
+                        self.maxFuelCapactity = maxFuelLevel
                     }
+                    self.fuelLevelDial.maxValue = self.maxFuelCapactity
+                    self.fuelLevelDial.currentValue = fuelLevel
+                    self.checkFuelLevel(fuelLevel: fuelLevel)
                 }
-                if let oilTemp = data["oilTemperature"] as? Double, let units = data["temperatureUnits"] as? String {
-                    let refinedOilTemp = self.formatTemperature(oilTemp)
-                    if refinedOilTemp == -1 {
-                        self.oilTempDial.valueLabel.text = "--"
-                    } else {
-                        self.oilTempDial.valueLabel.text = String(format: "%.2f \(units)", refinedOilTemp)
-                        self.oilTempDial.currentValue = refinedOilTemp
-                    }
+                
+                let voltage = vehicleData.controlModuleVoltage
+                if voltage == -1 {
+                    self.controlModuleVoltageDial.valueLabel.text = "--"
+                } else {
+                    self.controlModuleVoltageDial.valueLabel.text = "\(voltage) V"
+                    self.controlModuleVoltageDial.currentValue = voltage
                 }
-                if let fuelLevel = data["fuelLevel"] as? Double, let maxFuelLevel = data["maxFuelLevel"] as? Double, let units = data["volumeUnits"] as? String {
-                    if fuelLevel == -1 {
-                        self.fuelLevelDial.valueLabel.text = "--"
-                    } else {
-                        if maxFuelLevel == 0 {
-                            // If the max capacity is zero, display as a percentage
-                            self.fuelLevelDial.valueLabel.text = String(format: "%.2f%%", fuelLevel)
-                            self.maxFuelCapactity = 100
-                        } else {
-                            self.fuelLevelDial.valueLabel.text = String(format: "%.2f \(units)", fuelLevel)
-                            self.maxFuelCapactity = maxFuelLevel
-                        }
-                        self.fuelLevelDial.maxValue = self.maxFuelCapactity
-                        self.fuelLevelDial.currentValue = fuelLevel
-                        self.checkFuelLevel(fuelLevel: fuelLevel)
-                    }
+                
+                let engineRPM = vehicleData.engineRPM
+                if engineRPM == -1 {
+                    self.rpmDial.valueLabel.text = "--"
+                } else if engineRPM == 0 {
+                    self.rpmDial.valueLabel.text = "Off"
                 }
-                if let voltage = data["controlModuleVoltage"] as? Double {
-                    if voltage == -1 {
-                        self.controlModuleVoltageDial.valueLabel.text = "--"
-                    } else {
-                        self.controlModuleVoltageDial.valueLabel.text = "\(voltage) V"
-                        self.controlModuleVoltageDial.currentValue = voltage
-                    }
+                else {
+                    self.rpmDial.valueLabel.text = "\(engineRPM)"
+                    self.rpmDial.currentValue = Double(engineRPM)
                 }
-                if let rpm = data["engineRPM"] as? Int {
-                    if rpm == -1 {
-                        self.rpmDial.valueLabel.text = "--"
-                    } else if rpm == 0 {
-                        self.rpmDial.valueLabel.text = "Off"
-                    }
-                    else {
-                        self.rpmDial.valueLabel.text = "\(rpm)"
-                        self.rpmDial.currentValue = Double(rpm)
-                    }
+                
+                let vehicleSpeed = vehicleData.vehicleSpeed
+                
+                self.speedDial.titleLabel.text = self.getSpeedUnits()
+                if vehicleSpeed == -1 {
+                    self.speedDial.valueLabel.text = "--"
                 }
-                if let speed = data["vehicleSpeed"] as? Int {
-                    
-                    self.speedDial.titleLabel.text = self.getSpeedUnits()
-                    if speed == -1 {
-                        self.speedDial.valueLabel.text = "--"
-                    }
-                    else {
-                        self.speedDial.valueLabel.text = "\(speed)"
-                        self.speedDial.currentValue = Double(speed)
-                    }
+                else {
+                    self.speedDial.valueLabel.text = "\(vehicleSpeed)"
+                    self.speedDial.currentValue = Double(vehicleSpeed)
                 }
+                
             }
         }
     }
     
-    private func fetchData() async -> [String: Any] {
+    private func fetchData() async -> VehicleData {
         return await OBD2AdapterFactory.shared.fetchData()
     }
     

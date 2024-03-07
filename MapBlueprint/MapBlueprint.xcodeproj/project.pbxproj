@@ -10,6 +10,8 @@
 		5C1B7DB92B8E93B400E31AF7 /* UnitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B7DB82B8E93B400E31AF7 /* UnitsViewController.swift */; };
 		5C1B7DBC2B8E98DC00E31AF7 /* TemperatureUnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B7DBB2B8E98DC00E31AF7 /* TemperatureUnitType.swift */; };
 		5C1B7DC02B8E994D00E31AF7 /* VolumeUnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B7DBF2B8E994D00E31AF7 /* VolumeUnitType.swift */; };
+		5C276B592B9868F900CD280B /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBDC202B9846F5007C3507 /* VehicleData.swift */; };
+		5C276B5A2B986AA000CD280B /* ServerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBDBFB2B97B2E2007C3507 /* ServerFactory.swift */; };
 		5C2BFD8D2B735ACA00DE3DE9 /* PIDInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BFD8C2B735ACA00DE3DE9 /* PIDInfo.swift */; };
 		5C3384E42B82DF880083903E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A7F2B7B5D0D005F3444 /* WidgetKit.framework */; };
 		5C3384E52B82DF880083903E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE57A812B7B5D0D005F3444 /* SwiftUI.framework */; };
@@ -74,6 +76,8 @@
 		5CE9C3742B7F0F8300E865DA /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9C3732B7F0F8300E865DA /* AppIntent.swift */; };
 		5CE9C3762B7F0F8300E865DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE9C3752B7F0F8300E865DA /* Assets.xcassets */; };
 		5CE9C37A2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CE9C36D2B7F0F8300E865DA /* OilTemperatureComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5CEBDBFC2B97B2E2007C3507 /* ServerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBDBFB2B97B2E2007C3507 /* ServerFactory.swift */; };
+		5CEBDC212B9846F5007C3507 /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBDC202B9846F5007C3507 /* VehicleData.swift */; };
 		5CEF42902B719C97007C0951 /* OBD2DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */; };
 		5CEF42922B719CA1007C0951 /* OBD2EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */; };
 		5CEF42942B719CA9007C0951 /* OBD2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */; };
@@ -262,6 +266,8 @@
 		5CE9C3772B7F0F8300E865DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CE9C37E2B7F26E600E865DA /* OilTemperatureComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OilTemperatureComplicationExtension.entitlements; sourceTree = "<group>"; };
 		5CE9C37F2B7F26EF00E865DA /* CoolantComplicationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoolantComplicationExtension.entitlements; sourceTree = "<group>"; };
+		5CEBDBFB2B97B2E2007C3507 /* ServerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFactory.swift; sourceTree = "<group>"; };
+		5CEBDC202B9846F5007C3507 /* VehicleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleData.swift; sourceTree = "<group>"; };
 		5CEF428F2B719C97007C0951 /* OBD2DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2DataManager.swift; sourceTree = "<group>"; };
 		5CEF42912B719CA1007C0951 /* OBD2EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2EventHandler.swift; sourceTree = "<group>"; };
 		5CEF42932B719CA9007C0951 /* OBD2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBD2ViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +389,14 @@
 			path = enums;
 			sourceTree = "<group>";
 		};
+		5C276B582B98679B00CD280B /* SharedContent */ = {
+			isa = PBXGroup;
+			children = (
+				5CEBDC202B9846F5007C3507 /* VehicleData.swift */,
+			);
+			path = SharedContent;
+			sourceTree = "<group>";
+		};
 		5C3384E62B82DF880083903E /* BatteryVoltageComplication */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +434,7 @@
 		5CBAED462B6B0A7E006C1A34 = {
 			isa = PBXGroup;
 			children = (
+				5C276B582B98679B00CD280B /* SharedContent */,
 				5C3384F42B82E25A0083903E /* BatteryVoltageComplicationExtension.entitlements */,
 				5CE9C37F2B7F26EF00E865DA /* CoolantComplicationExtension.entitlements */,
 				5CE9C37E2B7F26E600E865DA /* OilTemperatureComplicationExtension.entitlements */,
@@ -542,6 +557,7 @@
 				5CF230672B6B11E900A9E7C6 /* TableViewCellFactory.swift */,
 				5CE57A952B7B7840005F3444 /* OBDDataFactory.swift */,
 				5CE57A982B7B798A005F3444 /* OBD2AdapterFactory.swift */,
+				5CEBDBFB2B97B2E2007C3507 /* ServerFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -1048,6 +1064,7 @@
 				5C1B7DBC2B8E98DC00E31AF7 /* TemperatureUnitType.swift in Sources */,
 				5CEF42962B719CB5007C0951 /* OBD2Interactor.swift in Sources */,
 				5CB51AA22B7408BE004B952A /* OBDData.swift in Sources */,
+				5CEBDBFC2B97B2E2007C3507 /* ServerFactory.swift in Sources */,
 				5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */,
 				5CF2305D2B6B111500A9E7C6 /* SettingsDataManager.swift in Sources */,
 				5C9EBE962B820B2800F6AABD /* DashboardEventHandler.swift in Sources */,
@@ -1066,6 +1083,7 @@
 				5CF2305B2B6B10FF00A9E7C6 /* SettingsRouter.swift in Sources */,
 				5CA26EA42B87A85800A356C8 /* OBD2AdapterState.swift in Sources */,
 				5CF230662B6B11BC00A9E7C6 /* TableOption.swift in Sources */,
+				5CEBDC212B9846F5007C3507 /* VehicleData.swift in Sources */,
 				5C3384F62B8318F20083903E /* DialView.swift in Sources */,
 				5CF2304A2B6B0C9B00A9E7C6 /* HomeViewController.swift in Sources */,
 				5CF230552B6B10AC00A9E7C6 /* SettingsViewController.swift in Sources */,
@@ -1078,7 +1096,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CBD61642B7B447B009B00B5 /* ContentView.swift in Sources */,
+				5C276B5A2B986AA000CD280B /* ServerFactory.swift in Sources */,
 				5CBD61622B7B447B009B00B5 /* MapBlueprintCompanionApp.swift in Sources */,
+				5C276B592B9868F900CD280B /* VehicleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
