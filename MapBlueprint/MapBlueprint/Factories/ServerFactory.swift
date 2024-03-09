@@ -23,7 +23,7 @@ class ServerFactory: ServerFactoryType {
     }
     
     func sendVehicleData(_ data: VehicleData) {
-        guard let url = URL(string: "http://127.0.0.1:5000/saveVehicleData") else {
+        guard let url = URL(string: "http://18.144.25.248:5050/saveVehicleData") else {
             return
         }
         
@@ -61,7 +61,7 @@ class ServerFactory: ServerFactoryType {
     }
     
     func fetchVehicleData(_ id: String, completion: @escaping (Result<VehicleData, Error>) -> Void) {
-        guard let url = URL(string: "http://127.0.0.1:5000/getVehicleData/\(id)") else {
+        guard let url = URL(string: "http://18.144.25.248:5050/getVehicleData/\(id)") else {
             completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return
         }
