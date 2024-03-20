@@ -1,6 +1,6 @@
 # MapBlueprint
 
-Coming soon to the App Store...
+Vehicle Diagnostic to produce live car data
 
 ## Alpha Images
 
