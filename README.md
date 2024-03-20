@@ -1,6 +1,6 @@
 # MapBlueprint
 
-Vehicle Diagnostic to produce live car data
+Vehicle Diagnostic app that produces live car data
 
 ## Alpha Images
 
