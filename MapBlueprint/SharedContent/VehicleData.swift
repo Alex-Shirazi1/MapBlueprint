@@ -17,12 +17,13 @@ struct VehicleData: Codable {
     var controlModuleVoltage: Double
     var engineRPM: Int
     var vehicleSpeed: Int
+    var ambientTemperature: Double
     
     // Units associated with data
     var temperatureUnits: String
     var volumeUnits: String
     
     private enum CodingKeys: String, CodingKey {
-        case controlModuleVoltage, coolantTemperature, engineRPM, fuelLevel, maxFuelLevel, oilTemperature, temperatureUnits, vehicleSpeed, volumeUnits, _id
+        case controlModuleVoltage, coolantTemperature, ambientTemperature, engineRPM, fuelLevel, maxFuelLevel, oilTemperature, temperatureUnits, vehicleSpeed, volumeUnits, _id
     }
 }

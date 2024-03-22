@@ -18,12 +18,12 @@ class ServerFactory: ServerFactoryType {
     
     func testRoute() {
         print("Init Test")
-        let testPost = VehicleData(_id: "bmwf23",fuelLevel: 60, maxFuelLevel: 69, coolantTemperature: 10, oilTemperature: 10, controlModuleVoltage: 10, engineRPM: 10, vehicleSpeed: 10, temperatureUnits: "test", volumeUnits: "test")
+        let testPost = VehicleData(_id: "bmwf23",fuelLevel: 60, maxFuelLevel: 69, coolantTemperature: 10, oilTemperature: 10, controlModuleVoltage: 10, engineRPM: 10, vehicleSpeed: 10, ambientTemperature: 10, temperatureUnits: "test", volumeUnits: "test")
         sendVehicleData(testPost)
     }
     
     func sendVehicleData(_ data: VehicleData) {
-        guard let url = URL(string: "http://18.144.25.248:5050/saveVehicleData") else {
+        guard let url = URL(string: "https://alex-shirazi.com/saveVehicleData") else {
             return
         }
         
@@ -61,7 +61,7 @@ class ServerFactory: ServerFactoryType {
     }
     
     func fetchVehicleData(_ id: String, completion: @escaping (Result<VehicleData, Error>) -> Void) {
-        guard let url = URL(string: "http://18.144.25.248:5050/getVehicleData/\(id)") else {
+        guard let url = URL(string: "https://alex-shirazi.com/getVehicleData/\(id)") else {
             completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return
         }

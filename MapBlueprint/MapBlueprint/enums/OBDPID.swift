@@ -15,5 +15,6 @@ enum OBDPID: String {
     case Engine_RPM
     case Fuel_Tank_Level_Input
     case Control_Module_Voltage
+    case Ambient_Temperature
 }
 

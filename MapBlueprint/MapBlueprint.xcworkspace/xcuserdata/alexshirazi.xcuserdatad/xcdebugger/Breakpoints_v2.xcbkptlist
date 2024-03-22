@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "057B32EE-D6B6-44FA-9728-B39B64EE9D74"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapBlueprintCompanion Watch App/ExtensionDelegate.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "01C4EF9E-7318-41D1-8504-C1ACFDA66591"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapBlueprintCompanion Watch App/ExtensionDelegate.swift"
@@ -66,6 +66,148 @@
                   offsetFromSymbolStart = "76">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D10FD0B-0910-4994-AB8E-FA81A712692E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Factories/ServerFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "sendVehicleData(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1D10FD0B-0910-4994-AB8E-FA81A712692E - bae97e71da78f8d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapBlueprintCompanion_Watch_App.ServerFactory.sendVehicleData(MapBlueprintCompanion_Watch_App.VehicleData) -&gt; ()"
+                  moduleName = "MapBlueprintCompanion Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Factories/ServerFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "932">
+               </Location>
+               <Location
+                  uuid = "1D10FD0B-0910-4994-AB8E-FA81A712692E - bae97e71da78f8b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapBlueprintCompanion_Watch_App.ServerFactory.sendVehicleData(MapBlueprintCompanion_Watch_App.VehicleData) -&gt; ()"
+                  moduleName = "MapBlueprintCompanion Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Factories/ServerFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "528">
+               </Location>
+               <Location
+                  uuid = "1D10FD0B-0910-4994-AB8E-FA81A712692E - 17ca4f40acf62046"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapBlueprint.ServerFactory.sendVehicleData(MapBlueprint.VehicleData) -&gt; ()"
+                  moduleName = "MapBlueprint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Factories/ServerFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "564">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5394B4F8-9F2B-4353-89EB-2EF973CA1E47"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Factories/ServerFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "sendVehicleData(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5394B4F8-9F2B-4353-89EB-2EF973CA1E47 - 1f365eeef5e2036f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MapBlueprintCompanion_Watch_App.ServerFactory.sendVehicleData(MapBlueprintCompanion_Watch_App.VehicleData) -&gt; ()"
+                  moduleName = "MapBlueprintCompanion Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Factories/ServerFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1336">
+               </Location>
+               <Location
+                  uuid = "5394B4F8-9F2B-4353-89EB-2EF973CA1E47 - 1f365eeef5e2032d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MapBlueprintCompanion_Watch_App.ServerFactory.sendVehicleData(MapBlueprintCompanion_Watch_App.VehicleData) -&gt; ()"
+                  moduleName = "MapBlueprintCompanion Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Factories/ServerFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "5394B4F8-9F2B-4353-89EB-2EF973CA1E47 - 3ebc03b6912c06a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MapBlueprint.ServerFactory.sendVehicleData(MapBlueprint.VehicleData) -&gt; ()"
+                  moduleName = "MapBlueprint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexshirazi/Documents/MapBlueprint/MapBlueprint/MapBlueprint/Factories/ServerFactory.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE83A688-42DE-45E6-A6E6-091208F2BAA4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapBlueprint/Factories/ServerFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "sendVehicleData(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

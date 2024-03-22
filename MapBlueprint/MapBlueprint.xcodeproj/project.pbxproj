@@ -37,7 +37,6 @@
 		5CB3A8622B7CBE10002A9C49 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB3A8612B7CBE10002A9C49 /* AppIntent.swift */; };
 		5CB3A8642B7CBE11002A9C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB3A8632B7CBE11002A9C49 /* Assets.xcassets */; };
 		5CB3A8682B7CBE11002A9C49 /* CoffeeComplicationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CB3A85B2B7CBE10002A9C49 /* CoffeeComplicationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5CB51AA22B7408BE004B952A /* OBDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB51AA12B7408BE004B952A /* OBDData.swift */; };
 		5CB51AA42B740C20004B952A /* OBDPID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB51AA32B740C20004B952A /* OBDPID.swift */; };
 		5CBAED532B6B0A7E006C1A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */; };
 		5CBAED552B6B0A7E006C1A34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBAED542B6B0A7E006C1A34 /* SceneDelegate.swift */; };
@@ -222,7 +221,6 @@
 		5CB3A8612B7CBE10002A9C49 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		5CB3A8632B7CBE11002A9C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CB3A8652B7CBE11002A9C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CB51AA12B7408BE004B952A /* OBDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDData.swift; sourceTree = "<group>"; };
 		5CB51AA32B740C20004B952A /* OBDPID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDPID.swift; sourceTree = "<group>"; };
 		5CBAED4F2B6B0A7E006C1A34 /* MapBlueprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapBlueprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBAED522B6B0A7E006C1A34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -545,7 +543,6 @@
 			children = (
 				5CE57A9A2B7C8B64005F3444 /* SettingsMetaData.swift */,
 				5CE4C6282B741AA3003314E7 /* OBD2MetaData.swift */,
-				5CB51AA12B7408BE004B952A /* OBDData.swift */,
 				5C9EBE6D2B81EAC100F6AABD /* AppConfigurable.swift */,
 			);
 			path = Data;
@@ -1063,7 +1060,6 @@
 				5CA26EA02B87000100A356C8 /* CustomBlue.swift in Sources */,
 				5C1B7DBC2B8E98DC00E31AF7 /* TemperatureUnitType.swift in Sources */,
 				5CEF42962B719CB5007C0951 /* OBD2Interactor.swift in Sources */,
-				5CB51AA22B7408BE004B952A /* OBDData.swift in Sources */,
 				5CEBDBFC2B97B2E2007C3507 /* ServerFactory.swift in Sources */,
 				5CF230622B6B118C00A9E7C6 /* AboutViewController.swift in Sources */,
 				5CF2305D2B6B111500A9E7C6 /* SettingsDataManager.swift in Sources */,

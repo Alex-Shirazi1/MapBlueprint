@@ -142,12 +142,18 @@ class OBD2AdapterFactory: NSObject, WCSessionDelegate {
             return handleRPMValue(rawValue: rawValue)
         case .Vehicle_Speed:
             return handleVehicleSpeed(rawValue: rawValue)
+        case .Ambient_Temperature:
+            return processAmbientTemp(value: hexStringToDouble(hexString: rawValue) ?? 17912)
             
             // TODO add others in terms of processing PIDS
         default:
             return nil
         }
         return nil
+    }
+    
+    func processAmbientTemp(value: Double) -> Double {
+        value - 17912
     }
     
     func getStatus() -> OBD2AdapterState {
@@ -261,8 +267,10 @@ extension OBD2AdapterFactory {
         let controlModuleVoltage = await updateControlModuleVoltageAsync()
         let engineRPM = await updateEngineRPMAsync()
         let vehicleSpeed = await updateVehicleSpeedAsync()
+        let ambientAirTemperature = await updateAmbientTemperature()
         let temperatureUnits = handleTemperatureUnits()
         let volumeUnits = handleVolumeUnits()
+       
         
         return VehicleData(
                     _id: "bmwf23",
@@ -272,7 +280,8 @@ extension OBD2AdapterFactory {
                     oilTemperature: oilTemperature,
                     controlModuleVoltage: controlModuleVoltage,
                     engineRPM: engineRPM,
-                    vehicleSpeed: vehicleSpeed,
+                    vehicleSpeed: vehicleSpeed, 
+                    ambientTemperature: ambientAirTemperature,
                     temperatureUnits: temperatureUnits,
                     volumeUnits: volumeUnits
                 )
@@ -336,7 +345,6 @@ extension OBD2AdapterFactory {
             print("Invalid PIDInfo for oil Temperature.")
             return -1
         }
-        
         let (_, processedValue) = await fetchDataForAsync(pidInfo: oilPIDInfo)
         guard let oilTemperature = processedValue as? Double else {
             print("Invalid or nil raw value received for oil temperature.")
@@ -344,6 +352,26 @@ extension OBD2AdapterFactory {
         }
         
         return processTemperature(temperature: oilTemperature)
+    }
+    
+    // MARK: - Ambient Temperature
+    
+    func updateAmbientTemperature() async -> Double {
+        guard let ambientPIDInfo = OBD2MetaData.getPIDInfo(for: .Ambient_Temperature) else {
+            print("Invalid PIDInfo for oil Temperature.")
+            return -1
+        }
+        
+        let (_, processedValue) = await fetchDataForAsync(pidInfo: ambientPIDInfo)
+        guard let ambientTemperature = processedValue as? Double, ambientTemperature > -1000 else {
+            print("Invalid or nil raw value received for oil temperature.")
+            return -1
+        }
+        
+        if SettingsMetaData.shared.temperatureUnits == .fahrenheit {
+            return ambientTemperature
+        }
+        return convertFahrenheitToCelsius(fahrenheit: ambientTemperature)
     }
     
     func updateControlModuleVoltageAsync() async -> Double {

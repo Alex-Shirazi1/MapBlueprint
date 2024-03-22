@@ -51,6 +51,12 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         return dial
     }()
     
+    lazy var ambientTempDial: DialView = {
+        let dial = DialView(value: 0, minValue: 0, maxValue: 100, title: "Ambient", icon: UIImage(systemName: "car.side.air.fresh.fill") ?? UIImage())
+        return dial
+    }()
+    
+    
     init(eventHandler: DashboardEventHandlerProtocol) {
         self.eventHandler = eventHandler
         super.init(nibName: nil, bundle: nil)
@@ -65,7 +71,7 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
         view.backgroundColor = .systemBackground
         
         setupScrollView()
-        setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial, rpmDial, speedDial]) // Will be custom later when i add edit view/ selection view
+        setupDials(dials: [coolantTempDial, oilTempDial, fuelLevelDial, controlModuleVoltageDial, rpmDial, speedDial, ambientTempDial]) // Will be custom later when i add edit view/ selection view
         
         fetchDataAndUpdateUI()
     }
@@ -156,6 +162,14 @@ class DashboardViewController: UIViewController, DashboardViewControllerProtocol
                 } else {
                     self.oilTempDial.valueLabel.text = String(format: "%.2f \(vehicleData.temperatureUnits)", refinedOilTemp)
                     self.oilTempDial.currentValue = refinedOilTemp
+                }
+                
+                let refinedAmbientTemperature = self.formatTemperature(vehicleData.ambientTemperature)
+                if refinedAmbientTemperature == -1 {
+                    self.ambientTempDial.valueLabel.text = "--"
+                } else {
+                    self.ambientTempDial.valueLabel.text = String(format: "%.2f \(vehicleData.temperatureUnits)", refinedAmbientTemperature)
+                    self.coolantTempDial.currentValue = refinedAmbientTemperature
                 }
                 
                 let fuelLevel = vehicleData.fuelLevel
